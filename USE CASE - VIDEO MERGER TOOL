@@ -1,0 +1,10 @@
+USE CASE - VIDEO MERGER TOOL 
+
+User uploads a series of videos. These are stored in a folder named after his session. This folder is created when he uploads his first video. After each video is uploaded, a sortable bar
+from the JQuery UI is created and the name of the video appears in that bar. 
+
+The user then drags and rearranges the video in any order he wants. 
+
+When the user hits the merge button, the order of the sortable bars is noted. This information is fed to a shell script. The shell script then executes and merges the videos. 
+
+A download link appears prompting the user to download the video. The merged video is also played below. 
