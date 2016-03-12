@@ -5,7 +5,7 @@
 <title>Merge your videos</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 <link rel="stylesheet" href="http://necolas.github.com/normalize.css/2.0.1/normalize.css">
-<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="./css/stylesheet.css" />
 <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
 
 <script>
