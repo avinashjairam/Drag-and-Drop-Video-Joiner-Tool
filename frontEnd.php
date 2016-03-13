@@ -1,3 +1,39 @@
+<?php
+echo "hellllo";
+
+$valid_formats = array("mp4", "avi", "flv");
+$max_file_size = 262144000; //100 kb
+$path = "./video_joiner"; // Upload directory
+$count = 0;
+
+if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST"){
+  // Loop $_FILES to exeicute all files
+  foreach ($_FILES['files']['name'] as $f => $name) {     
+      if ($_FILES['files']['error'][$f] == 4) {
+          continue; // Skip file if any error found
+      }        
+      if ($_FILES['files']['error'][$f] == 0) {            
+          if ($_FILES['files']['size'][$f] > $max_file_size) {
+              $message[] = "$name is too large!.";
+              continue; // Skip large files
+          }
+      elseif( ! in_array(pathinfo($name, PATHINFO_EXTENSION), $valid_formats) ){
+        $message[] = "$name is not a valid format";
+        continue; // Skip invalid file formats
+      }
+          else{ // No error found! Move uploaded files 
+              if(move_uploaded_file($_FILES["files"]["tmp_name"][$f], $name))
+              $count++; // Number of successfully uploaded file
+          }
+      }
+  }
+}
+
+
+
+?>
+
+
 <html>
 
 <head>
@@ -8,7 +44,7 @@
 
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
 <link href="./css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
-<link href="./css/stylesheet1.css" media="all" rel="stylesheet" type="text/css" />
+
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> 
 <script src="./js/plugins/canvas-to-blob.min.js" type="text/javascript"></script>
@@ -60,26 +96,25 @@
         
       </ul>
      
-     <!--  <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li>
-      </ul> -->
+    
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 
+<!-- <form action="frontEnd.php" method="post">
+  <label class="control-label">Select File</label>
+  <input id="input-2" name="input2[]" type="file" class="file" multiple data-show-upload="true" data-show-caption="true" data-allowed-file-extensions='["mp4", "avi"]'>
+<input type="file" name="fileUpload" action="frontEnd.php" class="file" id="fileToUpload" data-allowed-file-extensions='["mp4"]'><br>
+</form> -->
 
-<label class="control-label">Select File</label>
-<input id="input-2" name="input2[]" type="file" class="file" multiple data-show-upload="false" data-show-caption="true">
+  <div id="uploadTrack">
+    <br><br><br>
+    <form action="frontEnd.php" method="post" enctype="multipart/form-data" >
+        <label >Select Track to upload:</label><br>
+        <input type="file" name="files[]" class="file" id="fileToUpload" multiple data-allowed-file-extensions='["mp4"]'><br>                      
+    </form>
+  </div>
+
 
 <br>
 
@@ -102,10 +137,10 @@
 <script>
 
 // initialize with defaults
-$("#input-2").fileinput();
+// $("#input-2").fileinput();
 
 // with plugin options
-$("#input-2").fileinput({'showUpload':false, 'previewFileType':'any'});
+$("#input-2").fileinput({'showUpload':true, 'previewFileType':'mp4, avi'});
 
 </script>
 
