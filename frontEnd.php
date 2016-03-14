@@ -1,7 +1,14 @@
 <?php
 echo "hellllo";
 
-$valid_formats = array("mp4", "avi", "flv");
+require_once ('./includes/file.php');
+
+
+$file = new File;
+
+//$valid_formats = array("mp4", "avi", "flv");
+//$valid_formats= $file->getValidFormats();
+//print_r( $file->getValidFormats());
 $max_file_size = 262144000; //100 kb
 $path = "./video_joiner"; // Upload directory
 $count = 0;
@@ -17,7 +24,7 @@ if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST"){
               $message[] = "$name is too large!.";
               continue; // Skip large files
           }
-      elseif( ! in_array(pathinfo($name, PATHINFO_EXTENSION), $valid_formats) ){
+      elseif( ! in_array(pathinfo($name, PATHINFO_EXTENSION), /*$valid_formats*/ $file->getValidFormats()  ) ){
         $message[] = "$name is not a valid format";
         continue; // Skip invalid file formats
       }
@@ -28,6 +35,9 @@ if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST"){
       }
   }
 }
+
+echo $message;
+
 
 
 

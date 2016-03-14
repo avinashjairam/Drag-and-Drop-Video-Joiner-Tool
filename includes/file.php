@@ -1,17 +1,15 @@
 <?php
-
-class file{
+class File{
 	private	$validFormats; 
 	private $maxFileSize; 
 	private $path;  // Upload directory
 	private $uploadCount; 
 
 	public function __construct(){
-		private	$validFormats = array("mp4", "avi", "flv");
-		private $maxFileSize = 262144000; 
-		private $path = "./video_joiner"; // Upload directory
-		private $uploadCount = 0;
-
+		$this->validFormats = array("mp4", "avi", "flv");
+		$this->maxFileSize = 262144000; 
+		$this->path = "./video_joiner"; // Upload directory
+		$this->uploadCount = 0;
 	}
 
 	public function setValidFormats($arrayOfValidFormats){
@@ -44,6 +42,7 @@ class file{
 
 
 	public function getValidFormats(){
+
 		return $this->validFormats;
 	}
 
