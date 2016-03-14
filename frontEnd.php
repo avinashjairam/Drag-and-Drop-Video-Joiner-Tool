@@ -1,15 +1,15 @@
 <?php
-echo "hellllo";
 
 require_once ('./includes/file.php');
+require_once ('./includes/session.php');
 
 
-$file = new File;
+$file    = new File;
+$session = new Session;
 
-//$valid_formats = array("mp4", "avi", "flv");
-//$valid_formats= $file->getValidFormats();
-//print_r( $file->getValidFormats());
-$max_file_size = 262144000; //100 kb
+/**CONTINUE HERE **/
+
+$file->getMaxFileSize();
 $path = "./video_joiner"; // Upload directory
 $count = 0;
 
