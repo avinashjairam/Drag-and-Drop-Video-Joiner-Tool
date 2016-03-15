@@ -2,15 +2,14 @@
 class File{
 	private	$validFormats; 
 	private $maxFileSize; 
-	private $path;  // Upload directory
+	private $uploadPath;  // Upload directory
 	private $uploadCount; 
 	private $uploadDirectory;
 	private $uploadDirectoryPermissions;
 
 	public function __construct(){
 		$this->validFormats = array("mp4", "avi", "flv");
-		$this->maxFileSize = 262144000;  //250MB
-		$this->path = "./video_joiner"; // Upload directory
+		$this->maxFileSize = 262144000;  //250MB		
 		$this->uploadCount = 0;
 		$this->uploadDirectoryPermissions=0700;
 	}
@@ -23,11 +22,11 @@ class File{
 		$this->maxFileSize=$maxFileSize;
 	}
 
-	public function setPath($path){
-		$this->path=$path;
+	public function setUploadPath($fileName){
+		$this->uploadPath=$this->uploadDirectory."/".$fileName;
 	}
 
-	public function setUploadDirectory(Session $sessionId){
+	public function setUploadDirectory($sessionId){
 		$this->uploadDirectory=$sessionId;
 
 	}
@@ -35,6 +34,7 @@ class File{
 	private function createUploadDirectory(){
 		$makeDirectory = "mkdir $this->uploadDirectory";
 		exec($makeDirectory, $permission); 
+		
 
 	}
 
@@ -47,8 +47,8 @@ class File{
 		return $this->uploadCount;
 	}
 
-	public function getPath(){
-		return $this->path;
+	public function getUploadPath(){
+		return $this->uploadPath;
 	}
 
 	public function getMaxFileSize(){

@@ -7,11 +7,9 @@ require_once ('./includes/session.php');
 $file    = new File;
 $session = new Session;
 
-/**CONTINUE HERE **/
+$file->createUploadDirectory($session->getSessionId());
 
-$file->getMaxFileSize();
-$path = "./video_joiner"; // Upload directory
-$count = 0;
+
 
 if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST"){
   // Loop $_FILES to exeicute all files
@@ -20,7 +18,7 @@ if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST"){
           continue; // Skip file if any error found
       }        
       if ($_FILES['files']['error'][$f] == 0) {            
-          if ($_FILES['files']['size'][$f] > $max_file_size) {
+          if ($_FILES['files']['size'][$f] > $file->getMaxFileSize();) {
               $message[] = "$name is too large!.";
               continue; // Skip large files
           }
@@ -29,8 +27,9 @@ if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST"){
         continue; // Skip invalid file formats
       }
           else{ // No error found! Move uploaded files 
-              if(move_uploaded_file($_FILES["files"]["tmp_name"][$f], $name))
-              $count++; // Number of successfully uploaded file
+              $file->setUploadPath($name);
+              if(move_uploaded_file($_FILES["files"]["tmp_name"][$f], $file->getUploadPath()));
+              $file->setUploadCount(); // Number of successfully uploaded file
           }
       }
   }
