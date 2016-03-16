@@ -27,7 +27,7 @@ class File{
 	}
 
 	public function createUploadDirectory(){
-		$makeDirectory = "mkdir ../$this->uploadDirectory";
+		$makeDirectory = "cd /var/www/steelpanwebsite.com/public_html/video_joiner && mkdir $this->uploadDirectory";
 		exec($makeDirectory, $permission); 
 
 

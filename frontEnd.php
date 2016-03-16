@@ -7,7 +7,7 @@ require_once ('./includes/session.php');
 $file    = new File;
 $session = new Session;
 
-$file->createUploadDirectory($session->getSessionId());
+$file->setUploadDirectory($session->getSessionId());
 
 
 
@@ -18,7 +18,7 @@ if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST"){
           continue; // Skip file if any error found
       }        
       if ($_FILES['files']['error'][$f] == 0) {            
-          if ($_FILES['files']['size'][$f] > $file->getMaxFileSize();) {
+          if ($_FILES['files']['size'][$f] > $file->getMaxFileSize()) {
               $message[] = "$name is too large!.";
               continue; // Skip large files
           }
