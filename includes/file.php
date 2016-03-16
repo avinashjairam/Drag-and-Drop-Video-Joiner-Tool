@@ -26,18 +26,18 @@ class File{
 		$this->uploadPath=$this->uploadDirectory."/".$fileName;
 	}
 
+	public function createUploadDirectory(){
+		$makeDirectory = "mkdir ../$this->uploadDirectory";
+		exec($makeDirectory, $permission); 
+
+
+	}
+
 	public function setUploadDirectory($sessionId){
 		$this->uploadDirectory=$sessionId;
+		$this->createUploadDirectory();
 
 	}
-
-	private function createUploadDirectory(){
-		$makeDirectory = "mkdir $this->uploadDirectory";
-		exec($makeDirectory, $permission); 
-		
-
-	}
-
 
 	public function setUploadCount(){
 		$this->uploadCount++;
