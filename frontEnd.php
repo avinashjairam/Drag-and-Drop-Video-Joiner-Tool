@@ -27,6 +27,7 @@ if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST"){
         continue; // Skip invalid file formats
       }
           else{ // No error found! Move uploaded files 
+              $file->createUploadDirectory();
               $file->setUploadPath($name);
               if(move_uploaded_file($_FILES["files"]["tmp_name"][$f], $file->getUploadPath()));
               $file->setUploadCount(); // Number of successfully uploaded file
@@ -110,11 +111,7 @@ echo $message;
   </div><!-- /.container-fluid -->
 </nav>
 
-<!-- <form action="frontEnd.php" method="post">
-  <label class="control-label">Select File</label>
-  <input id="input-2" name="input2[]" type="file" class="file" multiple data-show-upload="true" data-show-caption="true" data-allowed-file-extensions='["mp4", "avi"]'>
-<input type="file" name="fileUpload" action="frontEnd.php" class="file" id="fileToUpload" data-allowed-file-extensions='["mp4"]'><br>
-</form> -->
+
 
   <div id="uploadTrack">
     <br><br><br>

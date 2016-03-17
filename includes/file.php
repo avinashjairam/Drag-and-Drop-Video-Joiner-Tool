@@ -35,8 +35,6 @@ class File{
 
 	public function setUploadDirectory($sessionId){
 		$this->uploadDirectory=$sessionId;
-		$this->createUploadDirectory();
-
 	}
 
 	public function setUploadCount(){
