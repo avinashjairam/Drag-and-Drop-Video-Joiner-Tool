@@ -1,11 +1,20 @@
 <?php
-
+ob_start();
 require_once ('./includes/file.php');
 require_once ('./includes/session.php');
+require_once ('./includes/db.php');
 
 
 $file    = new File;
 $session = new Session;
+$db      = new DB; 
+
+$sql = "SELECT * FROM videoMerger"; 
+
+$result= $db->query($sql);
+$track = mysqli_fetch_array($result);
+
+print_r($track);
 
 $file->setUploadDirectory($session->getSessionId());
 
