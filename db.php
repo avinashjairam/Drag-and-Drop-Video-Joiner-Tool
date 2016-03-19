@@ -1,6 +1,6 @@
 <?php
 
-require_once("config.php");
+require_once("./includes/config.php");
 //Database Class
 //This class has functions which perform CRUD operations
 class DB{
@@ -19,41 +19,32 @@ class DB{
 		if(mysqli_connect_error()){
 			die("Database connection failed badly" . mysqli_error());
 		}
+	}
 
+	public function query($sql){
+		$result = mysqli_query($this->connection, $sql);
+
+		return $result; 		
+	}
+
+	public function confirmQuery($result){
+		if(!$result){
+			die("Query Failed");
+		}
 	}
 
 
-	public function connect(){
-
+	public function escapeString($string){
+		$escapedString = mysqli_real_escape_string($this->connection,$string);
+		return $escapedString;
 	}
 
-	public function disconnect(){
 
-	}
-
-	public function select(){
-
-	}
-
-	public function insert(){
-
-	}
-
-	public function delete(){
-
-	}
-
-	public function update(){
-
-	}
 
 
 
 }
 
-
-$database = new Database();
-$database->openDBConnection();
 
 
 ?>
