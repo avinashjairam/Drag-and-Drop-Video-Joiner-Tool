@@ -15,9 +15,9 @@
 			global $DB;
 			$sql = "INSERT INTO videoMerger ($this->sessionID, $this->ipAddress, $this-trackName)";
 			$sql .= "VALUES ('";
-			$sql .= $database->escapeString($this->sessionID."', '";
-			$sql .= $database->escapeString($this->ipAddress."', '";
-			$sql .= $database->escapeString($this->trackName."')";
+			$sql .= $database->escapeString($this->sessionID)."', '";
+			$sql .= $database->escapeString($this->ipAddress)."', '";
+			$sql .= $database->escapeString($this->trackName)."')";
 
 			if($database->query($sql)){
 				return true;
@@ -39,6 +39,7 @@
 		public function setTrackName($trackName){
 			$this->trackName=$trackName;
 		}
+
 
 		public function getTrackName(){
 			return $this->trackName;
