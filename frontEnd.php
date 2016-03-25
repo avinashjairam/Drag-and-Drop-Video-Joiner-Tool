@@ -1,20 +1,26 @@
 <?php
 ob_start();
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 require_once ('./includes/file.php');
 require_once ('./includes/session.php');
 require_once ('./includes/db.php');
-
+require_once ('./includes/user.php');
 
 $file    = new File;
 $session = new Session;
 $db      = new DB; 
+$user    = new User;
 
-$sql = "SELECT * FROM videoMerger"; 
+// $sql = "SELECT * FROM videoMerger"; 
 
-$result= $db->query($sql);
-$track = mysqli_fetch_array($result);
+// $result= $db->query($sql);
+// $track = mysqli_fetch_array($result);
 
-print_r($track);
+// print_r($track);
 
 $file->setUploadDirectory($session->getSessionId());
 
@@ -40,6 +46,10 @@ if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST"){
               $file->setUploadPath($name);
               if(move_uploaded_file($_FILES["files"]["tmp_name"][$f], $file->getUploadPath()));
               $file->setUploadCount(); // Number of successfully uploaded file
+              $user->setSessionId($session->getSessionId());
+              $user->setTrackName($_FILES["files"]["tmp_name"][$f]);
+              $user->setIpAddress($_SERVER['REMOTE_ADDR']);
+              $user->create();
           }
       }
   }
