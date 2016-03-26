@@ -54,7 +54,32 @@
 				return false;
 
 			}	
-	}
+		}
+
+		public function select(){
+			global $db;
+
+			$sql = "SELECT * FROM `videoMerger` WHERE `sessionId` = '$this->sessionId'";
+
+			$result = $db->query($sql);
+
+			if($result->num_rows > 0 ){
+				while($row=$result->fetch_assoc()){
+					echo $row['trackName'];
+					array_push($this->filesUploaded, $row['trackName']);
+				}
+			    return true;
+			}
+			else{
+				return false; 
+			}	
+		}
+
+		public function displayUploadedTracks(){
+			if($this->select()){
+				echo json_encode($this->filesUploaded);
+			}
+		}
 
 
 
