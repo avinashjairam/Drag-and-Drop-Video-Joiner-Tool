@@ -46,8 +46,9 @@ if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST"){
               $file->setUploadPath($name);
               if(move_uploaded_file($_FILES["files"]["tmp_name"][$f], $file->getUploadPath()));
               $file->setUploadCount(); // Number of successfully uploaded file
+              echo $session->getSessionId();
               $user->setSessionId($session->getSessionId());
-              $user->setTrackName($_FILES["files"]["tmp_name"][$f]);
+              $user->setTrackName($_FILES["files"]["name"][$f]);
               $user->setIpAddress($_SERVER['REMOTE_ADDR']);
               $user->create();
           }
@@ -55,7 +56,7 @@ if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST"){
   }
 }
 
-echo $message;
+//echo $message;
 
 
 

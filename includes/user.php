@@ -1,34 +1,18 @@
 <?php
 	class User{
 
-		private $sessionID;
+		private $sessionId;
 		private $ipAddress;
 		private $filesUploaded; //Array
 		private $trackName;
+		//global $db; 
 
 		public function __construct(){
 			$this->filesUploaded= array();
 
-		}
+		}	
 
-		public function create(){
-			global $DB;
-			$sql = "INSERT INTO videoMerger ($this->sessionID, $this->ipAddress, $this-trackName)";
-			$sql .= "VALUES ('";
-			$sql .= $database->escapeString($this->sessionID)."', '";
-			$sql .= $database->escapeString($this->ipAddress)."', '";
-			$sql .= $database->escapeString($this->trackName)."')";
-
-			if($database->query($sql)){
-				return true;
-
-			}else{
-				return false;
-
-			}	
-		}
-
-		public function setSessionId($sessionID){
+		public function setSessionId($sessionId){
 			$this->sessionId=$sessionId;
 		}
 
@@ -53,6 +37,24 @@
 			return $this->sessionId;
 		}
 
+		public function create(){
+			global $db;
+			$sql = "INSERT INTO `videoMerger` (`sessionId`, `ipAddress`, `trackName`) ";
+			$sql .= "VALUES ('";
+
+			$sql .= $db->escapeString($this->sessionId)."', '";
+			$sql .= $db->escapeString($this->ipAddress)."', '";
+			$sql .= $db->escapeString($this->trackName)."')";
+
+			if($db->query($sql)){
+				echo "yes";
+				return true;
+
+			}else{
+				return false;
+
+			}	
+	}
 
 
 
