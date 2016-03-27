@@ -45,7 +45,7 @@ if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST"){
               $user->setTrackName($_FILES["files"]["name"][$f]);
               $user->setIpAddress($_SERVER['REMOTE_ADDR']);
               $user->create();
-              $user->displayUploadedTracks();
+      
           }
       }
   }
@@ -89,6 +89,26 @@ if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST"){
         });
     });
 </script>
+
+<script>
+  var Track = {
+     //Track.uploadedTracks = [];
+    var uploadedTracks: <?php $user->getFilesUploaded(); ?>
+
+     function displayUploadedTracks {
+      for(var i=0; i < Track.uploadedTracks.length; i++){
+        alert(Track.uploadedTracks[i]);
+        console.log(Track.uploadedTracks[i]);
+        alert('hi');
+      }
+    }
+  } 
+
+  var track = new Track();
+      track.displayUploadedTracks();
+
+</script>
+
 
 
 </head>
@@ -138,15 +158,18 @@ if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST"){
 
 
 <br>
-
+"<script> 
+                       // track.displayUploadedTracks();
+</script>"
 <ul id="sortable">
-    <li class="ui-state-default">Item 1</li>
+
+   <!--  <li class="ui-state-default">Item 1</li>
     <li class="ui-state-default">Item 2</li>
     <li class="ui-state-default">Item 3</li>
     <li class="ui-state-default">Item 4</li>
     <li class="ui-state-default">Item 5</li>
     <li class="ui-state-default">Item 6</li>
-    <li class="ui-state-default">Item 7</li>
+    <li class="ui-state-default">Item 7</li> -->
 </ul>
 
 

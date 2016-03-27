@@ -12,31 +12,6 @@
 
 		}	
 
-		public function setSessionId($sessionId){
-			$this->sessionId=$sessionId;
-		}
-
-		public function setIpAddress($ipAddress){
-			$this->ipAddress=$ipAddress;
-		}
-
-		public function setTrackName($trackName){
-			$this->trackName=$trackName;
-		}
-
-
-		public function getTrackName(){
-			return $this->trackName;
-		}
-
-		public function getIpAddress(){
-			return $this->ipAddress;
-		}
-
-		public function getSessionId(){
-			return $this->sessionId;
-		}
-
 		public function create(){
 			global $db;
 			$sql = "INSERT INTO `videoMerger` (`sessionId`, `ipAddress`, `trackName`) ";
@@ -65,7 +40,7 @@
 
 			if($result->num_rows > 0 ){
 				while($row=$result->fetch_assoc()){
-					echo $row['trackName'];
+					//echo $row['trackName'];
 					array_push($this->filesUploaded, $row['trackName']);
 				}
 			    return true;
@@ -76,18 +51,44 @@
 		}
 
 		public function displayUploadedTracks(){
-			if($this->select()){
-				echo json_encode($this->filesUploaded);
+			if($this->select()){		
+				echo "<script> var track = new Track();
+				               track.displayUploadedTracks();
+				       </script>";		
 			}
 		}
 
 
+		public function setSessionId($sessionId){
+			$this->sessionId=$sessionId;
+		}
+
+		public function setIpAddress($ipAddress){
+			$this->ipAddress=$ipAddress;
+		}
+
+		public function setTrackName($trackName){
+			$this->trackName=$trackName;
+		}
 
 
+		public function getTrackName(){
+			return $this->trackName;
+		}
 
+		public function getIpAddress(){
+			return $this->ipAddress;
+		}
 
+		public function getSessionId(){
+			return $this->sessionId;
+		}
 
-	}
+		public function getFilesUploaded(){
+			return json_encode($this->filesUploaded); 
+		}
+	
+}
 
 
 
