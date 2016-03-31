@@ -3,7 +3,7 @@
 
 		private $sessionId;
 		private $ipAddress;
-		private $filesUploaded; //Array
+		public $filesUploaded; //Array
 		private $trackName;
 		//global $db; 
 
@@ -85,7 +85,15 @@
 		}
 
 		public function getFilesUploaded(){
-			return json_encode($this->filesUploaded); 
+			//echo"asdfjasldf";
+			$this->select();
+			if(count($this->filesUploaded) > 0){
+				//echo count($this->filesUploaded);
+				echo json_encode($this->filesUploaded);
+			}
+			else{
+				echo ""; 
+			} 
 		}
 	
 }

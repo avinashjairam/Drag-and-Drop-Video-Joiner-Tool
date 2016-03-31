@@ -91,21 +91,25 @@ if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST"){
 </script>
 
 <script>
-  var Track = {
-     //Track.uploadedTracks = [];
-    var uploadedTracks: <?php $user->getFilesUploaded(); ?>
 
-     function displayUploadedTracks {
-      for(var i=0; i < Track.uploadedTracks.length; i++){
-        alert(Track.uploadedTracks[i]);
-        console.log(Track.uploadedTracks[i]);
-        alert('hi');
-      }
-    }
-  } 
+var uploadedTracks = <?php $user->getFilesUploaded();?>;
+//alert(typeof(uploadedTracks() ) );
+alert(uploadedTracks[0]);
+  // var Track = {
+  //    //Track.uploadedTracks = [];
+  //    uploadedTracks:''
 
-  var track = new Track();
-      track.displayUploadedTracks();
+
+  // };
+    //  function displayUploadedTracks {
+    //   for(var i=0; i < Track.uploadedTracks.length; i++){
+    //     alert(Track.uploadedTracks[i]);
+    //     console.log(Track.uploadedTracks[i]);
+    //     alert('hi');
+    //   }
+    // }
+  // var track = new Track();
+  //     track.displayUploadedTracks();
 
 </script>
 
@@ -158,9 +162,7 @@ if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST"){
 
 
 <br>
-"<script> 
-                       // track.displayUploadedTracks();
-</script>"
+
 <ul id="sortable">
 
    <!--  <li class="ui-state-default">Item 1</li>
