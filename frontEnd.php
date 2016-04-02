@@ -94,20 +94,31 @@ if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST"){
 
 var uploadedTracks = <?php $user->getFilesUploaded();?>;
 //alert(typeof(uploadedTracks() ) );
-alert(uploadedTracks[0]);
+//alert(uploadedTracks[0]);
   // var Track = {
   //    //Track.uploadedTracks = [];
   //    uploadedTracks:''
 
 
   // };
-    //  function displayUploadedTracks {
-    //   for(var i=0; i < Track.uploadedTracks.length; i++){
-    //     alert(Track.uploadedTracks[i]);
-    //     console.log(Track.uploadedTracks[i]);
-    //     alert('hi');
-    //   }
-    // }
+     function displayUploadedTracks () {
+      alert("hi");
+      var x= "<ul id=\"sortable\">";
+      var elem = document.getElementById("sortable");
+
+       for(var i=0; i < uploadedTracks.length; i++){
+          x  +="<li class=\"ui-state-default\">" +uploadedTracks[i] + " </li>";
+        // var e=document.getElementById("sortable");
+        //  e.write(uploadedTracks[i]);
+      }
+
+      x+="</ul>"; 
+      alert(x);
+      if(typeof elem !== 'undefined' && elem !== null) {
+       document.getElementById("uploadedTracks").innerHtml=x; 
+      }
+    }
+
   // var track = new Track();
   //     track.displayUploadedTracks();
 
@@ -163,17 +174,34 @@ alert(uploadedTracks[0]);
 
 <br>
 
+<div id="uploadedTracks">
+<!--   <ul id="sortable"> -->
 <ul id="sortable">
-
-   <!--  <li class="ui-state-default">Item 1</li>
-    <li class="ui-state-default">Item 2</li>
-    <li class="ui-state-default">Item 3</li>
-    <li class="ui-state-default">Item 4</li>
-    <li class="ui-state-default">Item 5</li>
-    <li class="ui-state-default">Item 6</li>
-    <li class="ui-state-default">Item 7</li> -->
+  <li class="ui-state-default">track (1).mp4 </li>
+  <li class="ui-state-default">track.mp4 </li>
+  <li class="ui-state-default">track (1).mp4 </li>
+  <li class="ui-state-default">track.mp4 </li>
+  <li class="ui-state-default">track.mp4 </li>
+  <li class="ui-state-default">track (1).mp4 </li>
+  <li class="ui-state-default">track.mp4 </li>
+  <li class="ui-state-default">track (1).mp4 </li>
+  <li class="ui-state-default">track (1).mp4 </li>
 </ul>
 
+
+     <!--  <li class="ui-state-default">Item 1</li>
+      <li class="ui-state-default">Item 2</li>
+      <li class="ui-state-default">Item 3</li>
+      <li class="ui-state-default">Item 4</li>
+      <li class="ui-state-default">Item 5</li>
+      <li class="ui-state-default">Item 6</li>
+      <li class="ui-state-default">Item 7</li> -->
+  <!-- </ul> -->
+</div>
+ <script>
+  displayUploadedTracks();
+
+ </script>
 
 <br>
 
