@@ -123,6 +123,25 @@ var uploadedTracks = <?php $user->getFilesUploaded();?>;
   // var track = new Track();
   //     track.displayUploadedTracks();
 
+  window.onload=function(){
+ // var x= "<ul id=\"sortable\">";
+ var x ="";
+  var elem = document.getElementById("sortable");
+
+   for(var i=0; i < uploadedTracks.length; i++){
+      x  +="<li class=\"ui-state-default\">" +uploadedTracks[i] + " </li>";
+    // var e=document.getElementById("sortable");
+    //  e.write(uploadedTracks[i]);
+  }
+
+//  x+="</ul>"; 
+  //alert(x);
+  if(typeof elem !== 'undefined' && elem !== null) {
+   //document.getElementById("uploadedTracks").innerHtml='x'; 
+   elem.innerHTML=x;
+  }
+}
+
 </script>
 
 
@@ -176,7 +195,7 @@ var uploadedTracks = <?php $user->getFilesUploaded();?>;
 <br>
 
 <div id="uploadedTracks">
-<!--   <ul id="sortable"> -->
+  <ul id="sortable"> 
 <!-- <ul id="sortable">
   <li class="ui-state-default">track (1).mp4 </li>
   <li class="ui-state-default">track.mp4 </li>
@@ -197,7 +216,7 @@ var uploadedTracks = <?php $user->getFilesUploaded();?>;
       <li class="ui-state-default">Item 5</li>
       <li class="ui-state-default">Item 6</li>
       <li class="ui-state-default">Item 7</li> -->
-  <!-- </ul> -->
+   </ul> 
 </div>
  <script>
   // displayUploadedTracks();
@@ -216,23 +235,24 @@ var uploadedTracks = <?php $user->getFilesUploaded();?>;
 
 // with plugin options
 // $("#input-2").fileinput({'showUpload':true, 'previewFileType':'mp4, avi'});
-window.onload=function(){
-  var x= "<ul id=\"sortable\">";
-  var elem = document.getElementById("uploadedTracks");
+// window.onload=function(){
+//  // var x= "<ul id=\"sortable\">";
+//  var x ="";
+//   var elem = document.getElementById("uploadedTracks");
 
-   for(var i=0; i < uploadedTracks.length; i++){
-      x  +="<li class=\"ui-state-default\">" +uploadedTracks[i] + " </li>";
-    // var e=document.getElementById("sortable");
-    //  e.write(uploadedTracks[i]);
-  }
+//    for(var i=0; i < uploadedTracks.length; i++){
+//       x  +="<li class=\"ui-state-default\">" +uploadedTracks[i] + " </li>";
+//     // var e=document.getElementById("sortable");
+//     //  e.write(uploadedTracks[i]);
+//   }
 
-  x+="</ul>"; 
-  //alert(x);
-  if(typeof elem !== 'undefined' && elem !== null) {
-   //document.getElementById("uploadedTracks").innerHtml='x'; 
-   elem.innerHTML=x;
-  }
-}
+// //  x+="</ul>"; 
+//   //alert(x);
+//   if(typeof elem !== 'undefined' && elem !== null) {
+//    //document.getElementById("uploadedTracks").innerHtml='x'; 
+//    elem.innerHTML=x;
+//   }
+// }
 
 </script>
 
