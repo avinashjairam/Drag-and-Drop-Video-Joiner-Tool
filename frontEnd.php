@@ -199,19 +199,20 @@ Query string: <p></p>
 <script>
 
 function list(){
-      $('#sortable').sortable({
-        axis: 'y',
-        stop: function (event, ui) {
-          var data = $(this).sortable('serialize');
-          // alert(data);
-            $('p').text(data);
-            /*$.ajax({
-                    data: oData,
-                type: 'POST',
-                url: '/your/url/here'
-            });*/
-  }
-    });
+  alert(data);
+  //     $('#sortable').sortable({
+  //       axis: 'y',
+  //       stop: function (event, ui) {
+  //         var data = $(this).sortable('serialize');
+  //         // alert(data);
+  //           $('p').text(data);
+  //           /*$.ajax({
+  //                   data: oData,
+  //               type: 'POST',
+  //               url: '/your/url/here'
+  //           });*/
+  // }
+  //   });
 
 }
 
