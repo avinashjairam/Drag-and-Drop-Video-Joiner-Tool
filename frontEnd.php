@@ -112,6 +112,19 @@ window.onload=function(){
   if(typeof elem !== 'undefined' && elem !== null) {  
    elem.innerHTML=x;
   }
+
+  $('#sortable').sortable({
+    axis: 'y',
+    stop: function (event, ui) {
+      var data = $(this).sortable('serialize');
+    
+        $('p').text(data);
+       
+}
+});
+ 
+
+
 }
 
 
@@ -174,7 +187,9 @@ window.onload=function(){
 
    </ul> 
 </div>
-Query string: <span></span>
+
+<br>
+Query string: <p></p>
 
 <br>
 
@@ -184,15 +199,12 @@ Query string: <span></span>
 <script>
 
 function list(){
-
-}
-
-$(document).ready(function () {
-    $('ul').sortable({
+      $('#sortable').sortable({
         axis: 'y',
         stop: function (event, ui) {
           var data = $(this).sortable('serialize');
-            $('span').text(data);
+          // alert(data);
+            $('p').text(data);
             /*$.ajax({
                     data: oData,
                 type: 'POST',
@@ -200,7 +212,23 @@ $(document).ready(function () {
             });*/
   }
     });
-});
+
+}
+
+// $(document).ready(function () {
+//     $('ul').sortable({
+//         axis: 'y',
+//         stop: function (event, ui) {
+//           var data = $(this).sortable('serialize');
+//             $('span').text(data);
+//             /*$.ajax({
+//                     data: oData,
+//                 type: 'POST',
+//                 url: '/your/url/here'
+//             });*/
+//   }
+//     });
+// });
 
 </script>
 
