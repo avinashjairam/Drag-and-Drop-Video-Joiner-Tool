@@ -194,43 +194,19 @@ Query string: <p></p>
 
 <br>
 
-<a href="#" class="btn btn-success col-md-6 col-md-offset-3" onclick="list();"><span class="glyphicon glyphicon-cog"></span>MERGE!!!</a>
+ <div>
+  <form method="post" action="frontEnd.php" onsubmit="list();">
+    <label for="mySubmit" class="btn btn-success glyphicon glyphicon-cog col-md-6 col-md-offset-3"> MERGE!!!</label>
+    <input id="mySubmit" type="submit" value="Go" class="hidden" />
+  </form>
+ </div>
 </div>
 
 <script>
 
 function list(){
   alert(data);
-  //     $('#sortable').sortable({
-  //       axis: 'y',
-  //       stop: function (event, ui) {
-  //         var data = $(this).sortable('serialize');
-  //         // alert(data);
-  //           $('p').text(data);
-  //           /*$.ajax({
-  //                   data: oData,
-  //               type: 'POST',
-  //               url: '/your/url/here'
-  //           });*/
-  // }
-  //   });
-
 }
-
-// $(document).ready(function () {
-//     $('ul').sortable({
-//         axis: 'y',
-//         stop: function (event, ui) {
-//           var data = $(this).sortable('serialize');
-//             $('span').text(data);
-//             /*$.ajax({
-//                     data: oData,
-//                 type: 'POST',
-//                 url: '/your/url/here'
-//             });*/
-//   }
-//     });
-// });
 
 </script>
 
