@@ -99,6 +99,7 @@ if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST"){
 var uploadedTracks = <?php $user->getFilesUploaded();?>;
 
 var y=false;
+var data;
 window.onload=function(){
 
  var x ="";
@@ -114,9 +115,9 @@ window.onload=function(){
   }
 
   $('#sortable').sortable({
-    axis: 'y',
+    // axis: 'y',
     stop: function (event, ui) {
-      var data = $(this).sortable('serialize');
+       data = $(this).sortable('serialize');
     
         $('p').text(data);
        
