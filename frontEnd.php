@@ -19,6 +19,13 @@ $user    = new User;
 
 $file->setUploadDirectory($session->getSessionId());
 
+if(isset($_POST['item'])){
+  $choices =json_decode($_POST['item']);
+  // if(isset($choices)){
+    print_r($choices);
+  // }
+}
+
 
 
 if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST"){
@@ -88,59 +95,27 @@ if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST"){
             placeholder: "ui-sortable-placeholder" 
         });
     });
-</script>
-
-<script>
 
 var uploadedTracks = <?php $user->getFilesUploaded();?>;
-//alert(typeof(uploadedTracks() ) );
-//alert(uploadedTracks[0]);
-  // var Track = {
-  //    //Track.uploadedTracks = [];
-  //    uploadedTracks:''
 
+var y=false;
+window.onload=function(){
 
-  // // };
-  //    function displayUploadedTracks () {
-  //    // alert("hi");
-  //     var x= "<ul id=\"sortable\">";
-  //     var elem = document.getElementById("sortable");
-
-  //      for(var i=0; i < uploadedTracks.length; i++){
-  //         x  +="<li class=\"ui-state-default\">" +uploadedTracks[i] + " </li>";
-  //       // var e=document.getElementById("sortable");
-  //       //  e.write(uploadedTracks[i]);
-  //     }
-
-  //     x+="</ul>"; 
-  //     //alert(x);
-  //     if(typeof elem !== 'undefined' && elem !== null) {
-  //      //document.getElementById("uploadedTracks").innerHtml='x'; 
-  //      elem.innerHTML=x;
-  //     }
-  //   }
-
-  // var track = new Track();
-  //     track.displayUploadedTracks();
-
-  window.onload=function(){
- // var x= "<ul id=\"sortable\">";
  var x ="";
+ y=true;
   var elem = document.getElementById("sortable");
 
    for(var i=0; i < uploadedTracks.length; i++){
-      x  +="<li class=\"ui-state-default\">" +uploadedTracks[i] + " </li>";
-    // var e=document.getElementById("sortable");
-    //  e.write(uploadedTracks[i]);
+      x  +="<li class=\"ui-state-default\" id=\"item-" + i + "\">" +uploadedTracks[i] + " </li>";  
   }
 
-//  x+="</ul>"; 
-  //alert(x);
-  if(typeof elem !== 'undefined' && elem !== null) {
-   //document.getElementById("uploadedTracks").innerHtml='x'; 
+  if(typeof elem !== 'undefined' && elem !== null) {  
    elem.innerHTML=x;
   }
 }
+
+
+
 
 </script>
 
@@ -196,65 +171,40 @@ var uploadedTracks = <?php $user->getFilesUploaded();?>;
 
 <div id="uploadedTracks">
   <ul id="sortable"> 
-<!-- <ul id="sortable">
-  <li class="ui-state-default">track (1).mp4 </li>
-  <li class="ui-state-default">track.mp4 </li>
-  <li class="ui-state-default">track (1).mp4 </li>
-  <li class="ui-state-default">track.mp4 </li>
-  <li class="ui-state-default">track.mp4 </li>
-  <li class="ui-state-default">track (1).mp4 </li>
-  <li class="ui-state-default">track.mp4 </li>
-  <li class="ui-state-default">track (1).mp4 </li>
-  <li class="ui-state-default">track (1).mp4 </li>
-</ul> -->
 
-
-     <!--  <li class="ui-state-default">Item 1</li>
-      <li class="ui-state-default">Item 2</li>
-      <li class="ui-state-default">Item 3</li>
-      <li class="ui-state-default">Item 4</li>
-      <li class="ui-state-default">Item 5</li>
-      <li class="ui-state-default">Item 6</li>
-      <li class="ui-state-default">Item 7</li> -->
    </ul> 
 </div>
- <script>
-  // displayUploadedTracks();
-
- </script>
+Query string: <span></span>
 
 <br>
 
-<a href="#" class="btn btn-success col-md-6 col-md-offset-3"><span class="glyphicon glyphicon-cog"></span>MERGE!!!</a>
+<a href="#" class="btn btn-success col-md-6 col-md-offset-3" onclick="list();"><span class="glyphicon glyphicon-cog"></span>MERGE!!!</a>
 </div>
 
 <script>
 
-// initialize with defaults
-// $("#input-2").fileinput();
+function list(){
 
-// with plugin options
-// $("#input-2").fileinput({'showUpload':true, 'previewFileType':'mp4, avi'});
-// window.onload=function(){
-//  // var x= "<ul id=\"sortable\">";
-//  var x ="";
-//   var elem = document.getElementById("uploadedTracks");
+}
 
-//    for(var i=0; i < uploadedTracks.length; i++){
-//       x  +="<li class=\"ui-state-default\">" +uploadedTracks[i] + " </li>";
-//     // var e=document.getElementById("sortable");
-//     //  e.write(uploadedTracks[i]);
-//   }
-
-// //  x+="</ul>"; 
-//   //alert(x);
-//   if(typeof elem !== 'undefined' && elem !== null) {
-//    //document.getElementById("uploadedTracks").innerHtml='x'; 
-//    elem.innerHTML=x;
-//   }
-// }
+$(document).ready(function () {
+    $('ul').sortable({
+        axis: 'y',
+        stop: function (event, ui) {
+          var data = $(this).sortable('serialize');
+            $('span').text(data);
+            /*$.ajax({
+                    data: oData,
+                type: 'POST',
+                url: '/your/url/here'
+            });*/
+  }
+    });
+});
 
 </script>
+
+
 
 </body>
 
