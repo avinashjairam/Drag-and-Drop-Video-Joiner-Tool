@@ -161,45 +161,45 @@ window.onload=function(){
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">How to Use<span class="sr-only">(current)</span></a></li>
         <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-        
-      </ul>
-     
-    
+        <li><a href="#">Contact</a></li>        
+      </ul>  
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 
 
-
+<div id="convertArea">
+  
   <div id="uploadTrack">
-    <br><br><br>
-    <form action="frontEnd.php" method="post" enctype="multipart/form-data" >
-        <label >Select Track to upload:</label><br>
-        <input type="file" name="files[]" class="file" id="fileToUpload" multiple data-allowed-file-extensions='["mp4"]'><br>                      
-    </form>
+     <div class="row">
+      <br><br><br>
+      <form action="frontEnd.php" method="post" enctype="multipart/form-data" >
+          <label >Select Track to upload:</label><br>
+          <input type="file" name="files[]" class="file" id="fileToUpload" multiple data-allowed-file-extensions='["mp4"]'><br>                      
+      </form>
+    </div>
+  </div>
+
+  
+
+
+  <div id="uploadedTracks">
+     <div class="row">
+        <ul id="sortable"> 
+      </ul> 
+     </div>    
   </div>
 
 
-<br>
-
-<div id="uploadedTracks">
-  <ul id="sortable"> 
-
-   </ul> 
-</div>
-
-<br>
-Query string: <p></p>
-
-<br>
-
- <div>
-  <form method="post" action="frontEnd.php" onsubmit="list();">
-    <label for="mySubmit" class="btn btn-success glyphicon glyphicon-cog col-md-6 col-md-offset-3"> MERGE!!!</label>
-    <input id="mySubmit" type="submit" value="Go" class="hidden" />
-  </form>
+  <div id="mergeButton">
+   <div class="row">
+    <form method="post" action="frontEnd.php" onsubmit="list();">
+      <label for="mySubmit" class="btn btn-success glyphicon glyphicon-cog col-md-6 col-md-offset-3"> MERGE!!!</label>
+      <input id="mySubmit" type="submit" value="Go" class="hidden" />
+    </form>
+  </div>
  </div>
+
 </div>
 
 <script>
