@@ -28,33 +28,46 @@ if(isset($_POST['item'])){
 
 
 
+
 if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST"){
+  
+  
+if(isset($_POST['str'])){
+  print_r($_POST['str']);
+
+
+}
+
+  
+
+  if(!empty($_FILES['files']['name'])){
   // Loop $_FILES to exeicute all files
-  foreach ($_FILES['files']['name'] as $f => $name) {     
-      if ($_FILES['files']['error'][$f] == 4) {
-          continue; // Skip file if any error found
-      }        
-      if ($_FILES['files']['error'][$f] == 0) {            
-          if ($_FILES['files']['size'][$f] > $file->getMaxFileSize()) {
-              $message[] = "$name is too large!.";
-              continue; // Skip large files
-          }
-      elseif( ! in_array(pathinfo($name, PATHINFO_EXTENSION), /*$valid_formats*/ $file->getValidFormats()  ) ){
-        $message[] = "$name is not a valid format";
-        continue; // Skip invalid file formats
-      }
-          else{ // No error found! Move uploaded files 
-              $file->createUploadDirectory();
-              $file->setUploadPath($name);
-              if(move_uploaded_file($_FILES["files"]["tmp_name"][$f], $file->getUploadPath()));
-              $file->setUploadCount(); // Number of successfully uploaded file
-              $user->setSessionId($session->getSessionId());
-              $user->setTrackName($_FILES["files"]["name"][$f]);
-              $user->setIpAddress($_SERVER['REMOTE_ADDR']);
-              $user->create();
-      
-          }
-      }
+    foreach ($_FILES['files']['name'] as $f => $name) {     
+        if ($_FILES['files']['error'][$f] == 4) {
+            continue; // Skip file if any error found
+        }        
+        if ($_FILES['files']['error'][$f] == 0) {            
+            if ($_FILES['files']['size'][$f] > $file->getMaxFileSize()) {
+                $message[] = "$name is too large!.";
+                continue; // Skip large files
+            }
+        elseif( ! in_array(pathinfo($name, PATHINFO_EXTENSION), /*$valid_formats*/ $file->getValidFormats()  ) ){
+          $message[] = "$name is not a valid format";
+          continue; // Skip invalid file formats
+        }
+            else{ // No error found! Move uploaded files 
+                $file->createUploadDirectory();
+                $file->setUploadPath($name);
+                if(move_uploaded_file($_FILES["files"]["tmp_name"][$f], $file->getUploadPath()));
+                $file->setUploadCount(); // Number of successfully uploaded file
+                $user->setSessionId($session->getSessionId());
+                $user->setTrackName($_FILES["files"]["name"][$f]);
+                $user->setIpAddress($_SERVER['REMOTE_ADDR']);
+                $user->create();
+        
+            }
+        }
+    }
   }
 }
 
@@ -99,6 +112,7 @@ if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST"){
 var uploadedTracks = <?php $user->getFilesUploaded();?>;
 
 var y=false;
+var str;
 var data;
 window.onload=function(){
 
@@ -194,8 +208,9 @@ window.onload=function(){
   <div id="mergeButton">
    <div class="row">
     <form method="post" action="frontEnd.php" onsubmit="list();">
-      <label for="mySubmit" class="btn btn-success glyphicon glyphicon-cog col-md-6 col-md-offset-3"> MERGE!!!</label>
-      <input id="mySubmit" type="submit" value="Go" class="hidden" />
+       <input type="hidden" id="str" name="str" value=""/> 
+      <label for="mySubmit" class="btn btn-success glyphicon glyphicon-cog col-md-6 col-md-offset-3"> MERGE!!!</label>     
+       <input id="mySubmit" type="submit" value="Go" class="hidden" />
     </form>
   </div>
  </div>
@@ -205,8 +220,10 @@ window.onload=function(){
 <script>
 
 function list(){
-  alert(data);
-}
+   str = JSON.stringify(data);
+   alert(str);
+  //return str; 
+ }
 
 </script>
 
