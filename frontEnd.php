@@ -112,7 +112,7 @@ if(isset($_POST['str'])){
 var uploadedTracks = <?php $user->getFilesUploaded();?>;
 
 var y=false;
-var str;
+var str=[];
 var data;
 window.onload=function(){
 
@@ -203,12 +203,20 @@ window.onload=function(){
       </ul> 
      </div>    
   </div>
+<script>
 
+ function list(){
+   str = JSON.stringify(data);
+   //alert(str);
+  return str; 
+  }
+
+</script>
 
   <div id="mergeButton">
    <div class="row">
-    <form method="post" action="frontEnd.php" onsubmit="list();">
-       <input type="hidden" id="str" name="str" value=""/> 
+    <form method="post" action="frontEnd.php" onsubmit="">
+       <input type="hidden" id="str" name="str" value="list();"/> 
       <label for="mySubmit" class="btn btn-success glyphicon glyphicon-cog col-md-6 col-md-offset-3"> MERGE!!!</label>     
        <input id="mySubmit" type="submit" value="Go" class="hidden" />
     </form>
@@ -217,15 +225,7 @@ window.onload=function(){
 
 </div>
 
-<script>
 
-function list(){
-   str = JSON.stringify(data);
-   alert(str);
-  //return str; 
- }
-
-</script>
 
 
 
