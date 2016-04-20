@@ -33,8 +33,8 @@ if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST"){
   
   
 if(isset($_POST['str'])){
-  print_r($_POST['str']);
-
+  // print_r($_POST['str']);
+ echo $_POST['str'];
 
 }
 
@@ -195,7 +195,7 @@ window.onload=function(){
   </div>
 
   
- <p> </p>
+ <p id ="mergedStuff"> </p>
 
   <div id="uploadedTracks">
      <div class="row">
@@ -205,7 +205,7 @@ window.onload=function(){
   </div>
 
 
-  <div id="mergeButton">
+ <!--  <div id="mergeButton">
    <div class="row">
     <form method="post" action="frontEnd.php" onsubmit="list();">
        <input type="hidden" id="str" name="str" value="data"/> 
@@ -213,7 +213,9 @@ window.onload=function(){
        <input id="mySubmit" type="submit" value="Go" class="hidden" />
     </form>
   </div>
- </div>
+ </div> -->
+
+ <button id="merge">Merge</button>
 
 </div>
 
@@ -226,6 +228,33 @@ window.onload=function(){
    alert(str);
   return str; 
   }
+
+
+  $(document).ready(function(){
+
+      str = list();
+    $("#merge").click(function(){
+      // alert("hey");
+
+      $.ajax({
+        url:'frontEnd.php',
+        data:{str:str},
+        type:'POST',
+        success:function(data){
+          if(!data.error){
+            $('#mergedStuff').html(data);
+          }
+        }
+
+      })
+
+    });
+
+
+
+
+
+  });
 
 </script>
 
