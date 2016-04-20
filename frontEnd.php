@@ -187,7 +187,7 @@ window.onload=function(){
   <div id="uploadTrack">
      <div class="row">
       <br><br><br>
-      <form action="frontEnd.php" method="post" enctype="multipart/form-data" >
+      <form action="frontEnd.php" method="post" enctype="multipart/form-data"  >
           <label >Select Track to upload:</label><br>
           <input type="file" name="files[]" class="file" id="fileToUpload" multiple data-allowed-file-extensions='["mp4"]'><br>                      
       </form>
@@ -195,7 +195,7 @@ window.onload=function(){
   </div>
 
   
-
+ <p> </p>
 
   <div id="uploadedTracks">
      <div class="row">
@@ -203,20 +203,12 @@ window.onload=function(){
       </ul> 
      </div>    
   </div>
-<script>
 
- function list(){
-   str = JSON.stringify(data);
-   //alert(str);
-  return str; 
-  }
-
-</script>
 
   <div id="mergeButton">
    <div class="row">
-    <form method="post" action="frontEnd.php" onsubmit="">
-       <input type="hidden" id="str" name="str" value="list();"/> 
+    <form method="post" action="frontEnd.php" onsubmit="list();">
+       <input type="hidden" id="str" name="str" value="data"/> 
       <label for="mySubmit" class="btn btn-success glyphicon glyphicon-cog col-md-6 col-md-offset-3"> MERGE!!!</label>     
        <input id="mySubmit" type="submit" value="Go" class="hidden" />
     </form>
@@ -227,7 +219,15 @@ window.onload=function(){
 
 
 
+<script>
 
+ function list(){
+   str = JSON.stringify(data);
+   alert(str);
+  return str; 
+  }
+
+</script>
 
 </body>
 
