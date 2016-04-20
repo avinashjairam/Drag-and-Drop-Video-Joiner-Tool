@@ -34,7 +34,9 @@ if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST"){
   
 if(isset($_POST['str'])){
   // print_r($_POST['str']);
- echo $_POST['str'];
+
+  echo "HI";
+ // echo $_POST['str'];
 
 }
 
@@ -195,7 +197,9 @@ window.onload=function(){
   </div>
 
   
- <p id ="mergedStuff"> </p>
+ <p > </p>
+
+ <h1 id ="mergedStuff"></h1>
 
   <div id="uploadedTracks">
      <div class="row">
@@ -229,32 +233,55 @@ window.onload=function(){
   return str; 
   }
 
+  $("#merge").click(function(){
+    // alert("hey");
 
-  $(document).ready(function(){
-
-      str = list();
-    $("#merge").click(function(){
-      // alert("hey");
-
-      $.ajax({
-        url:'frontEnd.php',
-        data:{str:str},
-        type:'POST',
-        success:function(data){
-          if(!data.error){
-            $('#mergedStuff').html(data);
-          }
+    str=list();
+    alert(str);
+          // alert(list());
+    $.ajax({
+      url:'joinVideos.php',
+      data:{str:str},
+      type:'POST',
+      success:function(data){
+        if(!data.error){
+          $('#mergedStuff').html(data);
         }
+      }
 
-      })
-
-    });
-
-
-
-
+    })
 
   });
+
+
+  // $(document).ready(function(){
+
+  //      str = list();
+
+
+  //   $("#merge").click(function(){
+  //     // alert("hey");
+  //     alert(str);
+  //           // alert(list());
+  //     $.ajax({
+  //       url:'joinVideos.php',
+  //       data:{str:str},
+  //       type:'POST',
+  //       success:function(data){
+  //         if(!data.error){
+  //           $('#mergedStuff').html(data);
+  //         }
+  //       }
+
+  //     })
+
+  //   });
+
+
+
+
+
+  // });
 
 </script>
 
