@@ -116,6 +116,7 @@ var uploadedTracks = <?php $user->getFilesUploaded();?>;
 var y=false;
 var str=[];
 var data;
+var positions;
 window.onload=function(){
 
  var x ="";
@@ -133,9 +134,10 @@ window.onload=function(){
   $('#sortable').sortable({
     // axis: 'y',
     stop: function (event, ui) {
-       data = $(this).sortable('serialize');
+       data = $(this).sortable('toArray');
+       positions=data.join(';');
     
-        $('p').text(data);
+        $('p').text(positions);
        
 }
 });
