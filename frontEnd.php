@@ -116,7 +116,7 @@ var uploadedTracks = <?php $user->getFilesUploaded();?>;
 var y=false;
 var str=[];
 var data;
-var positions;
+var positions =[];
 window.onload=function(){
 
  var x ="";
@@ -135,9 +135,26 @@ window.onload=function(){
     // axis: 'y',
     stop: function (event, ui) {
        data = $(this).sortable('toArray');
-       positions=data.join(';');
+      // positions=data.join(';');
     
-        $('p').text(positions);
+     
+
+        for(var i =0; i <data.length; i++){
+          positions[i]=$('#'+data[i]).text();
+         // alert(positions[i]);
+
+        }
+
+           $('p').text(positions);
+
+       // alert($('#'+data[0]).text() );
+
+        // alert($(data[0]).;
+
+      // for(var i=0; i < uploadedTracks.length; i++){
+
+      //   console.log()
+      // }
        
 }
 });
