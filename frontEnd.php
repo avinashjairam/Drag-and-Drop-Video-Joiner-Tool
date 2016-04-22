@@ -15,7 +15,7 @@ $session = new Session;
 $db      = new DB; 
 $user    = new User;
 
-
+echo $_SESSION['id'];
 
 $file->setUploadDirectory($session->getSessionId());
 
