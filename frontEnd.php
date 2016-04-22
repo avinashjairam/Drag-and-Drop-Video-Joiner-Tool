@@ -147,6 +147,8 @@ window.onload=function(){
 
            $('p').text(positions);
 
+           alert(typeof(positions));
+
        // alert($('#'+data[0]).text() );
 
         // alert($(data[0]).;
@@ -247,7 +249,7 @@ window.onload=function(){
 <script>
 
  function list(){
-   str = JSON.stringify(data);
+   str = JSON.stringify(positions);
    alert(str);
   return str; 
   }
@@ -256,7 +258,7 @@ window.onload=function(){
     // alert("hey");
 
     str=list();
-    alert(str);
+ //   alert(str);
           // alert(list());
     $.ajax({
       url:'joinVideos.php',

@@ -7,11 +7,18 @@ if($_POST['str']){
 	// for($index=0; $index <count($tracks); $index++){
 	// 	echo $tracks[$index]."<br>";
 	// }
-	$tracksUploaded = array();
+	// $tracksUploaded = array();
 
-	$tracksUploaded = json_decode($_POST['str'], true);
+	 $tracksUploaded = json_decode($_POST['str'], true);
 
-	echo $tracksUploaded[0];
+	 for($index=0; $index <count($tracksUploaded); $index++){
+		echo $tracksUploaded[$index]."<br>";
+	}
+
+	//echo $tracksUploaded[0];
+
+	print_r($_POST['str']);
+
 }
 
 
