@@ -10,12 +10,22 @@ if($_POST['str']){
 
 	 $myfile = fopen("./$targetFolder/filesToMerge.txt", "w") or die("Unable to open file!");
 
+	 $mergeCommand = "cd $targetFolder && bash ../mergeUploadedFiles.sh";
+
 	  for($index=0; $index <count($tracksUploaded); $index++){
-	     $tracksUploaded[$index]."\n";
+	     $tracksUploaded[$index] = 'file ' . "'".$tracksUploaded[$index]."'"."\n";
 	     fwrite($myfile, $tracksUploaded[$index]);
 	}
 
-	print_r($_POST['str']);
+	  fclose($myfile);
+
+	exec($mergeCommand,$output,$return);
+
+	if($return==1){
+		echo "output";
+	}
+
+	//print_r($_POST['str']);
 
 }
 

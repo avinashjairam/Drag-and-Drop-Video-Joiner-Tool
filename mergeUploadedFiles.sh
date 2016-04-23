@@ -1,1 +1,1 @@
-ffmpeg -f concat -i mylist.txt -c copy output.mp4
+ffmpeg -f concat -i filesToMerge.txt -c copy output.mp4
