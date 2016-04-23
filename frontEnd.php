@@ -15,7 +15,7 @@ $session = new Session;
 $db      = new DB; 
 $user    = new User;
 
-echo $_SESSION['id'];
+//echo $_SESSION['id'];
 
 $file->setUploadDirectory($session->getSessionId());
 
@@ -190,7 +190,7 @@ window.onload=function(){
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Merger Your Videos</a>
+      <a class="navbar-brand" href="#">Merge Your Videos</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->

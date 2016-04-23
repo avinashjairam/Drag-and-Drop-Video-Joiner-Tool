@@ -12,8 +12,9 @@ if($_POST['str']){
 
 	 $mergeCommand = "cd $targetFolder && bash ../mergeUploadedFiles.sh";
 
+
 	  for($index=0; $index <count($tracksUploaded); $index++){
-	     $tracksUploaded[$index] = 'file ' . "'".$tracksUploaded[$index]."'"."\n";
+	     $tracksUploaded[$index] = 'file ' . "'". rtrim($tracksUploaded[$index])."'"."\n";
 	     fwrite($myfile, $tracksUploaded[$index]);
 	}
 
