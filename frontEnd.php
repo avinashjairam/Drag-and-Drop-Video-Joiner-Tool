@@ -266,7 +266,9 @@ window.onload=function(){
       type:'POST',
       success:function(data){
         if(!data.error){
-          $('#mergedStuff').html(data);
+        //  alert("successful ajax response");
+          $('#convertArea').hide();
+          //$('#mergedStuff').html(data);
         }
       }
 
