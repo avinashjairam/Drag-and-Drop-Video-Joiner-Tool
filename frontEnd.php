@@ -204,6 +204,21 @@ window.onload=function(){
   </div><!-- /.container-fluid -->
 </nav>
 
+<div class = "row">                                               
+   <a href="" id ="downloadButton" class="btn btn-lg btn-success" download><span class="glyphicon glyphicon-download-alt"></span> Click Here to Download Your Merged Videos!</a>
+       <div class="col-md-6 col-md-offset-3" id="download">  
+          <br><br>
+        <video id="myVideo" controls autoplay>
+          <source id="mp4_src" src="" type="video/mp4">
+          <source id="ogg_src" src="" type="video/ogg">
+          Your browser does not support HTML5 video.
+        </video>
+     </div>
+</div>
+
+
+
+
 
 <div id="convertArea">
   
@@ -240,7 +255,9 @@ window.onload=function(){
   </div>
  </div> -->
 
- <button id="merge">Merge</button>
+    <button id="merge">Merge</button>
+
+  </div>
 
 </div>
 
@@ -276,6 +293,14 @@ window.onload=function(){
 
   });
 
+
+  $(document).ready(function(){
+    $('#myVideo').hide();
+    $('#downloadButton').hide();
+
+
+
+  });
 
   // $(document).ready(function(){
 
