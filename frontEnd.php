@@ -147,7 +147,7 @@ window.onload=function(){
 
            $('p').text(positions);
 
-           alert(typeof(positions));
+          // alert(typeof(positions));
 
        // alert($('#'+data[0]).text() );
 
@@ -267,7 +267,7 @@ window.onload=function(){
 
  function list(){
    str = JSON.stringify(positions);
-   alert(str);
+   //alert(str);
   return str; 
   }
 
@@ -284,7 +284,9 @@ window.onload=function(){
       success:function(data){
         if(!data.error){
         //  alert("successful ajax response");
+        alert(data);
           $('#convertArea').hide();
+          $('#downloadButton').fixDownloadButton(data);
           //$('#mergedStuff').html(data);
         }
       }
@@ -301,6 +303,15 @@ window.onload=function(){
 
 
   });
+
+  $.fn.fixDownloadButton = function(data){
+    this.attr("href",data);
+    this.show();
+
+
+
+  }
+
 
   // $(document).ready(function(){
 

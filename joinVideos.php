@@ -22,8 +22,8 @@ if($_POST['str']){
 
 	exec($mergeCommand,$output,$return);
 
-	if($return==1){
-		echo "output";
+	if($return==0){
+		print "./$targetFolder/output.mp4";
 	}
 
 	//print_r($_POST['str']);
