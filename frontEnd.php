@@ -204,58 +204,60 @@ window.onload=function(){
   </div><!-- /.container-fluid -->
 </nav>
 
-<div class = "row">                                               
-   <a href="" id ="downloadButton" class="btn btn-lg btn-success" download><span class="glyphicon glyphicon-download-alt"></span> Click Here to Download Your Merged Videos!</a>
-       <div class="col-md-6 col-md-offset-3" id="download">  
-          <br><br>
-        <video id="myVideo" controls autoplay>
-          <source id="mp4_src" src="" type="video/mp4">
-          <source id="ogg_src" src="" type="video/ogg">
-          Your browser does not support HTML5 video.
-        </video>
-     </div>
-</div>
+<div class="container contentContainer">
+  <div class = "row">                                               
+     <a href="" id ="downloadButton" class="btn btn-lg btn-success" download><span class="glyphicon glyphicon-download-alt"></span> Click Here to Download Your Merged Videos!</a>
+         <div class="col-md-6 col-md-offset-3" id="download">  
+            <br><br>
+          <video id="myVideo" controls autoplay>
+            <source id="mp4_src" src="" type="video/mp4">
+            <source id="ogg_src" src="" type="video/ogg">
+            Your browser does not support HTML5 video.
+          </video>
+       </div>
+  </div>
 
 
 
 
 
-<div id="convertArea">
-  
-  <div id="uploadTrack">
+  <div id="convertArea">
+    
+    <div id="uploadTrack">
+       <div class="row">
+        <br><br><br>
+        <form action="frontEnd.php" method="post" enctype="multipart/form-data"  >
+            <label >Select Track to upload:</label><br>
+            <input type="file" name="files[]" class="file" id="fileToUpload" multiple data-allowed-file-extensions='["mp4"]'><br>                      
+        </form>
+      </div>
+    </div>
+
+    
+   <p > </p>
+
+   <h1 id ="mergedStuff"></h1>
+
+    <div id="uploadedTracks">
+       <div class="row">
+          <ul id="sortable"> 
+        </ul> 
+       </div>    
+    </div>
+
+
+   <!--  <div id="mergeButton">
      <div class="row">
-      <br><br><br>
-      <form action="frontEnd.php" method="post" enctype="multipart/form-data"  >
-          <label >Select Track to upload:</label><br>
-          <input type="file" name="files[]" class="file" id="fileToUpload" multiple data-allowed-file-extensions='["mp4"]'><br>                      
+      <form method="post" action="frontEnd.php" onsubmit="list();">
+         <input type="hidden" id="str" name="str" value="data"/> 
+        <label for="mySubmit" class="btn btn-success glyphicon glyphicon-cog col-md-6 col-md-offset-3"> MERGE!!!</label>     
+         <input id="mySubmit" type="submit" value="Go" class="hidden" />
       </form>
     </div>
+   </div> -->
+
+      <button id="merge">Merge</button>
   </div>
-
-  
- <p > </p>
-
- <h1 id ="mergedStuff"></h1>
-
-  <div id="uploadedTracks">
-     <div class="row">
-        <ul id="sortable"> 
-      </ul> 
-     </div>    
-  </div>
-
-
- <!--  <div id="mergeButton">
-   <div class="row">
-    <form method="post" action="frontEnd.php" onsubmit="list();">
-       <input type="hidden" id="str" name="str" value="data"/> 
-      <label for="mySubmit" class="btn btn-success glyphicon glyphicon-cog col-md-6 col-md-offset-3"> MERGE!!!</label>     
-       <input id="mySubmit" type="submit" value="Go" class="hidden" />
-    </form>
-  </div>
- </div> -->
-
-    <button id="merge">Merge</button>
 
   </div>
 
@@ -307,7 +309,7 @@ window.onload=function(){
 
   $.fn.fixDownloadButton = function(data){
     this.attr("href",data);
-    this.show();
+    this.css("display","block");
   }
 
   $.fn.fixVideo=function(data){
