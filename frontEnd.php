@@ -256,7 +256,7 @@ window.onload=function(){
     </div>
    </div> -->
 
-      <button id="merge">Merge</button>
+      <button class="btn btn-success glyphicon glyphicon-cog col-md-6 col-md-offset-3" id="merge">MERGE!!!</button>
   </div>
 
   </div>
