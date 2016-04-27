@@ -120,8 +120,14 @@ var positions =[];
 window.onload=function(){
 
  var x ="";
+
  y=true;
   var elem = document.getElementById("sortable");
+
+   if(uploadedTracks.length >=1){
+      $('#instructions').css('display','block');
+      $('#uploadTrack').css('display','none');
+   }
 
    for(var i=0; i < uploadedTracks.length; i++){
       x  +="<li class=\"ui-state-default\" id=\"item-" + i + "\">" +uploadedTracks[i] + " </li>";  
@@ -145,19 +151,8 @@ window.onload=function(){
 
         }
 
-           $('p').text(positions);
+           // $('p').text(positions);
 
-          // alert(typeof(positions));
-
-       // alert($('#'+data[0]).text() );
-
-        // alert($(data[0]).;
-
-      // for(var i=0; i < uploadedTracks.length; i++){
-
-      //   console.log()
-      // }
-       
 }
 });
  
@@ -233,12 +228,14 @@ window.onload=function(){
       </div>
     </div>
 
-    
-   <p > </p>
-
    <h1 id ="mergedStuff"></h1>
 
     <div id="uploadedTracks">
+       <div class ="row" id ="instructions">
+         <div "col-md-6 col-md-offset-2">
+          <h3>Click on the Videos to drag and rearrage them in the order to be joined!</h3> 
+         </div> 
+       </div>
        <div class="row">
           <ul id="sortable"> 
         </ul> 
@@ -246,29 +243,21 @@ window.onload=function(){
     </div>
 
 
-   <!--  <div id="mergeButton">
-     <div class="row">
-      <form method="post" action="frontEnd.php" onsubmit="list();">
-         <input type="hidden" id="str" name="str" value="data"/> 
-        <label for="mySubmit" class="btn btn-success glyphicon glyphicon-cog col-md-6 col-md-offset-3"> MERGE!!!</label>     
-         <input id="mySubmit" type="submit" value="Go" class="hidden" />
-      </form>
-    </div>
-   </div> -->
 
-      <button class="btn btn-success glyphicon glyphicon-cog col-md-6 col-md-offset-3" id="merge">MERGE!!!</button>
+
+  <button class="btn btn-success glyphicon glyphicon-cog col-md-6 col-md-offset-3" id="merge">MERGE!!!</button>
   </div>
 
   </div>
 
 </div>
 
-<footer class="footer">
+<!-- <footer class="footer">
       <div class="container">
         <p class="text-muted">Place sticky footer content here.</p>
       </div>
 </footer>
-
+ -->
 
 
 <script>
@@ -308,6 +297,7 @@ window.onload=function(){
   $(document).ready(function(){
     $('#myVideo').hide();
     $('#downloadButton').hide();
+    $('#instructions').hide();
 
 
 
@@ -324,34 +314,6 @@ window.onload=function(){
   }
 
 
-  // $(document).ready(function(){
-
-  //      str = list();
-
-
-  //   $("#merge").click(function(){
-  //     // alert("hey");
-  //     alert(str);
-  //           // alert(list());
-  //     $.ajax({
-  //       url:'joinVideos.php',
-  //       data:{str:str},
-  //       type:'POST',
-  //       success:function(data){
-  //         if(!data.error){
-  //           $('#mergedStuff').html(data);
-  //         }
-  //       }
-
-  //     })
-
-  //   });
-
-
-
-
-
-  // });
 
 </script>
 
