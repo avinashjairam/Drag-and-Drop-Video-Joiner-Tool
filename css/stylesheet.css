@@ -47,6 +47,10 @@ body {
      text-align: center;
 }
 
+#instructions{
+     text-align: center;
+}
+
 
 .ui-sortable {
     width: 350px;

@@ -231,10 +231,8 @@ window.onload=function(){
    <h1 id ="mergedStuff"></h1>
 
     <div id="uploadedTracks">
-       <div class ="row" id ="instructions">
-         <div "col-md-6 col-md-offset-2">
-          <h3>Click on the Videos to drag and rearrage them in the order to be joined!</h3> 
-         </div> 
+       <div class ="row" id ="instructions">        
+          <h3>Click on the Videos to drag and rearrage them in the order to be joined!</h3>         
        </div>
        <div class="row">
           <ul id="sortable"> 
