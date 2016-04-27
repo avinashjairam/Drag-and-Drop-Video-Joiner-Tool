@@ -127,6 +127,7 @@ window.onload=function(){
    if(uploadedTracks.length >=1){
       $('#instructions').css('display','block');
       $('#uploadTrack').css('display','none');
+      $('#uploadMoreTracks').css('display','block');
    }
 
    for(var i=0; i < uploadedTracks.length; i++){
@@ -217,6 +218,13 @@ window.onload=function(){
 
 
   <div id="convertArea">
+
+    <div id="uploadMoreTracks">
+      <div class="row" >
+          <button class="btn btn-block btn-danger col-md-6 col-md-offset-3" id="uploadMoreTracksButton"><span class="glyphicon glyphicon-cloud-upload"></span>Upload Another Video?</button>
+        
+      </div>
+    </div>
     
     <div id="uploadTrack">
        <div class="row">
@@ -283,6 +291,7 @@ window.onload=function(){
           $('#convertArea').hide();
           $('#downloadButton').fixDownloadButton(data);
           $('#myVideo').fixVideo(data);
+
           //$('#mergedStuff').html(data);
         }
       }
@@ -296,7 +305,11 @@ window.onload=function(){
     $('#myVideo').hide();
     $('#downloadButton').hide();
     $('#instructions').hide();
+    $('#uploadMoreTracks').hide();
+  });
 
+  $("uploadMoreTracksButton").click(function(){
+    $('#uploadedTracks').css("display","block");
 
 
   });
