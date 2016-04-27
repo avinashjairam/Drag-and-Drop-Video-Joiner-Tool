@@ -221,7 +221,7 @@ window.onload=function(){
 
     <div id="uploadMoreTracks">
       <div class="row" >
-          <button class="btn btn-block btn-danger col-md-6 col-md-offset-3" id="uploadMoreTracksButton"><span class="glyphicon glyphicon-cloud-upload"></span>Upload Another Video?</button>
+          <button class="btn btn-danger col-md-6 col-md-offset-3" id="uploadMoreTracksButton"><span class="glyphicon glyphicon-cloud-upload"></span>Upload Another Video?</button>
         
       </div>
     </div>
