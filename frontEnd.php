@@ -308,8 +308,10 @@ window.onload=function(){
     $('#uploadMoreTracks').hide();
   });
 
-  $("uploadMoreTracksButton").click(function(){
-    $('#uploadedTracks').css("display","block");
+  $("#uploadMoreTracksButton").click(function(){
+    $('#uploadTrack').css("display","block");
+    $('#uploadMoreTracksButton').css("display","none");
+   // alert("hi");
 
 
   });
