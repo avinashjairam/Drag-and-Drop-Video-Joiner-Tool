@@ -50,6 +50,9 @@
 			}	
 		}
 
+
+	
+
 		public function displayUploadedTracks(){
 			if($this->select()){		
 				echo "<script> var track = new Track();
@@ -58,6 +61,10 @@
 			}
 		}
 
+		public function clearUploadedTracks(){
+			unset($this->filesUploaded);
+			$this->filesUploaded = array();
+		}
 
 		public function setSessionId($sessionId){
 			$this->sessionId=$sessionId;
@@ -93,7 +100,9 @@
 			}
 			else{
 				echo ""; 
-			} 
+			}
+
+			$this->clearUploadedTracks();
 		}
 	
 }
