@@ -67,8 +67,11 @@
 			global $db;
 
 			$sql = "DELETE FROM `videoMerger` WHERE `sessionId` = '$this->sessionId'";
+			//echo $sql;
 
 			$result = $db->query($sql);
+
+			//echo $result; 
 		}
 
 		public function setSessionId($sessionId){

@@ -299,6 +299,8 @@ window.onload=function(){
 
     })
 
+    <?php $user->clearUploadedTracks(); ?>
+
   });
 
 
