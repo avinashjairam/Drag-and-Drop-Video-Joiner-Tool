@@ -65,7 +65,8 @@ if(isset($_POST['str'])){
                 $user->setSessionId($session->getSessionId());
                 $user->setTrackName($_FILES["files"]["name"][$f]);
                 $user->setIpAddress($_SERVER['REMOTE_ADDR']);
-                $user->create();
+                $user->create('videoMerger');
+                $user->create('videoMergerUploads');
         
             }
         }

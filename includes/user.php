@@ -12,9 +12,9 @@
 
 		}	
 
-		public function create(){
+		public function create($table){
 			global $db;
-			$sql = "INSERT INTO `videoMerger` (`sessionId`, `ipAddress`, `trackName`) ";
+			$sql = "INSERT INTO `".$table."` (`sessionId`, `ipAddress`, `trackName`) ";
 			$sql .= "VALUES ('";
 
 			$sql .= $db->escapeString($this->sessionId)."', '";
@@ -30,6 +30,8 @@
 
 			}	
 		}
+
+	
 
 		public function select(){
 			global $db;
