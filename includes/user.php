@@ -64,8 +64,11 @@
 		}
 
 		public function clearUploadedTracks(){
-			unset($this->filesUploaded);
-			$this->filesUploaded = array();
+			global $db;
+
+			$sql = "DELETE FROM `videoMerger` WHERE `sessionId` = '$this->sessionId'";
+
+			$result = $db->query($sql);
 		}
 
 		public function setSessionId($sessionId){
@@ -104,7 +107,7 @@
 				echo ""; 
 			}
 
-			$this->clearUploadedTracks();
+			// $this->clearUploadedTracks();
 		}
 	
 }

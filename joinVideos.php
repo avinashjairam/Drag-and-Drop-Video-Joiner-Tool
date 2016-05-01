@@ -1,7 +1,11 @@
 <?php
 
  require_once ('./includes/session.php');
+ require_once ('./includes/user.php');
  $session = new Session;
+ $user    = new User;
+
+ $user->setSessionId($session->getSessionId());
 
 if($_POST['str']){
 
@@ -24,6 +28,7 @@ if($_POST['str']){
 
 	if($return==0){
 		print "./$targetFolder/output.mp4";
+		$user->clearUploadedTracks();
 	}
 
 	//print_r($_POST['str']);
