@@ -5,6 +5,7 @@
 		private $ipAddress;
 		public $filesUploaded; //Array
 		private $trackName;
+		private $tracksSafeToMerge; //Tracks are safe to merge when they are all of the same type. In the next version of the project, this limition won't exist. 
 		//global $db; 
 
 		public function __construct(){
@@ -111,6 +112,19 @@
 			}
 
 			// $this->clearUploadedTracks();
+		}
+
+		public function checkIfAllFilesSameType(){
+			$criteria= substr($this->filesUploaded[0], strpos($this->filesUploaded[0],'.') + 1 );
+			for($index=1;$index<count($this->filesUploaded);$index++){
+				if($criteria===substr($this->filesUploaded[index], strpos($this->filesUploaded[0],'.') + 1 )){
+					$tracksSafeToMerge=true;
+				}
+
+			}
+
+			return $tracksSafeToMerge;
+
 		}
 	
 }
