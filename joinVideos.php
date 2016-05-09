@@ -14,7 +14,7 @@ if($_POST['str']){
 	 $tracksUploaded = json_decode($_POST['str'], true);
 	 $targetFolder= $session->getSessionID();
 
-	 $myfile = fopen("./$targetFolder/filesToMerge.txt", "w") or die("Unable to open file!");
+	 $myfile1 = fopen("./$targetFolder/filesToMerge.txt", "w") or die("Unable to open file!");
 	 $myfile2 = fopen("./mergeUploadedFiles.sh", "w") or die("Unable to open file!");
 
 	 $mergedFileName="output".$_SESSION['mergeCount'].".mp4";
@@ -22,7 +22,7 @@ if($_POST['str']){
 	// echo $mergedFileName."<br>";
 
 	// fwrite($myfile2," ".$mergedFileName);
-	 file_put_contents($my, '');
+	 //file_put_contents($my, '');
 
 	 $ffmpegCommand = "ffmpeg -f concat -i filesToMerge.txt -c copy $mergedFileName";
 	 //fwrite($myfile2,$ffmpegCommand);
@@ -35,10 +35,10 @@ if($_POST['str']){
 
 	  for($index=0; $index <count($tracksUploaded); $index++){
 	     $tracksUploaded[$index] = 'file ' . "'". rtrim($tracksUploaded[$index])."'"."\n";
-	     fwrite($myfile, $tracksUploaded[$index]);
+	     fwrite($myfile1, $tracksUploaded[$index]);
 	}
 
-	  fclose($myfile);
+	  fclose($myfile1);
 	  fclose($myfile2);
 	//  echo $user->clearUploadedTracks();
 

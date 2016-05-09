@@ -10,6 +10,8 @@ require_once ('./includes/session.php');
 require_once ('./includes/db.php');
 require_once ('./includes/user.php');
 
+
+
 $file    = new File;
 $session = new Session;
 $db      = new DB; 
@@ -35,7 +37,7 @@ if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST"){
 if(isset($_POST['str'])){
   // print_r($_POST['str']);
 
-  echo "HI";
+  //echo "HI";
  // echo $_POST['str'];
 
 }
@@ -54,9 +56,17 @@ if(isset($_POST['str'])){
                 continue; // Skip large files
             }
         elseif( ! in_array(pathinfo($name, PATHINFO_EXTENSION), /*$valid_formats*/ $file->getValidFormats()  ) ){
+          $file->setFileTypesToBeUploaded(PATHINFO_EXTENSION);
+
           $message[] = "$name is not a valid format";
           continue; // Skip invalid file formats
         }
+        // elseif ($file->isFileSafeToBeUploaded(pathinfo($name, PATHINFO_EXTENSION))==0) {
+        //  // echo "<br>Your video files must all be of the same format<br>";
+        //   //continue;
+        //   # code...
+        //   die("<br>Your video files must all be of the same format<br>");
+        // }
             else{ // No error found! Move uploaded files 
                 $file->createUploadDirectory();
                 $file->setUploadPath($name);
@@ -67,10 +77,13 @@ if(isset($_POST['str'])){
                 $user->setIpAddress($_SERVER['REMOTE_ADDR']);
                 $user->create('videoMerger');
                 $user->create('videoMergerUploads');
+                
         
             }
         }
     }
+
+  
   }
 }
 
@@ -112,61 +125,88 @@ if(isset($_POST['str'])){
         });
     });
 
-var uploadedTracks = <?php $user->getFilesUploaded();?>;
+      window.onload=function(){
 
-var y=false;
-var str=[];
-var data;
-var positions =[];
-window.onload=function(){
+        var numberOfFilesUploaded = <?php $user->getNumberOfFilesUploaded(); ?>;
 
- var x ="";
+        alert(numberOfFilesUploaded);
 
- y=true;
-  var elem = document.getElementById("sortable");
+        //var tracksSafeToMerge;
 
-   if(uploadedTracks.length >=1){
-      $('#instructions').css('display','block');
-      $('#uploadTrack').css('display','none');
-      $('#uploadMoreTracks').css('display','block');
-   }
 
-   for(var i=0; i < uploadedTracks.length; i++){
-      x  +="<li class=\"ui-state-default\" id=\"item-" + i + "\">" +uploadedTracks[i] + " </li>";  
-  }
 
-  if(typeof elem !== 'undefined' && elem !== null) {  
-   elem.innerHTML=x;
-  }
+      var uploadedTracks = <?php  $user->getFilesUploaded();?>;
 
-  $('#sortable').sortable({
-    // axis: 'y',
-    stop: function (event, ui) {
-       data = $(this).sortable('toArray');
-      // positions=data.join(';');
-    
-     
+      var y=false;
+      var str=[];
+      var data;
+      var positions =[];
+       var tracksSafeToMerge =0;// = <?php $user->getTracksSafeToMerge();?>;
 
-        for(var i =0; i <data.length; i++){
-          positions[i]=$('#'+data[i]).text();
-         // alert(positions[i]);
 
+      if(numberOfFilesUploaded > 1 ){
+        alert("greater than one");
+        //tracksSafeToMerge = <?php $user->getTracksSafeToMerge();?>;
+
+          if(tracksSafeToMerge==0){
+
+       var x ="";
+
+       y=true;
+        var elem = document.getElementById("sortable");
+
+         if(uploadedTracks.length >=1){
+            $('#instructions').css('display','block');
+            $('#uploadTrack').css('display','none');
+            $('#uploadMoreTracks').css('display','block');
+         }
+
+         for(var i=0; i < uploadedTracks.length; i++){
+            x  +="<li class=\"ui-state-default\" id=\"item-" + i + "\">" +uploadedTracks[i] + " </li>";  
         }
 
-           // $('p').text(positions);
+        if(typeof elem !== 'undefined' && elem !== null) {  
+          elem.innerHTML=x;
+        }
 
+        $('#sortable').sortable({
+          // axis: 'y',
+          stop: function (event, ui) {
+             data = $(this).sortable('toArray');
+            // positions=data.join(';');
+          
+           
+
+              for(var i =0; i <data.length; i++){
+                positions[i]=$('#'+data[i]).text();
+               // alert(positions[i]);
+
+              }
+
+                 // $('p').text(positions);
+
+      }
+      });
+       
+
+
+      }
+
+    }
+    else{
+      alert("not greater than one");
+       $('#warningTracksNotSafeToMerge').css('display','block');
+    }
 }
-});
- 
 
 
-}
 
 
 
 
 </script>
 
+    <?php $user->getTracksSafeToMerge();?>
 
 
 </head>
@@ -226,13 +266,19 @@ window.onload=function(){
         
       </div>
     </div>
+
+
+    <div id="#tracksNotSafeToMerge" class="alert alert-danger">
+      <strong>Warning!</strong> All Uploaded Videos must be of the same format in order for them to be merged. E.g. All mp4(s), avi(s), flv(s) etc. 
+
+    </div>
     
     <div id="uploadTrack">
        <div class="row">
         <br><br><br>
         <form action="frontEnd.php" method="post" enctype="multipart/form-data"  >
             <label >Select Track to upload:</label><br>
-            <input type="file" name="files[]" class="file" id="fileToUpload" multiple data-allowed-file-extensions='["mp4"]'><br>                      
+            <input type="file" name="files[]" class="file" id="fileToUpload" multiple data-allowed-file-extensions='["mp4", "avi"]'><br>                      
         </form>
       </div>
     </div>
@@ -299,7 +345,7 @@ window.onload=function(){
 
     })
 
-    <?php $user->clearUploadedTracks(); ?>
+
 
   });
 
@@ -309,6 +355,7 @@ window.onload=function(){
     $('#downloadButton').hide();
     $('#instructions').hide();
     $('#uploadMoreTracks').hide();
+    $('#tracksNotSafeToMerge').hide();
   });
 
   $("#uploadMoreTracksButton").click(function(){
@@ -332,6 +379,8 @@ window.onload=function(){
 
 
 </script>
+
+ <?php $user->clearUploadedTracks(); ?>
 
 </body>
 
