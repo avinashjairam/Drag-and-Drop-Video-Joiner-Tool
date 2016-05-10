@@ -259,10 +259,10 @@ window.onload=function(){
         <input id="avi" type="radio" class="videoType" name="videoType" value="avi"> .avi 
        </label>
         <label class="radio-inline">  
-        <input id="mp4" type="radio" class="videoType" name="videoType" value="mp4"> .flv
+        <input id="mp4" type="radio" class="videoType" name="videoType" value="flv"> .flv
       </label>
          <label class="radio-inline">  
-        <input id="flv" type="radio" class="videoType" name="videoType" value="flv"> .mp4
+        <input id="flv" type="radio" class="videoType" name="videoType" value="mp4"> .mp4
       </label>
       </form>
      </div>
