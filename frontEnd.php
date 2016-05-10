@@ -137,6 +137,7 @@ window.onload=function(){
 
   if(typeof elem !== 'undefined' && elem !== null) {  
    elem.innerHTML=x;
+    $('#selectMergedFormat').css("display","block");
   }
 
   $('#sortable').sortable({
@@ -249,6 +250,26 @@ window.onload=function(){
        </div>    
     </div>
 
+  <div id="selectMergedFormat">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <h3>Select the format of the merged Video</h3>
+      <form role="form" action="frontEnd.php" method="post"> 
+       <label class="radio-inline">     
+        <input id="avi" type="radio" class="videoType" name="videoType" value="avi"> .avi 
+       </label>
+        <label class="radio-inline">  
+        <input id="mp4" type="radio" class="videoType" name="videoType" value="mp4"> .flv
+      </label>
+         <label class="radio-inline">  
+        <input id="flv" type="radio" class="videoType" name="videoType" value="flv"> .mp4
+      </label>
+      </form>
+     </div>
+   </div>
+  </div>
+
+
 
 
 
@@ -276,6 +297,8 @@ window.onload=function(){
   }
 
   $("#merge").click(function(){
+
+    var typeSelected = $(".videoType:checked").val()
     // alert("hey");
 
     str=list();
@@ -283,7 +306,7 @@ window.onload=function(){
           // alert(list());
     $.ajax({
       url:'joinVideos.php',
-      data:{str:str},
+      data:{str:str, typeSelected:typeSelected},
       type:'POST',
       success:function(data){
         if(!data.error){
@@ -292,6 +315,7 @@ window.onload=function(){
           $('#convertArea').hide();
           $('#downloadButton').fixDownloadButton(data);
           $('#myVideo').fixVideo(data);
+
 
           //$('#mergedStuff').html(data);
         }
@@ -309,6 +333,7 @@ window.onload=function(){
     $('#downloadButton').hide();
     $('#instructions').hide();
     $('#uploadMoreTracks').hide();
+    $('#selectMergedFormat').hide();
   });
 
   $("#uploadMoreTracksButton").click(function(){

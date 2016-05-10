@@ -12,10 +12,15 @@ $_SESSION['mergeCount'] += $increment;
 if($_POST['str']){
 
 	 $tracksUploaded = json_decode($_POST['str'], true);
+	// $format=json_decode($_POST['typeSelected'], true);
+	 $format=$_POST['typeSelected'];
 	 $targetFolder= $session->getSessionID();
 
 	 $myfile1 = fopen("./$targetFolder/filesToMerge.txt", "w") or die("Unable to open file!");
 	 $myfile2 = fopen("./mergeUploadedFiles.sh", "w") or die("Unable to open file!");
+	 $myfile3 = fopen("./$targetFolder/format.txt", "w") or ("Unable to open file!");
+
+	 fwrite($myfile3, $format);
 
 	 $mergedFileName="output".$_SESSION['mergeCount'].".mp4";
 
@@ -40,6 +45,7 @@ if($_POST['str']){
 
 	  fclose($myfile1);
 	  fclose($myfile2);
+	  fclose($myfile3);
 	//  echo $user->clearUploadedTracks();
 
 	exec($mergeCommand,$output,$return);
