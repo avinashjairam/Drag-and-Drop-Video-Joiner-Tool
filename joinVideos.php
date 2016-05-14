@@ -13,16 +13,27 @@ if($_POST['str']){
 
 	 $tracksUploaded = json_decode($_POST['str'], true);
 	// $format=json_decode($_POST['typeSelected'], true);
-	 $format=$_POST['typeSelected'];
+	 $desiredMergeFormat=$_POST['typeSelected'];
 	 $targetFolder= $session->getSessionID();
 
 	 $myfile1 = fopen("./$targetFolder/filesToMerge.txt", "w") or die("Unable to open file!");
 	 $myfile2 = fopen("./mergeUploadedFiles.sh", "w") or die("Unable to open file!");
 	 $myfile3 = fopen("./$targetFolder/format.txt", "w") or ("Unable to open file!");
 
-	 fwrite($myfile3, $format);
+	// fwrite($myfile3, $desiredMergeFormat);
 
-	 $mergedFileName="output".$_SESSION['mergeCount'].".mp4";
+	 $mergedFileName="output".$_SESSION['mergeCount'].$desiredMergeFormat;
+	 $avi=".avi";
+	 $flv=".flv";
+	 $mp4=".mp4";
+
+	 if(strcmp($desiredMergeFormat,".mp4")==0){
+
+	 	//"{$avi}" "{$flv}" "{$mp4}"
+	 	$convertCommand="cd $targetFolder && ../hello.sh ".$avi." ".$flv." ".$mp4;
+	 	exec($convertCommand,$output,$return);
+	 	fwrite($myfile3, $convertCommand);
+	 }
 
 	// echo $mergedFileName."<br>";
 
