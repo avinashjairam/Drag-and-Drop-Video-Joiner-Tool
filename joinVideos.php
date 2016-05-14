@@ -28,12 +28,21 @@ if($_POST['str']){
 	 $mp4=".mp4";
 
 	 if(strcmp($desiredMergeFormat,".mp4")==0){
-
 	 	//"{$avi}" "{$flv}" "{$mp4}"
 	 	$convertCommand="cd $targetFolder && ../hello.sh ".$avi." ".$flv." ".$mp4;
 	 	exec($convertCommand,$output,$return);
-	 	fwrite($myfile3, $convertCommand);
+	 	//fwrite($myfile3, $convertCommand);
 	 }
+	 else if(strcmp($desiredMergeFormat,".flv")==0){
+	 	$convertCommand="cd $targetFolder && ../hello.sh ".$avi." ".$mp4." ".$flv;
+	 	exec($convertCommand,$output,$return);
+
+	 }
+	 else if(strcmp($desiredMergeFormat,".avi")==0){
+	 	$convertCommand="cd $targetFolder && ../hello.sh ".$flv." ".$mp4." ".$avi;
+	 	exec($convertCommand,$output,$return);
+	 }
+
 
 	// echo $mergedFileName."<br>";
 
@@ -50,7 +59,9 @@ if($_POST['str']){
 	 fwrite($myfile2, $ffmpegCommand);
 
 	  for($index=0; $index <count($tracksUploaded); $index++){
-	     $tracksUploaded[$index] = 'file ' . "'". rtrim($tracksUploaded[$index])."'"."\n";
+	  	$trackName=substr(rtrim($tracksUploaded[$index]),0,-4).$desiredMergeFormat;
+	  	$tracksUploaded[$index] = 'file ' . "'". $trackName."'"."\n";
+	    // $tracksUploaded[$index] = 'file ' . "'". rtrim($tracksUploaded[$index])."'"."\n";
 	     fwrite($myfile1, $tracksUploaded[$index]);
 	}
 

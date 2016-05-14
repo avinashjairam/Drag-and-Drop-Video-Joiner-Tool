@@ -256,13 +256,13 @@ window.onload=function(){
         <h3>Select the format of the merged Video</h3>
       <form role="form" action="frontEnd.php" method="post"> 
        <label class="radio-inline">     
-        <input id="avi" type="radio" class="videoType" name="videoType" value="avi"> .avi 
+        <input id="avi" type="radio" class="videoType" name="videoType" value=".avi"> .avi 
        </label>
         <label class="radio-inline">  
-        <input id="mp4" type="radio" class="videoType" name="videoType" value="flv"> .flv
+        <input id="mp4" type="radio" class="videoType" name="videoType" value=".flv"> .flv
       </label>
          <label class="radio-inline">  
-        <input id="flv" type="radio" class="videoType" name="videoType" value="mp4"> .mp4
+        <input id="flv" type="radio" class="videoType" name="videoType" value=".mp4"> .mp4
       </label>
       </form>
      </div>
