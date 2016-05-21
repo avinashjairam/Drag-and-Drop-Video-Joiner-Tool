@@ -141,22 +141,16 @@ window.onload=function(){
   }
 
   $('#sortable').sortable({
-    // axis: 'y',
+
     stop: function (event, ui) {
        data = $(this).sortable('toArray');
-      // positions=data.join(';');
-    
      
-
         for(var i =0; i <data.length; i++){
-          positions[i]=$('#'+data[i]).text();
-         // alert(positions[i]);
+          positions[i]=$('#'+data[i]).text(); 
 
-        }
+        }       
 
-           // $('p').text(positions);
-
-}
+   }
 });
  
 
@@ -205,14 +199,14 @@ window.onload=function(){
 <div class="container contentContainer">
   <div class = "row">                                               
      <a href="" id ="downloadButton" class="btn btn-lg btn-success" download><span class="glyphicon glyphicon-download-alt"></span> Click Here to Download Your Merged Videos!</a>
-        <!--  <div class="col-md-3 col-md-offset-2" id="download">  
+        <!--   <div class="col-md-3 col-md-offset-2" id="download">  
             <br><br>
           <video id="myVideo" controls autoplay>
             <source id="mp4_src" src="" type="video/mp4">
             <source id="ogg_src" src="" type="video/ogg">
             Your browser does not support HTML5 video.
           </video>
-       </div> -->
+       </div>  -->
   </div>
 
 
@@ -302,8 +296,27 @@ window.onload=function(){
     // alert("hey");
 
     str=list();
- //   alert(str);
+  // alert(str);
           // alert(list());
+
+   if(str=="[]"){
+    var z="[";
+    var temp;
+       for(var i=0; i < uploadedTracks.length; i++){
+         temp="#item-" + i; 
+         z+= "\""+ $(temp).text() +"\"";
+
+         if(uploadedTracks.length-i > 1 ){
+          z+=",";
+         }
+       }
+
+       z+="]";
+       str=z;
+
+     //alert("zero");
+    }
+
     $.ajax({
       url:'joinVideos.php',
       data:{str:str, typeSelected:typeSelected},
@@ -314,7 +327,7 @@ window.onload=function(){
        // alert(data);
           $('#convertArea').hide();
           $('#downloadButton').fixDownloadButton(data);
-          $('#myVideo').fixVideo(data);
+          // $('#myVideo').fixVideo(data);
 
 
           //$('#mergedStuff').html(data);
@@ -329,7 +342,7 @@ window.onload=function(){
 
 
   $(document).ready(function(){
-    $('#myVideo').hide();
+    // $('#myVideo').hide();
     $('#downloadButton').hide();
     $('#instructions').hide();
     $('#uploadMoreTracks').hide();
@@ -349,10 +362,10 @@ window.onload=function(){
     this.css("display","block");
   }
 
-  $.fn.fixVideo=function(data){
-    this.attr("src",data);
-    this.show();
-  }
+  // $.fn.fixVideo=function(data){
+  //   this.attr("src",data);
+  //   this.show();
+  // }
 
 
 
