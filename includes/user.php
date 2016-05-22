@@ -107,7 +107,7 @@
 				echo json_encode($this->filesUploaded);
 			}
 			else{
-				echo ""; 
+				echo json_encode(""); 
 			}
 
 			// $this->clearUploadedTracks();
