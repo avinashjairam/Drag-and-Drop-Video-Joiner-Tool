@@ -112,7 +112,33 @@ if(isset($_POST['str'])){
         });
     });
 
-var uploadedTracks = <?php $user->getFilesUploaded();?>;
+// var uploadedTracks = <?php $user->getFilesUploaded();?>;
+
+var uploadedTracks=[];
+
+
+$.ajax({
+  url:'uploadedTracks.php',
+  data:{data:data},
+  type:'POST',
+  success:function(data){
+    if(!data.error){
+    //  alert("successful ajax response");
+   // alert(data);
+      // $('#convertArea').hide();
+      // $('#downloadButton').fixDownloadButton(data);
+      // $('#myVideo').fixVideo(data);
+      uploadedTracks=data; 
+
+
+      //$('#mergedStuff').html(data);
+    }
+  }
+
+})
+
+
+
 
 var y=false;
 var str=[];
