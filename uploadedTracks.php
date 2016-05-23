@@ -6,10 +6,14 @@
  
  $session = new Session;
  $user    = new User;
+ $db      = new DB; 
 
  $user->setSessionId($session->getSessionId());
 
-echo $user->getFilesUploaded();
+// $user->getFilesUploaded();
+
+// print $session->getSessionId();
+ echo json_encode($user->getFilesUploaded());
 
 
 

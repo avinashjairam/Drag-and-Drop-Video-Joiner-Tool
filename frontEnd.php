@@ -112,9 +112,13 @@ if(isset($_POST['str'])){
         });
     });
 
-// var uploadedTracks = <?php $user->getFilesUploaded();?>;
+//var uploadedTracks = <?php $user->getFilesUploaded();?>;
 
 var uploadedTracks=[];
+var y=false;
+var str=[];
+var data;
+var positions =[];
 
 
 $.ajax({
@@ -124,34 +128,23 @@ $.ajax({
   success:function(data){
     if(!data.error){
     //  alert("successful ajax response");
-   // alert(data);
+    alert(data);
       // $('#convertArea').hide();
       // $('#downloadButton').fixDownloadButton(data);
       // $('#myVideo').fixVideo(data);
       uploadedTracks=data; 
+      alert(uploadedTracks.length);
 
+      
 
-      //$('#mergedStuff').html(data);
-    }
-  }
-
-})
-
-
-
-
-var y=false;
-var str=[];
-var data;
-var positions =[];
-window.onload=function(){
 
  var x ="";
 
  y=true;
   var elem = document.getElementById("sortable");
 
-   if(uploadedTracks.length >=1){
+   // if(uploadedTracks.length >=1){
+     if(uploadedTracks==1){
       $('#instructions').css('display','block');
       $('#uploadTrack').css('display','none');
       $('#uploadMoreTracks').css('display','block');
@@ -177,11 +170,61 @@ window.onload=function(){
         }       
 
    }
+  });
+
+
+
+      //$('#mergedStuff').html(data);
+    }
+  }
+
 });
+
+
+
+
+// var y=false;
+// var str=[];
+// var data;
+// var positions =[];
+// window.onload=function(){
+
+//  var x ="";
+
+//  y=true;
+//   var elem = document.getElementById("sortable");
+
+//    if(uploadedTracks.length >=1){
+//       $('#instructions').css('display','block');
+//       $('#uploadTrack').css('display','none');
+//       $('#uploadMoreTracks').css('display','block');
+//    }
+
+//    for(var i=0; i < uploadedTracks.length; i++){
+//       x  +="<li class=\"ui-state-default\" id=\"item-" + i + "\">" +uploadedTracks[i] + " </li>";  
+//   }
+
+//   if(typeof elem !== 'undefined' && elem !== null) {  
+//    elem.innerHTML=x;
+//     $('#selectMergedFormat').css("display","block");
+//   }
+
+//   $('#sortable').sortable({
+
+//     stop: function (event, ui) {
+//        data = $(this).sortable('toArray');
+     
+//         for(var i =0; i <data.length; i++){
+//           positions[i]=$('#'+data[i]).text(); 
+
+//         }       
+
+//    }
+// });
  
 
 
-}
+// }
 
 
 
@@ -362,7 +405,7 @@ window.onload=function(){
 
     })
 
-    <?php $user->clearUploadedTracks(); ?>
+    // <?php $user->clearUploadedTracks(); ?>
 
   });
 

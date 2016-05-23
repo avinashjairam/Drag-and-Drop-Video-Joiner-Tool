@@ -66,7 +66,7 @@
 		public function clearUploadedTracks(){
 			global $db;
 
-			$sql = "DELETE FROM `videoMerger` WHERE `sessionId` = '$this->sessionId'";
+			$sql = "DELETE FROM `videoMergerUploads` WHERE `sessionId` = '$this->sessionId'";
 			//echo $sql;
 
 			$result = $db->query($sql);
@@ -104,10 +104,12 @@
 			$this->select();
 			if(count($this->filesUploaded) > 0){
 				//echo count($this->filesUploaded);
-				echo json_encode($this->filesUploaded);
+				//echo json_encode($this->filesUploaded);
+				 return $this->filesUploaded;
 			}
 			else{
-				echo json_encode(""); 
+			    //echo json_encode(""); 
+				 return 1;
 			}
 
 			// $this->clearUploadedTracks();
