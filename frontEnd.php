@@ -144,13 +144,10 @@ $.ajax({
   var elem = document.getElementById("sortable");
 
    // if(uploadedTracks.length >=1){
-     if(uploadedTracks==1){
-      $('#instructions').css('display','block');
-      $('#uploadTrack').css('display','none');
-      $('#uploadMoreTracks').css('display','block');
-   }
+     if(uploadedTracks!=1){
+     
 
-   for(var i=0; i < uploadedTracks.length; i++){
+         for(var i=0; i < uploadedTracks.length; i++){
       x  +="<li class=\"ui-state-default\" id=\"item-" + i + "\">" +uploadedTracks[i] + " </li>";  
   }
 
@@ -171,6 +168,13 @@ $.ajax({
 
    }
   });
+   }
+
+    $('#instructions').css('display','block');
+      $('#uploadTrack').css('display','none');
+      $('#uploadMoreTracks').css('display','block');
+
+
 
 
 
