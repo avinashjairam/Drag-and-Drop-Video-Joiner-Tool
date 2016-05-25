@@ -106,83 +106,73 @@ if(isset($_POST['str'])){
 <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
 
 <script>
-    $(function() {
-        $( "#sortable" ).sortable({ 
-            placeholder: "ui-sortable-placeholder" 
-        });
-    });
-
+ 
 //var uploadedTracks = <?php $user->getFilesUploaded();?>;
 
-var uploadedTracks=[];
-var y=false;
-var str=[];
-var data;
-var positions =[];
+// var uploadedTracks=[];
+// var y=false;
+// var str=[];
+// var data;
+// var positions =[];
 
 
-$.ajax({
-  url:'uploadedTracks.php',
-  data:{data:data},
-  type:'POST',
-  success:function(data){
-    if(!data.error){
-    //  alert("successful ajax response");
-    alert(data);
-      // $('#convertArea').hide();
-      // $('#downloadButton').fixDownloadButton(data);
-      // $('#myVideo').fixVideo(data);
-      uploadedTracks=data; 
-      alert(uploadedTracks.length);
+// $.ajax({
+//   url:'uploadedTracks.php',
+//   data:{data:data},
+//   type:'POST',
+//   success:function(data){
+//     if(!data.error){
+    
+//       alert(data);      
+//       uploadedTracks=data; 
+//       alert(uploadedTracks.length);
 
-      
+//       var x ="";
 
+//       y=true;
+//       var elem = document.getElementById("sortable");
 
- var x ="";
+   
+//       if(uploadedTracks==1){
+//        // $('#instructions').css('display','block');
+//         $('#uploadTrack').css('display','block');
+//         //$('#selectMergedFormat').css("display","block");
+//       }
+//        else{
+//          for(var i=0; i < uploadedTracks.length; i++){
+//            x  +="<li class=\"ui-state-default\" id=\"item-" + i + "\">" +uploadedTracks[i] + " </li>";  
+//          }
 
- y=true;
-  var elem = document.getElementById("sortable");
+//         if(typeof elem !== 'undefined' && elem !== null) {  
+//           elem.innerHTML=x;
+//           $('#selectMergedFormat').css("display","block");
+//         }
 
-   // if(uploadedTracks.length >=1){
-     if(uploadedTracks!=1){
-     
+//         $('#sortable').sortable({
 
-         for(var i=0; i < uploadedTracks.length; i++){
-      x  +="<li class=\"ui-state-default\" id=\"item-" + i + "\">" +uploadedTracks[i] + " </li>";  
-  }
+//           stop: function (event, ui) {
+//              data = $(this).sortable('toArray');
+           
+//              for(var i =0; i <data.length; i++){
+//                positions[i]=$('#'+data[i]).text(); 
+//              }      
+//           }
+//         });
+//       }
 
-  if(typeof elem !== 'undefined' && elem !== null) {  
-   elem.innerHTML=x;
-    $('#selectMergedFormat').css("display","block");
-  }
-
-  $('#sortable').sortable({
-
-    stop: function (event, ui) {
-       data = $(this).sortable('toArray');
-     
-        for(var i =0; i <data.length; i++){
-          positions[i]=$('#'+data[i]).text(); 
-
-        }       
-
-   }
-  });
-   }
-
-    $('#instructions').css('display','block');
-      $('#uploadTrack').css('display','none');
-      $('#uploadMoreTracks').css('display','block');
+//    // $('#instructions').css('display','block');
+//      // $('#uploadTrack').css('display','none');
+//       //$('#uploadMoreTracks').css('display','block');
 
 
 
 
 
-      //$('#mergedStuff').html(data);
-    }
-  }
+//       //$('#mergedStuff').html(data);
+//     }
+//   }
 
-});
+// });
 
 
 
@@ -363,13 +353,15 @@ $.ajax({
   return str; 
   }
 
-  $("#merge").click(function(){
+ var positions =[];
 
+  $("#merge").click(function(){
+    alert("hey");
     var typeSelected = $(".videoType:checked").val()
     // alert("hey");
 
     str=list();
-  // alert(str);
+   alert(str);
           // alert(list());
 
    if(str=="[]"){
@@ -420,6 +412,157 @@ $.ajax({
     $('#instructions').hide();
     $('#uploadMoreTracks').hide();
     $('#selectMergedFormat').hide();
+
+    var uploadedTracks=[];
+var y=false;
+var str=[];
+var data;
+var positions =[];
+
+
+$.ajax({
+  url:'uploadedTracks.php',
+  data:{data:data},
+  type:'POST',
+  success:function(data){
+    if(!data.error){
+    
+      alert(data);      
+      uploadedTracks=data; 
+      alert(uploadedTracks.length);
+
+      var x ="";
+
+      y=true;
+      var elem = document.getElementById("sortable");
+
+   
+      if(uploadedTracks==1){
+       // $('#instructions').css('display','block');
+        $('#uploadTrack').css('display','block');
+        //$('#selectMergedFormat').css("display","block");
+      }
+       else{
+         for(var i=0; i < uploadedTracks.length; i++){
+           x  +="<li class=\"ui-state-default\" id=\"item-" + i + "\">" +uploadedTracks[i] + " </li>";  
+         }
+
+        if(typeof elem !== 'undefined' && elem !== null) {  
+          elem.innerHTML=x;
+          $('#selectMergedFormat').css("display","block");
+        }
+
+        $('#sortable').sortable({
+
+          stop: function (event, ui) {
+             data = $(this).sortable('toArray');
+           
+             for(var i =0; i <data.length; i++){
+               positions[i]=$('#'+data[i]).text(); 
+             }      
+          }
+        });
+      }
+
+   // $('#instructions').css('display','block');
+     // $('#uploadTrack').css('display','none');
+      //$('#uploadMoreTracks').css('display','block');
+
+
+
+
+
+      //$('#mergedStuff').html(data);
+    }
+  }
+
+});
+
+
+    // var uploadedTracks=[];
+    // var y=false;
+    // var str=[];
+    // var data;
+    // var positions =[];
+
+// 
+// $.ajax({
+//   url:'uploadedTracks.php',
+//   data:{data:data},
+//   type:'POST',
+//   success:function(data){
+//     if(!data.error){
+    
+//     alert(data);
+      
+//       uploadedTracks=data; 
+//       alert(uploadedTracks.length);
+
+      
+
+
+//  var x ="";
+
+//  y=true;
+//   var elem = document.getElementById("sortable");
+
+//    // if(uploadedTracks.length >=1){
+//      if(uploadedTracks==1){
+//        // $('#instructions').css('display','block');
+//         $('#uploadTrack').css('display','block');
+//         //$('#selectMergedFormat').css("display","block");
+//      }
+//      else{
+
+//          for(var i=0; i < uploadedTracks.length; i++){
+//       x  +="<li class=\"ui-state-default\" id=\"item-" + i + "\">" +uploadedTracks[i] + " </li>";  
+//   }
+
+//   if(typeof elem !== 'undefined' && elem !== null) {  
+//    elem.innerHTML=x;
+//     $('#selectMergedFormat').css("display","block");
+//   }
+
+//   $('#sortable').sortable({
+
+//     stop: function (event, ui) {
+//        data = $(this).sortable('toArray');
+     
+//         for(var i =0; i <data.length; i++){
+//           positions[i]=$('#'+data[i]).text(); 
+
+//         }       
+
+//    }
+//   });
+//    }
+
+//    // $('#instructions').css('display','block');
+//      // $('#uploadTrack').css('display','none');
+//       //$('#uploadMoreTracks').css('display','block');
+
+
+
+
+
+//       //$('#mergedStuff').html(data);
+//     }
+//   }
+
+// });
+
+
+
+
+
+
+
+
+
+
+
+
+
   });
 
   $("#uploadMoreTracksButton").click(function(){
@@ -439,6 +582,12 @@ $.ajax({
   //   this.attr("src",data);
   //   this.show();
   // }
+
+   $(function() {
+      $( "#sortable" ).sortable({ 
+          placeholder: "ui-sortable-placeholder" 
+      });
+  });
 
 
 
