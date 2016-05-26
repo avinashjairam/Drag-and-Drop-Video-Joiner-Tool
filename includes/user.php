@@ -105,11 +105,12 @@
 			if(count($this->filesUploaded) > 0){
 				//echo count($this->filesUploaded);
 				//echo json_encode($this->filesUploaded);
-				 return $this->filesUploaded;
+				 print json_encode($this->filesUploaded);
 			}
 			else{
-			    //echo json_encode(""); 
-				 return 1;
+			   //echo json_encode(""); 
+				 //return "";
+				print json_encode($this->filesUploaded);
 			}
 
 			// $this->clearUploadedTracks();

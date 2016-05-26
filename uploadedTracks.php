@@ -10,10 +10,10 @@
 
  $user->setSessionId($session->getSessionId());
 
-// $user->getFilesUploaded();
+ $user->getFilesUploaded();
 
 // print $session->getSessionId();
- echo json_encode($user->getFilesUploaded());
+// echo json_encode($user->getFilesUploaded());
 
 
 

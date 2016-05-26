@@ -307,6 +307,24 @@ if(isset($_POST['str'])){
        </div>    
     </div>
 
+
+    <!--Alert Messages -->
+ <div id ="warning" class="alert alert-danger">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Warning!</strong> Please Upload a Video First! 
+ </div>
+
+ <div id="uploadAnotherTrack" class="alert alert-warning">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Warning!</strong> You Must Upload a Minimum of 2 or More Videos to Merge!
+</div>
+
+ <div id="selectFormat" class="alert alert-danger">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Warning!</strong> Please select the format you want the merged video to be!
+</div>
+
+
   <div id="selectMergedFormat">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
@@ -325,7 +343,6 @@ if(isset($_POST['str'])){
      </div>
    </div>
   </div>
-
 
 
 
@@ -361,6 +378,9 @@ $(document).ready(function(){
   $('#instructions').hide();
   $('#uploadMoreTracks').hide();
   $('#selectMergedFormat').hide();
+  $('#warning').hide();
+  $('#uploadAnotherTrack').hide();
+  $('#selectFormat').hide();
 
  
 
@@ -368,12 +388,17 @@ $(document).ready(function(){
     url:'uploadedTracks.php',
     data:{data:data},
     type:'POST',
+    dataType:"json",
     success:function(data){
       if(!data.error){
       
-        alert(data);      
-        uploadedTracks=data; 
-        alert(uploadedTracks.length);
+       // alert(data);      
+        //uploadedTracks=JSON.stringify(data); 
+        uploadedTracks=data;
+      //  alert("data contents" +data);
+       // alert(uploadedTracks.length);
+       alert(uploadedTracks.length);
+        alert(typeof(uploadedTracks));
 
         var x ="";
 
@@ -381,12 +406,14 @@ $(document).ready(function(){
         var elem = document.getElementById("sortable");
 
      
-        if(uploadedTracks==1){
+        if(uploadedTracks.length==0){
+          alert("No track uploaded");
          // $('#instructions').css('display','block');
           $('#uploadTrack').css('display','block');
           //$('#selectMergedFormat').css("display","block");
         }
          else{
+        //  uploadedTracks=JSON.stringify(uploadedTracks);
            for(var i=0; i < uploadedTracks.length; i++){
              x  +="<li class=\"ui-state-default\" id=\"item-" + i + "\">" +uploadedTracks[i] + " </li>";  
            }
@@ -420,213 +447,71 @@ $(document).ready(function(){
 
 
 $("#merge").click(function(){
-    alert("hey");
-    var typeSelected = $(".videoType:checked").val();
-    // alert("hey");
-
-    str=list();
-   alert(str);
-          // alert(list());
-
-   if(str=="[]"){
-    var z="[";
-    var temp;
-       for(var i=0; i < uploadedTracks.length; i++){
-         temp="#item-" + i; 
-         z+= "\""+ $(temp).text() +"\"";
-
-         if(uploadedTracks.length-i > 1 ){
-          z+=",";
-         }
-       }
-
-       z+="]";
-       str=z;
-
-     //alert("zero");
+  var typeSelected = $(".videoType:checked").val();
+  alert(typeSelected);
+    if(uploadedTracks.length==0){
+      $('#warning').css("display","block");
     }
+    else if(uploadedTracks.length==1){
+      $('#uploadAnotherTrack').css("display","block");
+    }
+    else if( !$('mp4').is(':checked') || !$('#flv').is(':checked') || !$('#avi').is(':checked')  ){
+      alert("not checked");
+       $('#selectFormat').css("display","block");
+    }
+    else{
+       alert("hey");
+      
+      // alert("hey");
 
-    $.ajax({
-      url:'joinVideos.php',
-      data:{str:str, typeSelected:typeSelected},
-      type:'POST',
-      success:function(data){
-        if(!data.error){
-        //  alert("successful ajax response");
-       // alert(data);
-          $('#convertArea').hide();
-          $('#downloadButton').fixDownloadButton(data);
-          // $('#myVideo').fixVideo(data);
+      str=list();
+     alert(str);
+            // alert(list());
 
+     if(str=="[]"){
+      var z="[";
+      var temp;
+         for(var i=0; i < uploadedTracks.length; i++){
+           temp="#item-" + i; 
+           z+= "\""+ $(temp).text() +"\"";
 
-          //$('#mergedStuff').html(data);
-        }
+           if(uploadedTracks.length-i > 1 ){
+            z+=",";
+           }
+         }
+
+         z+="]";
+         str=z;
+
+       //alert("zero");
       }
 
-    });
+      $.ajax({
+        url:'joinVideos.php',
+        data:{str:str, typeSelected:typeSelected},
+        type:'POST',
+        success:function(data){
+          if(!data.error){
+          //  alert("successful ajax response");
+         // alert(data);
+            $('#convertArea').hide();
+            $('#downloadButton').fixDownloadButton(data);
+            // $('#myVideo').fixVideo(data);
+
+
+            //$('#mergedStuff').html(data);
+          }
+        }
+
+      });
+    }
 
     // <?php $user->clearUploadedTracks(); ?>
 
   });
 
 
-// var uploadedTracks=[];
-// var y=false;
-// var str=[];
-// var data;
-// var positions =[];
 
-
-
-// $(document).ready(function(){
-//   // $('#myVideo').hide();
-//   $('#downloadButton').hide();
-//   $('#instructions').hide();
-//   $('#uploadMoreTracks').hide();
-//   $('#selectMergedFormat').hide();
-
- 
-
-//   $.ajax({
-//     url:'uploadedTracks.php',
-//     data:{data:data},
-//     type:'POST',
-//     success:function(data){
-//       if(!data.error){
-      
-//         alert(data);      
-//         uploadedTracks=data; 
-//         alert(uploadedTracks.length);
-
-//         var x ="";
-
-//         y=true;
-//         var elem = document.getElementById("sortable");
-
-     
-//         if(uploadedTracks==1){
-//          // $('#instructions').css('display','block');
-//           $('#uploadTrack').css('display','block');
-//           //$('#selectMergedFormat').css("display","block");
-//         }
-//          else{
-//            for(var i=0; i < uploadedTracks.length; i++){
-//              x  +="<li class=\"ui-state-default\" id=\"item-" + i + "\">" +uploadedTracks[i] + " </li>";  
-//            }
-
-//           if(typeof elem !== 'undefined' && elem !== null) {  
-//             elem.innerHTML=x;
-//             $('#selectMergedFormat').css("display","block");
-//           }
-
-//           $('#sortable').sortable({
-//             stop: function (event, ui) {
-//                data = $(this).sortable('toArray');
-             
-//                for(var i =0; i <data.length; i++){
-//                  positions[i]=$('#'+data[i]).text(); 
-//                }      
-//             }
-//           });
-//         }
-//       }
-//     }
-
-//   });
-// });
-
-//  function list(){
-//    str = JSON.stringify(positions);
-//    //alert(str);
-//   return str; 
-// }
-
-// // var str =[];
-
-//   $("#merge").click(function(){
-//     alert("hey");
-//     var typeSelected = $(".videoType:checked").val();
-//     // alert("hey");
-
-//     str=list();
-//    alert(str);
-//           // alert(list());
-
-//    if(str=="[]"){
-//     var z="[";
-//     var temp;
-//        for(var i=0; i < uploadedTracks.length; i++){
-//          temp="#item-" + i; 
-//          z+= "\""+ $(temp).text() +"\"";
-
-//          if(uploadedTracks.length-i > 1 ){
-//           z+=",";
-//          }
-//        }
-
-//        z+="]";
-//        str=z;
-
-//      //alert("zero");
-//     }
-
-//     $.ajax({
-//       url:'joinVideos.php',
-//       data:{str:str, typeSelected:typeSelected},
-//       type:'POST',
-//       success:function(data){
-//         if(!data.error){
-//         //  alert("successful ajax response");
-//        // alert(data);
-//           $('#convertArea').hide();
-//           $('#downloadButton').fixDownloadButton(data);
-//           // $('#myVideo').fixVideo(data);
-
-
-//           //$('#mergedStuff').html(data);
-//         }
-//       }
-
-//     });
-
-//     // <?php $user->clearUploadedTracks(); ?>
-
-//   });
-  
-
-
-
-
-
-
-
-
-
-
-
-
-//   });
-
-//   $("#uploadMoreTracksButton").click(function(){
-//     $('#uploadTrack').css("display","block");
-//     $('#uploadMoreTracksButton').css("display","none");
-//    // alert("hi");
-
-
-//   });
-
-//   $.fn.fixDownloadButton = function(data){
-//     this.attr("href",data);
-//     this.css("display","block");
-//   }
-
-  
-
-//    $(function() {
-//       $( "#sortable" ).sortable({ 
-//           placeholder: "ui-sortable-placeholder" 
-//       });
-//   });
 
 
 
