@@ -455,8 +455,9 @@ $("#merge").click(function(){
     else if(uploadedTracks.length==1){
       $('#uploadAnotherTrack').css("display","block");
     }
-    else if( !$('mp4').is(':checked') || !$('#flv').is(':checked') || !$('#avi').is(':checked')  ){
-      alert("not checked");
+    else if( !$('mp4').is(':checked') && !$('#flv').is(':checked') && !$('#avi').is(':checked')  ){
+      //alert("not checked");
+      alert($('mp4').is(':checked'));
        $('#selectFormat').css("display","block");
     }
     else{
@@ -493,9 +494,11 @@ $("#merge").click(function(){
         success:function(data){
           if(!data.error){
           //  alert("successful ajax response");
-         // alert(data);
+            alert(data);
             $('#convertArea').hide();
             $('#downloadButton').fixDownloadButton(data);
+            // $("#downloadButton").attr("href", data);
+            // $("downloadButton").css("display","block");
             // $('#myVideo').fixVideo(data);
 
 
@@ -510,7 +513,10 @@ $("#merge").click(function(){
 
   });
 
-
+ $.fn.fixDownloadButton = function(data){
+    this.attr("href",data);
+    this.css("display","block");
+  }
 
 
 
