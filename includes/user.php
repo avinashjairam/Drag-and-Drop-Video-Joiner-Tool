@@ -66,7 +66,7 @@
 		public function clearUploadedTracks(){
 			global $db;
 
-			$sql = "DELETE FROM `videoMergerUploads` WHERE `sessionId` = '$this->sessionId'";
+			$sql = "DELETE FROM `videoMerger` WHERE `sessionId` = '$this->sessionId'";
 			//echo $sql;
 
 			$result = $db->query($sql);
