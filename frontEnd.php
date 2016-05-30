@@ -261,7 +261,7 @@ if(isset($_POST['str'])){
 
 <div class="container contentContainer">
   <div class = "row">                                               
-     <a href="" id ="downloadButton" class="btn btn-lg btn-success" download><span class="glyphicon glyphicon-download-alt"></span> Click Here to Download Your Merged Videos!</a>
+     <a href="" id ="downloadButton" class="btn btn-success col-md-6 col-md-offset-3" download><span class="glyphicon glyphicon-download-alt"></span> Click Here to Download Your Merged Videos!</a>
         <!--   <div class="col-md-3 col-md-offset-2" id="download">  
             <br><br>
           <video id="myVideo" controls autoplay>
@@ -540,7 +540,7 @@ $("#merge").click(function(){
     this.css("display","block");
   }
 
-  
+
   $("#uploadMoreTracksButton").click(function(){
     $('#uploadTrack').css("display","block");
     $('#uploadMoreTracksButton').css("display","none");
