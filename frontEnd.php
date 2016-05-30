@@ -260,16 +260,11 @@ if(isset($_POST['str'])){
 </nav>
 
 <div class="container contentContainer">
-  <div class = "row">                                               
-     <a href="" id ="downloadButton" class="btn btn-success col-md-6 col-md-offset-3" download><span class="glyphicon glyphicon-download-alt"></span> Click Here to Download Your Merged Videos!</a>
-        <!--   <div class="col-md-3 col-md-offset-2" id="download">  
-            <br><br>
-          <video id="myVideo" controls autoplay>
-            <source id="mp4_src" src="" type="video/mp4">
-            <source id="ogg_src" src="" type="video/ogg">
-            Your browser does not support HTML5 video.
-          </video>
-       </div>  -->
+  <div class = "row">          
+    <div class="col-md-6 col-md-offset-3">                                     
+     <a href="" id ="downloadButton" class="btn btn-success" download><span class="glyphicon glyphicon-download-alt"></span> Click Here to Download Your Merged Videos!</a>
+        
+      </div>
   </div>
 
   <div id="loading">
@@ -286,8 +281,10 @@ if(isset($_POST['str'])){
   <div id="convertArea">
 
     <div id="uploadMoreTracks">
-      <div class="row" >
+      <div class="row">
+        <div class="">
           <button class="btn btn-danger col-md-6 col-md-offset-3" id="uploadMoreTracksButton"><span class="glyphicon glyphicon-cloud-upload"></span>Upload Another Video?</button>
+        </div>
         
       </div>
     </div>
@@ -341,10 +338,10 @@ if(isset($_POST['str'])){
         <input id="avi" type="radio" class="videoType" name="videoType" value=".avi"> .avi 
        </label>
         <label class="radio-inline">  
-        <input id="mp4" type="radio" class="videoType" name="videoType" value=".flv"> .flv
+        <input id="flv" type="radio" class="videoType" name="videoType" value=".flv"> .flv
       </label>
          <label class="radio-inline">  
-        <input id="flv" type="radio" class="videoType" name="videoType" value=".mp4"> .mp4
+        <input id="mp4" type="radio" class="videoType" name="videoType" value=".mp4"> .mp4
       </label>
       </form>
      </div>
