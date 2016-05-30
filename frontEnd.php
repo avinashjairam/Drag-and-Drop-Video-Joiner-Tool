@@ -440,6 +440,10 @@ $(document).ready(function(){
                }      
             }
           });
+
+          $('#instructions').css('display','block');
+          $('#uploadTrack').css('display','none');
+          $('#uploadMoreTracks').css('display','block');
         }
       }
     }
@@ -535,6 +539,13 @@ $("#merge").click(function(){
     this.attr("href",data);
     this.css("display","block");
   }
+
+  
+  $("#uploadMoreTracksButton").click(function(){
+    $('#uploadTrack').css("display","block");
+    $('#uploadMoreTracksButton').css("display","none");
+   // alert("hi");
+  });
 
 
 
