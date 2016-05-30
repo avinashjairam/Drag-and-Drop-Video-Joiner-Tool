@@ -2,7 +2,13 @@
 
  require_once ('./includes/session.php');
  require_once ('./includes/user.php');
+ require_once ('./includes/db.php');
+
  $session = new Session;
+ $user    = new User;
+ $db      = new DB; 
+
+ $user->setSessionId($session->getSessionId());
  //$user    = new User;
 
  $increment = 1;
@@ -73,8 +79,9 @@ if($_POST['str']){
 	exec($mergeCommand,$output,$return);
 
 	if($return==0){
+		$user->clearUploadedTracks();
 		print "./$targetFolder/$mergedFileName";
-		// $user->clearUploadedTracks();
+	     //$user->clearUploadedTracks();
 	}
 
 	//print_r($_POST['str']);

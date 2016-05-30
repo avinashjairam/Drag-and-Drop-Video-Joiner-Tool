@@ -23,9 +23,11 @@
 
 			if($db->query($sql)){
 				echo "yes";
+				//echo $db->confirmQuery();
 				return true;
 
 			}else{
+				//echo $db->confirmQuery();
 				return false;
 
 			}	
@@ -65,12 +67,13 @@
 
 		public function clearUploadedTracks(){
 			global $db;
+		//	echo "method called";
 
 			$sql = "DELETE FROM `videoMerger` WHERE `sessionId` = '$this->sessionId'";
 			//echo $sql;
 
 			$result = $db->query($sql);
-
+			//echo"yooooooooooooooooo";
 			//echo $result; 
 		}
 

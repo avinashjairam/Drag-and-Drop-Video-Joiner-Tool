@@ -272,6 +272,13 @@ if(isset($_POST['str'])){
        </div>  -->
   </div>
 
+  <div id="loading">
+   <div class="row">
+    <img src="./img/loading.gif" alt="loading-icon">
+
+   </div>
+  </div>
+
 
 
 
@@ -381,6 +388,7 @@ $(document).ready(function(){
   $('#warning').hide();
   $('#uploadAnotherTrack').hide();
   $('#selectFormat').hide();
+  $('#loading').hide();
 
  
 
@@ -487,6 +495,16 @@ $("#merge").click(function(){
        //alert("zero");
       }
 
+      $(document).on("ajaxStart.secondCall", function () {
+        $('#convertArea').hide();
+         $("#loading").css("display","block");
+
+      });
+      
+      $(document).on("ajaxStop.secondCall", function () {
+          $('#loading').hide();
+      });
+
       $.ajax({
         url:'joinVideos.php',
         data:{str:str, typeSelected:typeSelected},
@@ -509,7 +527,7 @@ $("#merge").click(function(){
       });
     }
 
-    // <?php $user->clearUploadedTracks(); ?>
+    
 
   });
 
