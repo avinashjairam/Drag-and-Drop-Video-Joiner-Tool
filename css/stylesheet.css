@@ -18,13 +18,32 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
 }
-.footer {
+
+.navbar-brand,
+.navbar-nav li a {
+    line-height: 80px;
+    height: 80px;
+    padding-top: 0;
+}
+
+
+/*.footer {
   position: relative;
   bottom: 0;
   width: 100%;
-  /* Set the fixed height of the footer here */
+   Set the fixed height of the footer here 
   height: 60px;
   background-color: black;
+}*/
+
+.footer
+{
+    height: 50px;
+    background-color: black;
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
 }
 
 
@@ -49,6 +68,10 @@ body {
 
 #instructions{
      text-align: center;
+}
+
+#mainContent{
+    padding-top: 100px;
 }
 
 

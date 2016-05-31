@@ -231,14 +231,35 @@ if(isset($_POST['str'])){
 
 
 <body>
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">MergeMyVideos</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="how_to_use.php">How To Use</a></li>
+        <li><a href="about.php">About</a></li>
+        <li><a href="contact.php">Contact</a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
 
 
-<div class="container contentContainer">
 
+
+<!-- <div id="">
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
+  <!--   <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
@@ -246,20 +267,21 @@ if(isset($_POST['str'])){
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="./frontEnd.php">Merge Your Videos</a>
-    </div>
+    </div> -->
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<!--     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="./howToUse.php">How to Use<span class="sr-only">(current)</span></a></li>
         <li><a href="about.php">About</a></li>
         <li><a href="contact.php">Contact</a></li>        
       </ul>  
     </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+  <!-- </div> --><!-- /.container-fluid -->
+<!-- </nav>
+</div> --> 
 
-<div class="container contentContainer">
+<div id="mainContent" class="container contentContainer">
   <div class = "row">          
     <div class="col-md-6 col-md-offset-3">                                     
      <a href="" id ="downloadButton" class="btn btn-success" download><span class="glyphicon glyphicon-download-alt"></span> Click Here to Download Your Merged Videos!</a>
@@ -269,8 +291,10 @@ if(isset($_POST['str'])){
 
   <div id="loading">
    <div class="row">
-    <img src="./img/loading.gif" alt="loading-icon">
-
+    <div>
+      
+    <img class="col-md-6 col-md-offset-3" src="./img/loading.gif" alt="loading-icon">
+   </div>
    </div>
   </div>
 
@@ -356,14 +380,11 @@ if(isset($_POST['str'])){
 
   </div>
 
-</div>
 
-<!-- <footer class="footer">
-      <div class="container">
-        <p class="text-muted">Place sticky footer content here.</p>
-      </div>
-</footer>
- -->
+<div id="footer" class="container-fluid">
+    <div class="row">....</div>
+</div>
+</body>
 
 
 <script>
@@ -464,9 +485,10 @@ $("#merge").click(function(){
     else if(uploadedTracks.length==1){
       $('#uploadAnotherTrack').css("display","block");
     }
-    else if( !$('mp4').is(':checked') && !$('#flv').is(':checked') && !$('#avi').is(':checked')  ){
+    else if( !$('#mp4').is(':checked') && !$('#flv').is(':checked') && !$('#avi').is(':checked')  ){
       //alert("not checked");
       alert($('mp4').is(':checked'));
+      alert("nothing selected");
        $('#selectFormat').css("display","block");
     }
     else{
@@ -513,7 +535,7 @@ $("#merge").click(function(){
         success:function(data){
           if(!data.error){
           //  alert("successful ajax response");
-            alert(data);
+            //alert(data);
             $('#convertArea').hide();
             $('#downloadButton').fixDownloadButton(data);
             // $("#downloadButton").attr("href", data);
@@ -549,7 +571,7 @@ $("#merge").click(function(){
 
 </script>
 
-</body>
+
 
 
 
