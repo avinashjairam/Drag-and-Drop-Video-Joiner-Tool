@@ -64,7 +64,9 @@
 
 
 
-
+<div class="footer" class="container-fluid">
+    <div class="row">....</div>
+</div>
 
 
 </body>

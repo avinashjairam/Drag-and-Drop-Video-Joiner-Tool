@@ -381,7 +381,7 @@ if(isset($_POST['str'])){
   </div>
 
 
-<div id="footer" class="container-fluid">
+<div class="footer" class="container-fluid">
     <div class="row">....</div>
 </div>
 </body>
