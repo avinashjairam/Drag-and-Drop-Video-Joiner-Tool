@@ -51,20 +51,22 @@
 
 
 
-
-
-
-<div id="mainContent" class="container contentContainer">
+<div id="mainContent" class=" wrapper container contentContainer">
   <div class = "row">          
     <div class="col-md-6 col-md-offset-3">                                     
    
    </div>
   </div>
+
+  <div class="push"></div>
 </div>
 
-<div class="footer" class="container-fluid">
-    <div class="row">....</div>
+<div class="footer">
+            <p>Copyright </p>
 </div>
+
+
+
 
 
 

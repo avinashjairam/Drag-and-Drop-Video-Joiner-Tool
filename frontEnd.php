@@ -281,7 +281,7 @@ if(isset($_POST['str'])){
 <!-- </nav>
 </div> --> 
 
-<div id="mainContent" class="container contentContainer">
+<div id="mainContent" class="container contentContainer wrapper">
   <div class = "row">          
     <div class="col-md-6 col-md-offset-3">                                     
      <a href="" id ="downloadButton" class="btn btn-success" download><span class="glyphicon glyphicon-download-alt"></span> Click Here to Download Your Merged Videos!</a>
@@ -378,12 +378,14 @@ if(isset($_POST['str'])){
   <button class="btn btn-success glyphicon glyphicon-cog col-md-6 col-md-offset-3" id="merge">MERGE!!!</button>
   </div>
 
+
+  <div class="push"></div>
+
   </div>
 
-
-<div class="footer" class="container-fluid">
-    <div class="row">....</div>
-</div>
+      <div class="footer">
+            <p>Copyright (c) 2008</p>
+        </div>
 </body>
 
 
