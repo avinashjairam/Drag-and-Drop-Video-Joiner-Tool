@@ -284,7 +284,7 @@ if(isset($_POST['str'])){
 <div id="mainContent" class="container contentContainer wrapper">
   <div class = "row">          
     <div class="col-md-6 col-md-offset-3">                                     
-     <a href="" id ="downloadButton" class="btn btn-success" download><span class="glyphicon glyphicon-download-alt"></span> Click Here to Download Your Merged Videos!</a>
+     <a href="" id ="downloadButton" class="btn btn-success" download ><span class="glyphicon glyphicon-download-alt"></span> Click Here to Download Your Merged Videos!</a>
         
       </div>
   </div>
@@ -379,12 +379,10 @@ if(isset($_POST['str'])){
   </div>
 
 
-  <div class="push"></div>
+   <div class="push"></div>
+</div>
 
-  </div>
-
-      <div class="footer">
-            <p>Copyright (c) 2008</p>
+      <div class="footer">            
         </div>
 </body>
 
@@ -478,6 +476,8 @@ $(document).ready(function(){
 } 
 
 
+
+
 $("#merge").click(function(){
   var typeSelected = $(".videoType:checked").val();
   alert(typeSelected);
@@ -538,6 +538,7 @@ $("#merge").click(function(){
           if(!data.error){
           //  alert("successful ajax response");
             //alert(data);
+            // data=data;
             $('#convertArea').hide();
             $('#downloadButton').fixDownloadButton(data);
             // $("#downloadButton").attr("href", data);
@@ -567,6 +568,45 @@ $("#merge").click(function(){
     $('#uploadMoreTracksButton').css("display","none");
    // alert("hi");
   });
+
+  $("#downloadButton").click(function(){
+   alert("hi");
+
+
+    var x="";
+    $.ajax({
+      url:'checkIfFileExist.php',
+      data:{x:x},
+      type:'POST',
+      success:function(data){
+        if(!x.error){
+         alert(x);
+         alert(typeof(x));
+        }
+      }
+
+    });
+  });
+
+
+// $('#downloadButton').click(function(e) {
+//     e.preventDefault();
+//     // alert(data);
+
+//     // var x="";
+//     // $.ajax({
+//     //   url:'checkIfFileExist.php',
+//     //   data:{data:data},
+//     //   type:'POST',
+//     //   success:function(data){
+//     //     if(!data.error){
+//     //      alert(x);
+//     //      alert(typeof(x));
+//     //     }
+//     //   }
+
+//     // });
+// });
 
 
 

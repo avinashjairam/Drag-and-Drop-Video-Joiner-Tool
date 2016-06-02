@@ -5,8 +5,6 @@ class File{
 	private $uploadPath;  // Upload directory
 	private $uploadCount; 
 	private $uploadDirectory;
-	private $fileTypesToBeUploaded;
-	private $fileSafeToBeUploaded;
 	private $uploadDirectoryPermissions;
 
 	public function __construct(){
@@ -38,6 +36,15 @@ class File{
 		//		echo "flag is {$this->fileSafeToBeUploaded}<br>{$this->fileTypesToBeUploaded[$index]}";
 			}
 		}	
+	}
+
+	public function isFileExist($file){
+		if(!is_dir($file)){
+			print json_encode("1");
+		}
+		else{
+			print json_encode("0");
+		}
 	}
 
 	public function isFileSafeToBeUploaded($fileExtension){
