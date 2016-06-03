@@ -392,6 +392,7 @@ if(isset($_POST['str'])){
 var uploadedTracks=[];
 var y=false;
 var str=[];
+var jsonData;
 var data;
 var positions =[];
 
@@ -533,12 +534,19 @@ $("#merge").click(function(){
       $.ajax({
         url:'joinVideos.php',
         data:{str:str, typeSelected:typeSelected},
+        // data:"json",
         type:'POST',
         success:function(data){
+          data=data;
+          jsonData=data;
           if(!data.error){
           //  alert("successful ajax response");
             //alert(data);
             // data=data;
+            // alert( typeof(data));
+            // alert(typeof(data));
+           
+         
             $('#convertArea').hide();
             $('#downloadButton').fixDownloadButton(data);
             // $("#downloadButton").attr("href", data);
@@ -569,19 +577,21 @@ $("#merge").click(function(){
    // alert("hi");
   });
 
-  $("#downloadButton").click(function(){
-   alert("hi");
+  $("#downloadButton").click(function(e){
+//   alert("hi");
+ //  alert(data);
 
-
+   e.preventDefault();
     var x="";
     $.ajax({
       url:'checkIfFileExist.php',
-      data:{x:x},
+      data:{data:data},
       type:'POST',
       success:function(data){
-        if(!x.error){
-         alert(x);
-         alert(typeof(x));
+        if(!data.error){
+         alert(data);
+         // alert(typeof(data));
+
         }
       }
 

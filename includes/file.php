@@ -39,6 +39,7 @@ class File{
 	}
 
 	public function isFileExist($file){
+		//$file;
 		if(!is_dir($file)){
 			print json_encode("1");
 		}
