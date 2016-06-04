@@ -585,11 +585,19 @@ $("#merge").click(function(){
     var x="";
     $.ajax({
       url:'checkIfFileExist.php',
+      dataType:"json",
       data:{data:data},
       type:'POST',
       success:function(data){
         if(!data.error){
-         alert(data);
+          alert(typeof(data));
+          if(data=="0"){
+           // alert("file not deleted");
+            return true;
+          }
+          else{
+            alert("file deleted");
+          }
          // alert(typeof(data));
 
         }
