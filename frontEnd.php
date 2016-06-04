@@ -342,6 +342,12 @@ if(isset($_POST['str'])){
     <strong>Warning!</strong> Please Upload a Video First! 
  </div>
 
+     <!--Alert Messages -->
+ <div id ="fileDeleted" class="alert alert-danger">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Warning!</strong> File Has Been Deleted! 
+ </div>
+
  <div id="uploadAnotherTrack" class="alert alert-warning">
   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
   <strong>Warning!</strong> You Must Upload a Minimum of 2 or More Videos to Merge!
@@ -408,6 +414,7 @@ $(document).ready(function(){
   $('#uploadAnotherTrack').hide();
   $('#selectFormat').hide();
   $('#loading').hide();
+  $('#fileDeleted').hide();
 
  
 
@@ -591,12 +598,16 @@ $("#merge").click(function(){
       success:function(data){
         if(!data.error){
           alert(typeof(data));
-          if(data=="0"){
+          if(data=="1"){
            // alert("file not deleted");
-            return true;
+              alert("file deleted");
+          
+           // return true;
           }
           else{
-            alert("file deleted");
+             $("#downloadButton").unbind();
+           // e.preventDefault();
+         
           }
          // alert(typeof(data));
 
@@ -605,6 +616,49 @@ $("#merge").click(function(){
 
     });
   });
+
+
+
+
+// (function( $ ){
+  function checkForDeletedFile()  {
+    $.ajax({
+      url:'checkIfFileExist.php',
+      dataType:"json",
+      data:{data:data},
+      type:'POST',
+      success:function(data){
+        if(!data.error){
+          alert(typeof(data));
+          if(data=="1"){
+           // alert("file not deleted");
+             // alert("file deleted");
+             $("downloadButton").hide();
+             $("fileDeleted").show();
+          
+           // return true;
+          }
+          // else{
+          //    $("#downloadButton").unbind();
+          //  // e.preventDefault();
+         
+          // }
+         // alert(typeof(data));
+
+        }
+      }
+
+    });
+  }
+   //    return this;
+   // }; 
+// })( jQuery );
+
+if($('#downloadButton').is(':hidden')){
+
+ setInterval(checkForDeletedFile,5000);
+}
+
 
 
 // $('#downloadButton').click(function(e) {
