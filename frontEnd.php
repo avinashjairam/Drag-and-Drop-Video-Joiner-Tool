@@ -105,125 +105,6 @@ if(isset($_POST['str'])){
 <link rel="stylesheet" href="./css/stylesheet.css" />
 <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
 
-<script>
- 
-//var uploadedTracks = <?php $user->getFilesUploaded();?>;
-
-// var uploadedTracks=[];
-// var y=false;
-// var str=[];
-// var data;
-// var positions =[];
-
-
-// $.ajax({
-//   url:'uploadedTracks.php',
-//   data:{data:data},
-//   type:'POST',
-//   success:function(data){
-//     if(!data.error){
-    
-//       alert(data);      
-//       uploadedTracks=data; 
-//       alert(uploadedTracks.length);
-
-//       var x ="";
-
-//       y=true;
-//       var elem = document.getElementById("sortable");
-
-   
-//       if(uploadedTracks==1){
-//        // $('#instructions').css('display','block');
-//         $('#uploadTrack').css('display','block');
-//         //$('#selectMergedFormat').css("display","block");
-//       }
-//        else{
-//          for(var i=0; i < uploadedTracks.length; i++){
-//            x  +="<li class=\"ui-state-default\" id=\"item-" + i + "\">" +uploadedTracks[i] + " </li>";  
-//          }
-
-//         if(typeof elem !== 'undefined' && elem !== null) {  
-//           elem.innerHTML=x;
-//           $('#selectMergedFormat').css("display","block");
-//         }
-
-//         $('#sortable').sortable({
-
-//           stop: function (event, ui) {
-//              data = $(this).sortable('toArray');
-           
-//              for(var i =0; i <data.length; i++){
-//                positions[i]=$('#'+data[i]).text(); 
-//              }      
-//           }
-//         });
-//       }
-
-//    // $('#instructions').css('display','block');
-//      // $('#uploadTrack').css('display','none');
-//       //$('#uploadMoreTracks').css('display','block');
-
-
-
-
-
-//       //$('#mergedStuff').html(data);
-//     }
-//   }
-
-// });
-
-
-
-
-// var y=false;
-// var str=[];
-// var data;
-// var positions =[];
-// window.onload=function(){
-
-//  var x ="";
-
-//  y=true;
-//   var elem = document.getElementById("sortable");
-
-//    if(uploadedTracks.length >=1){
-//       $('#instructions').css('display','block');
-//       $('#uploadTrack').css('display','none');
-//       $('#uploadMoreTracks').css('display','block');
-//    }
-
-//    for(var i=0; i < uploadedTracks.length; i++){
-//       x  +="<li class=\"ui-state-default\" id=\"item-" + i + "\">" +uploadedTracks[i] + " </li>";  
-//   }
-
-//   if(typeof elem !== 'undefined' && elem !== null) {  
-//    elem.innerHTML=x;
-//     $('#selectMergedFormat').css("display","block");
-//   }
-
-//   $('#sortable').sortable({
-
-//     stop: function (event, ui) {
-//        data = $(this).sortable('toArray');
-     
-//         for(var i =0; i <data.length; i++){
-//           positions[i]=$('#'+data[i]).text(); 
-
-//         }       
-
-//    }
-// });
- 
-
-
-// }
-
-
-
-
-</script>
 
 
 
@@ -255,31 +136,7 @@ if(isset($_POST['str'])){
 
 
 
-<!-- <div id="">
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-  <!--   <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="./frontEnd.php">Merge Your Videos</a>
-    </div> -->
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-<!--     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="./howToUse.php">How to Use<span class="sr-only">(current)</span></a></li>
-        <li><a href="about.php">About</a></li>
-        <li><a href="contact.php">Contact</a></li>        
-      </ul>  
-    </div><!-- /.navbar-collapse -->
-  <!-- </div> --><!-- /.container-fluid -->
-<!-- </nav>
-</div> --> 
 
 <div id="mainContent" class="container contentContainer wrapper">
   <div class = "row">          
@@ -291,10 +148,19 @@ if(isset($_POST['str'])){
 
   <div id="loading">
    <div class="row">
-    <div>
-      
+    <div>      
     <img class="col-md-6 col-md-offset-3" src="./img/loading.gif" alt="loading-icon">
    </div>
+   </div>
+  </div>
+
+
+  <div id="fileDeleted">
+   <div class="row">      
+     <div  class="alert alert-danger">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Warning!</strong> File Has Been Deleted! 
+     </div>
    </div>
   </div>
 
@@ -340,12 +206,6 @@ if(isset($_POST['str'])){
  <div id ="warning" class="alert alert-danger">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
     <strong>Warning!</strong> Please Upload a Video First! 
- </div>
-
-     <!--Alert Messages -->
- <div id ="fileDeleted" class="alert alert-danger">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <strong>Warning!</strong> File Has Been Deleted! 
  </div>
 
  <div id="uploadAnotherTrack" class="alert alert-warning">
@@ -407,14 +267,14 @@ var positions =[];
 $(document).ready(function(){
   // $('#myVideo').hide();
   $('#downloadButton').css("display", "none");
-  $('#instructions').hide();
-  $('#uploadMoreTracks').hide();
-  $('#selectMergedFormat').hide();
-  $('#warning').hide();
-  $('#uploadAnotherTrack').hide();
-  $('#selectFormat').hide();
-  $('#loading').hide();
-  $('#fileDeleted').hide();
+  $('#instructions').css("display", "none");
+  $('#uploadMoreTracks').css("display", "none");
+  $('#selectMergedFormat').css("display", "none");
+  $('#warning').css("display", "none");
+  $('#uploadAnotherTrack').css("display", "none");
+  $('#selectFormat').css("display", "none");
+  $('#loading').css("display", "none");
+  $('#fileDeleted').css("display", "none");
 
   // if($('#downloadButton').is(':visible')){
   //  alert("visible");
@@ -539,12 +399,15 @@ $("#merge").click(function(){
 
       $(document).on("ajaxStart.secondCall", function () {
         $('#convertArea').hide();
+        //$('#convertArea').css("display","none");
          $("#loading").css("display","block");
 
       });
       
       $(document).on("ajaxStop.secondCall", function () {
           $('#loading').hide();
+          //$('#loading').css("display","none");
+
       });
 
       $.ajax({
@@ -564,6 +427,7 @@ $("#merge").click(function(){
            
          
             $('#convertArea').hide();
+           // $('#convertArea').css("display","block");
             $('#downloadButton').fixDownloadButton(data);
             // $("#downloadButton").attr("href", data);
             // $("downloadButton").css("display","block");
@@ -593,75 +457,7 @@ $("#merge").click(function(){
    // alert("hi");
   });
 
-//   $("#downloadButton").click(function(e){
-// //   alert("hi");
-//  //  alert(data);
 
-//    e.preventDefault();
-//     var x="";
-//     $.ajax({
-//       url:'checkIfFileExist.php',
-//       dataType:"json",
-//       data:{data:data},
-//       type:'POST',
-//       success:function(data){
-//         if(!data.error){
-//           alert(typeof(data));
-//           if(data=="1"){
-//            // alert("file not deleted");
-//               alert("file deleted");
-          
-//            // return true;
-//           }
-//           else{
-//              $("#downloadButton").unbind();
-//            // e.preventDefault();
-         
-//           }
-//          // alert(typeof(data));
-
-//         }
-//       }
-
-//     });
-//   });
-
-
-
-
-// (function( $ ){
-  // function checkForDeletedFile()  {
-  //   $.ajax({
-  //     url:'checkIfFileExist.php',
-  //     dataType:"json",
-  //     data:{data:data},
-  //     type:'POST',
-  //     success:function(data){
-  //       if(!data.error){
-  //         alert(typeof(data));
-  //         if(data=="1"){
-  //          // alert("file not deleted");
-  //            // alert("file deleted");
-  //            $("downloadButton").hide();
-  //            $("fileDeleted").show();
-          
-  //          // return true;
-  //         }
-  //         // else{
-  //         //    $("#downloadButton").unbind();
-  //         //  // e.preventDefault();
-         
-  //         // }
-  //        // alert(typeof(data));
-
-  //       }
-  //     }
-
-  //   });
-  // }
-   //    return this;
-   // }; 
-// })( jQuery );
 
  
 function checkVisible(){
@@ -673,12 +469,12 @@ function checkVisible(){
     type:'POST',
     success:function(data){
       if(!data.error){
-        alert(typeof(data));
+       // alert(typeof(data));
         if(data=="1"){
          // alert("file not deleted");
-            alert("file deleted");
-            $("#downloadButton").hide();
-            $("#fileDeleted").show();
+        //    alert("file deleted");
+            $("#downloadButton").css("display","none");
+            $("#fileDeleted").css("display","block");
         
          // return true;
         }
@@ -700,24 +496,6 @@ function checkVisible(){
 
 
 
-// $('#downloadButton').click(function(e) {
-//     e.preventDefault();
-//     // alert(data);
-
-//     // var x="";
-//     // $.ajax({
-//     //   url:'checkIfFileExist.php',
-//     //   data:{data:data},
-//     //   type:'POST',
-//     //   success:function(data){
-//     //     if(!data.error){
-//     //      alert(x);
-//     //      alert(typeof(x));
-//     //     }
-//     //   }
-
-//     // });
-// });
 
 
 
