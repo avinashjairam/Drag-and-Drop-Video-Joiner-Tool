@@ -406,7 +406,7 @@ var positions =[];
 
 $(document).ready(function(){
   // $('#myVideo').hide();
-  $('#downloadButton').hide();
+  $('#downloadButton').css("display", "none");
   $('#instructions').hide();
   $('#uploadMoreTracks').hide();
   $('#selectMergedFormat').hide();
@@ -416,7 +416,16 @@ $(document).ready(function(){
   $('#loading').hide();
   $('#fileDeleted').hide();
 
- 
+  // if($('#downloadButton').is(':visible')){
+  //  alert("visible");
+  //  setInterval(checkForDeletedFile,5000);
+  // }
+
+ if($('#downloadButton').css('display')=='block'){
+   //alert("visible");
+   setInterval(checkVisible,5000);
+  }
+
 
   $.ajax({
     url:'uploadedTracks.php',
@@ -559,8 +568,8 @@ $("#merge").click(function(){
             // $("#downloadButton").attr("href", data);
             // $("downloadButton").css("display","block");
             // $('#myVideo').fixVideo(data);
-
-
+            setInterval(checkVisible,5000);
+            //checkVisible();
             //$('#mergedStuff').html(data);
           }
         }
@@ -584,80 +593,110 @@ $("#merge").click(function(){
    // alert("hi");
   });
 
-  $("#downloadButton").click(function(e){
-//   alert("hi");
- //  alert(data);
+//   $("#downloadButton").click(function(e){
+// //   alert("hi");
+//  //  alert(data);
 
-   e.preventDefault();
-    var x="";
-    $.ajax({
-      url:'checkIfFileExist.php',
-      dataType:"json",
-      data:{data:data},
-      type:'POST',
-      success:function(data){
-        if(!data.error){
-          alert(typeof(data));
-          if(data=="1"){
-           // alert("file not deleted");
-              alert("file deleted");
+//    e.preventDefault();
+//     var x="";
+//     $.ajax({
+//       url:'checkIfFileExist.php',
+//       dataType:"json",
+//       data:{data:data},
+//       type:'POST',
+//       success:function(data){
+//         if(!data.error){
+//           alert(typeof(data));
+//           if(data=="1"){
+//            // alert("file not deleted");
+//               alert("file deleted");
           
-           // return true;
-          }
-          else{
-             $("#downloadButton").unbind();
-           // e.preventDefault();
+//            // return true;
+//           }
+//           else{
+//              $("#downloadButton").unbind();
+//            // e.preventDefault();
          
-          }
-         // alert(typeof(data));
+//           }
+//          // alert(typeof(data));
 
-        }
-      }
+//         }
+//       }
 
-    });
-  });
+//     });
+//   });
 
 
 
 
 // (function( $ ){
-  function checkForDeletedFile()  {
-    $.ajax({
-      url:'checkIfFileExist.php',
-      dataType:"json",
-      data:{data:data},
-      type:'POST',
-      success:function(data){
-        if(!data.error){
-          alert(typeof(data));
-          if(data=="1"){
-           // alert("file not deleted");
-             // alert("file deleted");
-             $("downloadButton").hide();
-             $("fileDeleted").show();
+  // function checkForDeletedFile()  {
+  //   $.ajax({
+  //     url:'checkIfFileExist.php',
+  //     dataType:"json",
+  //     data:{data:data},
+  //     type:'POST',
+  //     success:function(data){
+  //       if(!data.error){
+  //         alert(typeof(data));
+  //         if(data=="1"){
+  //          // alert("file not deleted");
+  //            // alert("file deleted");
+  //            $("downloadButton").hide();
+  //            $("fileDeleted").show();
           
-           // return true;
-          }
-          // else{
-          //    $("#downloadButton").unbind();
-          //  // e.preventDefault();
+  //          // return true;
+  //         }
+  //         // else{
+  //         //    $("#downloadButton").unbind();
+  //         //  // e.preventDefault();
          
-          // }
-         // alert(typeof(data));
+  //         // }
+  //        // alert(typeof(data));
 
-        }
-      }
+  //       }
+  //     }
 
-    });
-  }
+  //   });
+  // }
    //    return this;
    // }; 
 // })( jQuery );
 
-if($('#downloadButton').is(':hidden')){
+ 
+function checkVisible(){
+  //alert("hidden");
+  $.ajax({
+    url:'checkIfFileExist.php',
+    dataType:"json",
+    data:{data:data},
+    type:'POST',
+    success:function(data){
+      if(!data.error){
+        alert(typeof(data));
+        if(data=="1"){
+         // alert("file not deleted");
+            alert("file deleted");
+            $("#downloadButton").hide();
+            $("#fileDeleted").show();
+        
+         // return true;
+        }
+        else{
+           //$("#downloadButton").unbind();
+           alert("file available");
+         // e.preventDefault();
+       
+        }
+       // alert(typeof(data));
 
- setInterval(checkForDeletedFile,5000);
+      }
+    }
+
+  });
 }
+
+ 
 
 
 
