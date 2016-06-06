@@ -139,9 +139,11 @@ if(isset($_POST['str'])){
 
 
 <div id="mainContent" class="container contentContainer wrapper">
-  <div class = "row">          
+  <div  id="downloadSection" class = "row">          
     <div class="col-md-6 col-md-offset-3">                                     
      <a href="" id ="downloadButton" class="btn btn-success" download ><span class="glyphicon glyphicon-download-alt"></span> Click Here to Download Your Merged Videos!</a>
+     <br><br><br><h3>Your Merged File will be available  for 30 minutes. It will be deleted after then. Thank you for using our service!</h3>
+     <br><br><br><h3>Do you want to merge more videos? Click on the HOME link!</h3>
         
       </div>
   </div>
@@ -266,7 +268,7 @@ var positions =[];
 
 $(document).ready(function(){
   // $('#myVideo').hide();
-  $('#downloadButton').css("display", "none");
+  $('#downloadSection').css("display", "none");
   $('#instructions').css("display", "none");
   $('#uploadMoreTracks').css("display", "none");
   $('#selectMergedFormat').css("display", "none");
@@ -432,7 +434,7 @@ $("#merge").click(function(){
             // $("#downloadButton").attr("href", data);
             // $("downloadButton").css("display","block");
             // $('#myVideo').fixVideo(data);
-            setInterval(checkVisible,5000);
+            setInterval(checkVisible,60000);
             //checkVisible();
             //$('#mergedStuff').html(data);
           }
@@ -448,6 +450,7 @@ $("#merge").click(function(){
  $.fn.fixDownloadButton = function(data){
     this.attr("href",data);
     this.css("display","block");
+    $("#downloadSection").css("display","block");
   }
 
 
@@ -474,6 +477,7 @@ function checkVisible(){
          // alert("file not deleted");
         //    alert("file deleted");
             $("#downloadButton").css("display","none");
+            $("#downloadSection").css("display","none");
             $("#fileDeleted").css("display","block");
         
          // return true;
