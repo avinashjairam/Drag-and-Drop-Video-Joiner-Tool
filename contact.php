@@ -18,15 +18,30 @@ set_error_handler("var_dump");
   $result     = "";
 
     if (isset($_POST["submit"])) {
-        $name = isset($_POST['name']);
-        $email = isset($_POST['email']);
-        $message = isset($_POST['message']);
+       if(isset($_POST['name'])){
+          $name = $_POST['name'];
+        }
+        if(isset($_POST['email'])){
+          $email = $_POST['email'];
+        }
+        
+        if(isset($_POST['message'])){
+          $message = $_POST['message'];
+        }
+     
+
+        // echo $name."<br>";
+        // echo $email."<br>";
+        // echo $message."<br>";
+
+        print_r($_POST);
+
         $human = intval($_POST['human']);
         $from = 'Demo Contact Form'; 
         $to = 'avinash.jairam@gmail.com'; 
         $subject = 'Message from Contact Demo ';
 
-        mail("avinash.jairam@gmail.com","hi", "Hello", "asdfasdfasdf");
+      //  mail("avinash.jairam@gmail.com","hi", "Hello", "asdfasdfasdf");
         
         $body = "From: $name\n E-Mail: $email\n Message:\n $message";
  
