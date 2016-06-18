@@ -112,7 +112,7 @@ if (!$errName && !$errEmail && !$errMessage && !$errHuman) {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">MergeMyVideos</a>
+      <a class="navbar-brand" href="#"><img class="resize" src="./img/logo.jpg"/></a>
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
@@ -135,14 +135,14 @@ if (!$errName && !$errEmail && !$errMessage && !$errHuman) {
                   <div class="form-group">
                       <label for="name" class="col-sm-2 control-label">Name</label>
                       <div class="col-sm-10">
-                          <input type="text" class="form-control" id="name" name="name" placeholder="First & Last Name" value="<?php echo htmlspecialchars(isset($_POST['name'])); ?>">
+                          <input type="text" class="form-control" id="name" name="name" placeholder="First & Last Name" value="<?php echo $name; ?>">
                           <?php echo "<p class='text-danger'>$errName</p>";?>
                       </div>
                   </div>
                   <div class="form-group">
                       <label for="email" class="col-sm-2 control-label">Email</label>
                       <div class="col-sm-10">
-                          <input type="email" class="form-control" id="email" name="email" placeholder="example@domain.com" value="<?php echo htmlspecialchars(isset($_POST['email'])); ?>">
+                          <input type="email" class="form-control" id="email" name="email" placeholder="example@domain.com" value="<?php echo $email; ?>">
                           <?php echo "<p class='text-danger'>$errEmail</p>";?>
                       </div>
                   </div>

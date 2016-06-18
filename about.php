@@ -36,7 +36,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">MergeMyVideos</a>
+      <a class="navbar-brand" href="#"><img class="resize" src="./img/logo.jpg"/></a>
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
@@ -56,7 +56,16 @@
 
 <div id="mainContent" class=" wrapper container contentContainer">
   <div class = "row">          
-    <div class="col-md-6 col-md-offset-3">                                     
+    <div class="col-md-6 col-md-offset-3">     
+      <p>MergeMyVideos.com is a site which allows you to merge your videos in any order you want. It is safe, secure, and 100% free to use. If you like our service, then 
+        please follow us on <a>twitter</a> and like us on <a>facebook</a>.</p>
+
+      <p>By utiziling our services, you hereby agree to comply with all of our <a>terms and conditions</a></p>
+
+      <p>We aim to provide the best service  possible. If you think there is a particular are which we can improve, please don't hesistate to <a>contact us!</a></p> 
+
+
+
    
    </div>
   </div>

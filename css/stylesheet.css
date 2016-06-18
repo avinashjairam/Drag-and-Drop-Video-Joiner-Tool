@@ -27,6 +27,10 @@ html, body {
   margin: 0 auto -4em;
 }
 
+.resize{
+ width:230px;
+ height:80px;
+}
 
 /*html, body {
     height: 100%;

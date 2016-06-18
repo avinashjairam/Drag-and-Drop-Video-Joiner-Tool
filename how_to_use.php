@@ -30,13 +30,13 @@
 <body>
 <div class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
-    <div class="navbar-header">
+     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">MergeMyVideos</a>
+      <a class="navbar-brand" href="#"><img class="resize" src="./img/logo.jpg"/></a>
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
@@ -55,8 +55,24 @@
 
 <div id="mainContent" class=" wrapper container contentContainer">
   <div class = "row">          
-    <div class="col-md-6 col-md-offset-3">                                     
-   
+    <div class="col-md-6 col-md-offset-3">        
+
+    <h2>How to Use</h2>                             
+      <ol>
+        <li>Upload your videos. You must upload a minimum of 2 videos. </li>
+
+        <li>Drag and re-arrange the videos in the order in which you want them to be merged. To drag a video, click and hold your mouse cursor on the its name. 
+          Then, move your mouse in the direction where you want to move the video.</li>
+
+
+        <li>Select the format you want the merged video to be.</li>
+
+        <li>Click the green MERGE! button</li>
+
+        <li>Click on the Download button to get your merged video.</li>
+
+
+      <ol>
    </div>
   </div>
 
