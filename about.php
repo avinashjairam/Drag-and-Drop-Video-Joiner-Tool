@@ -74,7 +74,14 @@
 </div>
 
 <div class="footer">
-            <p>Copyright</p>
+ <ul style="padding-left:0px" id="contact" >
+    <li style="padding-left:0px"><a href="#" target="_blank"><img class="social" src="./img/facebook.jpeg"/></a>     </li>
+    <li><a href="#" target="_blank"><img class="social" src="./img/twitter.jpeg"/></a></li>
+    <li><a href="#" target="_blank"><img class="social" src="./img/googleplus.jpeg"/></li>
+    <li ><a href="#" target="_blank"><img class="mobile" src="./img/appStore.png"/></a></li>
+    <li><a href="#" target="_blank"><img class="mobile" src="./img/googlePlay.png"/></a></li>
+    
+  </ul>
 </div>
 
 

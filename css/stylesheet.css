@@ -102,6 +102,10 @@ body {
      text-align: center;
 }
 
+#contact {
+     padding-top: 50px;
+}
+
 #instructions{
      text-align: center;
 }
@@ -109,6 +113,33 @@ body {
 #mainContent{
     padding-top: 100px;
 }
+
+.footer ul{
+   /*padding-bottom: 10px*/
+   text-align: center;
+}
+
+.footer li{
+   margin-left:0;
+    list-style:none;
+    display:inline;
+
+}
+
+.mobile{
+height: 50px;
+width: 100px;
+border-radius: 10%;
+ margin-right: 10px;
+}
+
+.social{
+    width: 50px;
+    height: 50px;
+    border-radius: 10%;
+    margin-right: 10px;                   
+ }
+
 
 
 .ui-sortable {
