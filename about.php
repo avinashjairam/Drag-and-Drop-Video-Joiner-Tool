@@ -55,7 +55,8 @@
 
 
 <div id="mainContent" class=" wrapper container contentContainer">
-  <div class = "row">          
+  <div class = "row">  
+    <h2 class="center">About Us</h2>         
     <div class="col-md-6 col-md-offset-3">     
       <p>MergeMyVideos.com is a site which allows you to merge your videos in any order you want. It is safe, secure, and 100% free to use. If you like our service, then 
         please follow us on <a>twitter</a> and like us on <a>facebook</a>.</p>

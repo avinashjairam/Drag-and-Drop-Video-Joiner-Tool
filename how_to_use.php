@@ -57,7 +57,7 @@
   <div class = "row">          
     <div class="col-md-6 col-md-offset-3">        
 
-    <h2>How to Use</h2>                             
+    <h2 class="center">How to Use</h2>                             
       <ol>
         <li>Upload your videos. You must upload a minimum of 2 videos. </li>
 

@@ -102,6 +102,9 @@ body {
      text-align: center;
 }
 
+.center{
+  text-align: center;
+}
 #contact {
      padding-top: 50px;
 }
