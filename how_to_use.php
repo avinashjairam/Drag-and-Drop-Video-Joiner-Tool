@@ -58,7 +58,7 @@
     <div class="col-md-6 col-md-offset-3">        
 
     <h2 class="center">How to Use</h2>                             
-      <ol>
+      <ol class="howTo">
         <li>Upload your videos. You must upload a minimum of 2 videos. </li>
 
         <li>Drag and re-arrange the videos in the order in which you want them to be merged. To drag a video, click and hold your mouse cursor on the its name. 
@@ -68,14 +68,14 @@
   </div>
 
     <div class = "row">          
-       <div class="col-md-6 col-md-offset-3">     
-           <br><img src="./img/videoDragDrop.gif" alt="tutorial"/> <br>
+       <div class="col-md-6 col-md-offset-4">     
+           <img src="./img/videoDragDrop.gif" alt="tutorial"/> 
        </div>
     </div>
 
  <div class = "row">          
    <div class="col-md-6 col-md-offset-3"> 
-    <ol>
+    <ol class="howTo">
         <li value="3">Select the format you want the merged video to be.</li>
 
         <li>Click the green MERGE! button</li>
