@@ -62,19 +62,31 @@
         <li>Upload your videos. You must upload a minimum of 2 videos. </li>
 
         <li>Drag and re-arrange the videos in the order in which you want them to be merged. To drag a video, click and hold your mouse cursor on the its name. 
-          Then, move your mouse in the direction where you want to move the video. See the tutorial below. <br><img src="./img/videoDragDrop.gif" alt="tutorial"/> </li>
+          Then, move your mouse in the direction where you want to move the video. See the tutorial below.</li>
+      </ol>
+    </div>
+  </div>
 
+    <div class = "row">          
+       <div class="col-md-6 col-md-offset-3">     
+           <br><img src="./img/videoDragDrop.gif" alt="tutorial"/> <br>
+       </div>
+    </div>
 
-        <li>Select the format you want the merged video to be.</li>
+ <div class = "row">          
+   <div class="col-md-6 col-md-offset-3"> 
+    <ol>
+        <li value="3">Select the format you want the merged video to be.</li>
 
         <li>Click the green MERGE! button</li>
 
         <li>Click on the Download button to get your merged video.</li>
 
-
-      <ol>
+      </ol>
    </div>
   </div>
+ </div>
+ 
 
   <div class="push"></div>
 </div>
