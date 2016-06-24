@@ -81,8 +81,12 @@ if(isset($_POST['str'])){
 
 ?>
 
+<!DOCTYPE html>
 
-<html>
+
+<html lang="en">
+
+
 
 <head>
 <meta charset="utf-8">
@@ -123,12 +127,20 @@ if(isset($_POST['str'])){
       <a class="navbar-brand" href="#"><img class="resize" src="./img/logo.jpg"/></a>
     </div>
     <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav navbar-center">
         <li class="active"><a href="#">Home</a></li>
         <li><a href="how_to_use.php">How To Use</a></li>
         <li><a href="about.php">About</a></li>
         <li><a href="contact.php">Contact</a></li>
       </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+    <!--   <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
+       <li ><a href="https://www.facebook.com/mergemyvideos" target="_blank"><img class="socialNav" src="./img/facebook.jpeg"/></a></li>
+      <li><a href="https://twitter.com/mergemyvideos" target="_blank"><img class="socialNav" src="./img/twitter.jpeg"/></a></li>
+      <li><a href="https://plus.google.com/+Mergemyvideos" target="_blank"><img class="socialNav" src="./img/googleplus.jpeg"/></li>
+    </ul>
     </div><!--/.nav-collapse -->
   </div>
 </div>
@@ -247,19 +259,21 @@ if(isset($_POST['str'])){
   </div>
 
 
-   <div class="push"></div>
+  <!--  <div class="push"></div> -->
 </div>
 
-<div class="footer">
- <ul style="padding-left:0px" id="contact" >
-    <li style="padding-left:0px"><a href="https://www.facebook.com/mergemyvideos" target="_blank"><img class="social" src="./img/facebook.jpeg"/></a></li>
-    <li><a href="https://twitter.com/mergemyvideos" target="_blank"><img class="social" src="./img/twitter.jpeg"/></a></li>
-    <li><a href="https://plus.google.com/+Mergemyvideos" target="_blank"><img class="social" src="./img/googleplus.jpeg"/></li>
-    <li ><a href="./mobileApp.php" target="_blank"><img class="mobile" src="./img/appStore.png"/></a></li>
-    <li><a href="./mobileApp.php" target="_blank"><img class="mobile" src="./img/googlePlay.png"/></a></li>
-    
-  </ul>
-</div>
+<!--  <footer class="footer">
+      <div class="container">
+         <ul id="contact" >
+            <li style="padding-left:0px"><a href="https://www.facebook.com/mergemyvideos" target="_blank"><img class="social" src="./img/facebook.jpeg"/></a></li>
+            <li><a href="https://twitter.com/mergemyvideos" target="_blank"><img class="social" src="./img/twitter.jpeg"/></a></li>
+            <li><a href="https://plus.google.com/+Mergemyvideos" target="_blank"><img class="social" src="./img/googleplus.jpeg"/></li>
+            <li ><a href="./mobileApp.php" target="_blank"><img class="mobile" src="./img/appStore.png"/></a></li>
+            <li><a href="./mobileApp.php" target="_blank"><img class="mobile" src="./img/googlePlay.png"/></a></li>    
+          </ul>
+      </div>
+    </footer> -->
+
 </body>
 
 

@@ -1,23 +1,13 @@
-<!DOCTYPE html>
 
 
-<html lang="en">
+
+<html>
 
 <head>
- <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
-
-    <title>How To Use</title>
-
-    
+  <meta charset="utf-8">
+  <title>Merge your videos</title>
 
 
-    <!-- Custom styles for this template -->
 
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
   <link href="./css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
@@ -33,24 +23,6 @@
   <link rel="stylesheet" href="http://necolas.github.com/normalize.css/2.0.1/normalize.css">
   <link rel="stylesheet" href="./css/stylesheet.css" />
   <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
-    <link href="./css/stylesheet.css" rel="stylesheet">
-<!--
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
-     <link href="./css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
-
-
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> 
-  <script src="./js/plugins/canvas-to-blob.min.js" type="text/javascript"></script>
-  <script src="./js/fileinput.min.js" type="text/javascript"></script>
-  <script src="./js/fileinput.js" type="text/javascript"></script>     
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" type="text/javascript"></script>
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-  <link rel="stylesheet" href="http://necolas.github.com/normalize.css/2.0.1/normalize.css">
-  
-  <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>-->
-
-   
 
 </head>
 
@@ -96,13 +68,13 @@
   </div>
 
     <div class = "row">          
-       <div class="col-md-6 col-md-offset-4">     
+       <div class="col-md-6 col-md-offset-3">     
            <img src="./img/videoDragDrop.gif" alt="tutorial"/> 
        </div>
     </div>
 
  <div class = "row">          
-   <div class="col-md-6 col-md-offset-3"> 
+   <div class="col-md-6 col-md-offset-4"> 
     <ol class="howTo">
         <li value="3">Select the format you want the merged video to be.</li>
 
@@ -113,17 +85,13 @@
       </ol>
    </div>
   </div>
-
-
-
-  
  </div>
  
 
- <!--  <div class="push"></div> -->
-<!-- </div> -->
+  <div class="push"></div>
+</div>
 
-<!-- <div class="footer">
+<div class="footer">
  <ul style="padding-left:0px" id="contact" >
     <li style="padding-left:0px"><a href="https://www.facebook.com/mergemyvideos" target="_blank"><img class="social" src="./img/facebook.jpeg"/></a></li>
     <li><a href="https://twitter.com/mergemyvideos" target="_blank"><img class="social" src="./img/twitter.jpeg"/></a></li>
@@ -132,25 +100,10 @@
     <li><a href="./mobileApp.php" target="_blank"><img class="mobile" src="./img/googlePlay.png"/></a></li>
     
   </ul>
-</div> -->
-
-  <footer class="footer">
-      <div class="container">
-         <ul id="contact" >
-            <li style="padding-left:0px"><a href="https://www.facebook.com/mergemyvideos" target="_blank"><img class="social" src="./img/facebook.jpeg"/></a></li>
-            <li><a href="https://twitter.com/mergemyvideos" target="_blank"><img class="social" src="./img/twitter.jpeg"/></a></li>
-            <li><a href="https://plus.google.com/+Mergemyvideos" target="_blank"><img class="social" src="./img/googleplus.jpeg"/></li>
-            <li ><a href="./mobileApp.php" target="_blank"><img class="mobile" src="./img/appStore.png"/></a></li>
-            <li><a href="./mobileApp.php" target="_blank"><img class="mobile" src="./img/googlePlay.png"/></a></li>    
-          </ul>
-      </div>
-    </footer>
-
+</div>
 
 
 </body>
-
-
 
 
 

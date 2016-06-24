@@ -1,12 +1,11 @@
 
-<!DOCTYPE html>
 
 
-<html lang="en">
+<html>
 
 <head>
   <meta charset="utf-8">
-  <title>Merge your videos</title>
+  <title>Mobile App</title>
 
 
 
@@ -43,7 +42,7 @@
       <ul class="nav navbar-nav">
         <li><a href="./frontEnd.php">Home</a></li>
         <li><a href="how_to_use.php">How To Use</a></li>
-        <li class="active"><a href="about.php">About</a></li>
+        <li><a href="about.php">About</a></li>
         <li><a href="contact.php">Contact</a></li>
       </ul>
     </div><!--/.nav-collapse -->
@@ -52,40 +51,33 @@
 
 
 
-
-
-
 <div id="mainContent" class=" wrapper container contentContainer">
-  <div class = "row">  
-    <h2 class="center">About Us</h2>         
-    <div class="col-md-6 col-md-offset-3">     
-      <p>MergeMyVideos.com is a site which allows you to merge your videos in any order you want. It is safe, secure, and 100% free to use. If you like our service, then 
-        please follow us on <a href="https://twitter.com/mergemyvideos">twitter</a> and like us on <a href="https://www.facebook.com/mergemyvideos">facebook</a>.</p>
-
-      <p>By utiziling our services, you hereby agree to comply with all of our <a href="./termsAndConditions.php">terms and conditions</a></p>
-
-      <p>We aim to provide the best service  possible. If you think there is a particular are which we can improve, please don't hesistate to <a href="./contact.php">contact us!</a></p> 
+  <div class = "row">          
+     <div class="col-md-6 col-md-offset-3"> 
+      <img src="./img/underConstruction.jpg" alt="underConstruction image"/>
 
 
-
-   
-   </div>
+     </div>
+    
   </div>
 
- <!--  <div class="push"></div> -->
+  <div class="push"></div>
 </div>
 
- <footer class="footer">
-      <div class="container">
-         <ul id="contact" >
-            <li style="padding-left:0px"><a href="https://www.facebook.com/mergemyvideos" target="_blank"><img class="social" src="./img/facebook.jpeg"/></a></li>
-            <li><a href="https://twitter.com/mergemyvideos" target="_blank"><img class="social" src="./img/twitter.jpeg"/></a></li>
-            <li><a href="https://plus.google.com/+Mergemyvideos" target="_blank"><img class="social" src="./img/googleplus.jpeg"/></li>
-            <li ><a href="./mobileApp.php" target="_blank"><img class="mobile" src="./img/appStore.png"/></a></li>
-            <li><a href="./mobileApp.php" target="_blank"><img class="mobile" src="./img/googlePlay.png"/></a></li>    
-          </ul>
-      </div>
-    </footer>
+<div class="footer">
+ <ul style="padding-left:0px" id="contact" >
+    <li style="padding-left:0px"><a href="#" target="_blank"><img class="social" src="./img/facebook.jpeg"/></a>     </li>
+    <li><a href="#" target="_blank"><img class="social" src="./img/twitter.jpeg"/></a></li>
+    <li><a href="#" target="_blank"><img class="social" src="./img/googleplus.jpeg"/></li>
+    <li ><a href="#" target="_blank"><img class="mobile" src="./img/appStore.png"/></a></li>
+    <li><a href="#" target="_blank"><img class="mobile" src="./img/googlePlay.png"/></a></li>
+    
+  </ul>
+</div>
+
+
+
+
 
 
 

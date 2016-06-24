@@ -75,9 +75,12 @@ if (!$errName && !$errEmail && !$errMessage && !$errHuman) {
 }
     }
 ?>
+<!DOCTYPE html>
 
 
-<html>
+<html lang="en">
+
+
 
 <head>
   <meta charset="utf-8">
@@ -175,19 +178,20 @@ if (!$errName && !$errEmail && !$errMessage && !$errHuman) {
     
   </div>
 
-  <div class="push"></div>
+ <!--  <div class="push"></div> -->
 </div>
 
-<div class="footer">
-  <ul style="padding-left:0px" id="contact" >
-    <li style="padding-left:0px"><a href="https://www.facebook.com/mergemyvideos" target="_blank"><img class="social" src="./img/facebook.jpeg"/></a></li>
-    <li><a href="https://twitter.com/mergemyvideos" target="_blank"><img class="social" src="./img/twitter.jpeg"/></a></li>
-    <li><a href="https://plus.google.com/+Mergemyvideos" target="_blank"><img class="social" src="./img/googleplus.jpeg"/></li>
-    <li ><a href="./mobileApp.php" target="_blank"><img class="mobile" src="./img/appStore.png"/></a></li>
-    <li><a href="./mobileApp.php" target="_blank"><img class="mobile" src="./img/googlePlay.png"/></a></li>    
-  </ul>
-</div>
-
+ <footer class="footer">
+      <div class="container">
+         <ul id="contact" >
+            <li style="padding-left:0px"><a href="https://www.facebook.com/mergemyvideos" target="_blank"><img class="social" src="./img/facebook.jpeg"/></a></li>
+            <li><a href="https://twitter.com/mergemyvideos" target="_blank"><img class="social" src="./img/twitter.jpeg"/></a></li>
+            <li><a href="https://plus.google.com/+Mergemyvideos" target="_blank"><img class="social" src="./img/googleplus.jpeg"/></li>
+            <li ><a href="./mobileApp.php" target="_blank"><img class="mobile" src="./img/appStore.png"/></a></li>
+            <li><a href="./mobileApp.php" target="_blank"><img class="mobile" src="./img/googlePlay.png"/></a></li>    
+          </ul>
+      </div>
+    </footer>
 
 
 
