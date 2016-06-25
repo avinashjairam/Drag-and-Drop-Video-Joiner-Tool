@@ -54,6 +54,17 @@
 			}	
 		}
 
+		public function delete(){
+			global $db;
+
+			$sql = "DELETE FROM `videoMerger` WHERE `sessionId` = '$this->sessionId'";
+
+			$result = $db->query($sql);
+
+			return $result;
+
+		}
+
 
 	
 
@@ -105,7 +116,7 @@
 		public function getFilesUploaded(){
 			//echo"asdfjasldf";
 			$this->select();
-			if(count($this->filesUploaded) > 0){
+			if(is_dir($this->sessionId) && count($this->filesUploaded) > 0){
 				//echo count($this->filesUploaded);
 				//echo json_encode($this->filesUploaded);
 				 print json_encode($this->filesUploaded);

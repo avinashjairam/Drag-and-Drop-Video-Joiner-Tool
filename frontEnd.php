@@ -179,6 +179,15 @@ if(isset($_POST['str'])){
   </div>
 
 
+  <div id="uploadedFilesDeleted">
+    <div class="row">
+     <div class="alert alert-danger">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+         <strong>Warning!</strong> Your session has expired and your files were deleted! Please <a>upload new files!</a>
+      </div>
+    </div>
+  </div>
+
 
 
 
@@ -233,6 +242,7 @@ if(isset($_POST['str'])){
 </div>
 
 
+
   <div id="selectMergedFormat">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
@@ -259,20 +269,9 @@ if(isset($_POST['str'])){
   </div>
 
 
-  <!--  <div class="push"></div> -->
 </div>
 
-<!--  <footer class="footer">
-      <div class="container">
-         <ul id="contact" >
-            <li style="padding-left:0px"><a href="https://www.facebook.com/mergemyvideos" target="_blank"><img class="social" src="./img/facebook.jpeg"/></a></li>
-            <li><a href="https://twitter.com/mergemyvideos" target="_blank"><img class="social" src="./img/twitter.jpeg"/></a></li>
-            <li><a href="https://plus.google.com/+Mergemyvideos" target="_blank"><img class="social" src="./img/googleplus.jpeg"/></li>
-            <li ><a href="./mobileApp.php" target="_blank"><img class="mobile" src="./img/appStore.png"/></a></li>
-            <li><a href="./mobileApp.php" target="_blank"><img class="mobile" src="./img/googlePlay.png"/></a></li>    
-          </ul>
-      </div>
-    </footer> -->
+
 
 </body>
 
@@ -299,17 +298,63 @@ $(document).ready(function(){
   $('#selectFormat').css("display", "none");
   $('#loading').css("display", "none");
   $('#fileDeleted').css("display", "none");
-
+  $('#uploadedFilesDeleted').css("display", "none");
   // if($('#downloadButton').is(':visible')){
   //  alert("visible");
   //  setInterval(checkForDeletedFile,5000);
   // }
 
- if($('#downloadButton').css('display')=='block'){
-   //alert("visible");
+       $.ajax({
+        url:'checkIfFileExist.php',
+        dataType:"json",
+        data:{data:data},
+        type:'POST',
+        success:function(data){
+          if(!data.error){
+           // alert(typeof(data));
+            if(data=="1"){
+             // alert("file not deleted");
+            //    alert("file deleted");
+                      $.ajax({
+                          url:'clearDatabase.php',
+                          dataType:"json",
+                          async: false,
+                          data:{data:data},
+                          type:'POST',
+                          success:function(data){
+                              alert("files deleted");
+                          }
+                        });
+
+               // $("#downloadButton").css("display","none");
+               //  $("#downloadSection").css("display","none");
+               //   $("#uploadedTracks").css("display","none");
+               //  $("#fileDeleted").css("display","block");
+            
+             // return true;
+            }
+            else{
+               //$("#downloadButton").unbind();
+               alert("file available");
+             // e.preventDefault();
+           
+            }
+           // alert(typeof(data));
+
+          }
+        }
+
+  });
+
+ if($('#downloadButton').css('display')=='block'){ 
+   alert("visible");
    setInterval(checkVisible,5000);
   }
 
+  // if($('#selectMergedFormat').css('display')=='block' ){
+  //   alert("visible");
+  //   alert($('#selectMergedFormat').css('display'));
+  // }
 
   $.ajax({
     url:'uploadedTracks.php',
@@ -368,6 +413,14 @@ $(document).ready(function(){
     }
 
   });
+
+//alert($('#selectMergedFormat').is(':visible'));
+  // if($('#selectMergedFormat').is(':visible') ){
+  //   alert("visible");
+
+  // }
+
+
 });
 
  function list(){
@@ -440,25 +493,33 @@ $("#merge").click(function(){
         // data:"json",
         type:'POST',
         success:function(data){
-          data=data;
-          jsonData=data;
+          
           if(!data.error){
-          //  alert("successful ajax response");
-            //alert(data);
-            // data=data;
-            // alert( typeof(data));
-            // alert(typeof(data));
+        
+            if(data=="1"){
+                  $("#uploadedTracks").css("display","none");
+                    $('#uploadTrack').css('display','block');
+                    $('#uploadMoreTracks').css('display','none');
+                     $('#uploadMoreTracksButton').css("display","none");
+                     $('#instructions').css("display", "none");
+                     $('#convertArea').css("display","none");
+                     $('#selectMergedFormat').css('display',"none");
+                     $('#uploadedFilesDeleted').css('display','block');
+
+            }
+            else{
+               data=data;
+                jsonData=data;
+                
+                $('#convertArea').hide();
+               // $('#convertArea').css("display","block");
+                $('#downloadButton').fixDownloadButton(data);
+                
+                setInterval(checkVisible,60000);
+
+            }
            
-         
-            $('#convertArea').hide();
-           // $('#convertArea').css("display","block");
-            $('#downloadButton').fixDownloadButton(data);
-            // $("#downloadButton").attr("href", data);
-            // $("downloadButton").css("display","block");
-            // $('#myVideo').fixVideo(data);
-            setInterval(checkVisible,60000);
-            //checkVisible();
-            //$('#mergedStuff').html(data);
+          
           }
         }
 
@@ -486,7 +547,7 @@ $("#merge").click(function(){
 
  
 function checkVisible(){
-  //alert("hidden");
+  alert("hidden");
   $.ajax({
     url:'checkIfFileExist.php',
     dataType:"json",
@@ -500,8 +561,9 @@ function checkVisible(){
         //    alert("file deleted");
             $("#downloadButton").css("display","none");
             $("#downloadSection").css("display","none");
-            $("#fileDeleted").css("display","block");
-        
+             $("#uploadedTracks").css("display","none");
+          
+        $('#uploadedFilesDeleted').css("display","block");
          // return true;
         }
         else{
@@ -519,7 +581,58 @@ function checkVisible(){
 }
 
  
+// if($('#selectMergedFormat').css('display')=='block' ){
+     //alert("visible1111111");
+    // $("#uploadedTracks").css("display","none");
+    // $('#uploadTrack').css('display','block');
+    // $('#uploadMoreTracks').css('display','none');
+    //  $('#uploadMoreTracksButton').css("display","none");
+    //  $('#instructions').css("display", "none");
+    //  $('#convertArea').css("display","none");
+    //  $('#selectMergedFormat').css('display',"none");
 
+    // alert($('#selectMergedFormat').css('display'));
+  //    $.ajax({
+  //       url:'checkIfFileExist.php',
+  //       dataType:"json",
+  //       data:{data:data},
+  //       type:'POST',
+  //       success:function(data){
+  //         if(!data.error){
+  //          // alert(typeof(data));
+  //           if(data=="1"){
+  //            // alert("file not deleted");
+  //           //    alert("file deleted");
+  //                     $.ajax({
+  //                         url:'clearDatabase.php',
+  //                         dataType:"json",
+  //                         data:{data:data},
+  //                         type:'POST',
+  //                         success:function(data){
+
+  //                         }
+  //                       });
+
+  //              // $("#downloadButton").css("display","none");
+  //              //  $("#downloadSection").css("display","none");
+  //              //   $("#uploadedTracks").css("display","none");
+  //              //  $("#fileDeleted").css("display","block");
+            
+  //            // return true;
+  //           }
+  //           else{
+  //              //$("#downloadButton").unbind();
+  //              alert("file available");
+  //            // e.preventDefault();
+           
+  //           }
+  //          // alert(typeof(data));
+
+  //         }
+  //       }
+
+  // });
+//  }
 
 
 
