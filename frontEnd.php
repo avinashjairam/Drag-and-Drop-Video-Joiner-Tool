@@ -214,17 +214,27 @@ if(isset($_POST['str'])){
 
    <h1 id ="mergedStuff"></h1>
 
+
     <div id="uploadedTracks">
        <div class ="row" id ="instructions">        
           <h3>Click on the Videos to drag and rearrage them in the order to be joined!</h3>         
        </div>
+
        <div class="row">
           <ul id="sortable"> 
         </ul> 
        </div>    
     </div>
 
+    <div id="delete">
+      <div class="row">
+        <div class="">
+          <button class="btn btn-warning col-md-6 col-md-offset-3" id="deleteButton"><span class="glyphicon glyphicon-trash"></span>Delete Uploaded Files and Start Over</button>
+        </div>        
+      </div>
+    </div>
 
+     
     <!--Alert Messages -->
  <div id ="warning" class="alert alert-danger">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -263,9 +273,17 @@ if(isset($_POST['str'])){
   </div>
 
 
+<div id="merge">
+      <div class="row">
+        <div class="">
+          <button class="btn btn-success col-md-6 col-md-offset-3" id="mergeButton"><span class="glyphicon glyphicon-cog"></span>MERGE!!!</button>
+        </div>        
+      </div>
+</div>
 
 
-  <button class="btn btn-success glyphicon glyphicon-cog col-md-6 col-md-offset-3" id="merge">MERGE!!!</button>
+
+
   </div>
 
 
@@ -299,6 +317,7 @@ $(document).ready(function(){
   $('#loading').css("display", "none");
   $('#fileDeleted').css("display", "none");
   $('#uploadedFilesDeleted').css("display", "none");
+  $('#delete').css("display", "none");
   // if($('#downloadButton').is(':visible')){
   //  alert("visible");
   //  setInterval(checkForDeletedFile,5000);
@@ -408,6 +427,7 @@ $(document).ready(function(){
           $('#instructions').css('display','block');
           $('#uploadTrack').css('display','none');
           $('#uploadMoreTracks').css('display','block');
+           $('#delete').css('display','block');
         }
       }
     }
@@ -432,7 +452,7 @@ $(document).ready(function(){
 
 
 
-$("#merge").click(function(){
+$("#mergeButton").click(function(){
   var typeSelected = $(".videoType:checked").val();
   alert(typeSelected);
     if(uploadedTracks.length==0){
