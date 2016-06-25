@@ -450,6 +450,20 @@ $(document).ready(function(){
 } 
 
 
+$('#deleteButton').click(function(){
+
+  $.ajax({
+      url:'clearDatabase.php',
+      dataType:"json",
+      data:{data:data},
+      type:'POST',
+      success:function(data){
+          alert("files deleted");
+      }
+    });
+  location.reload();
+});
+
 
 
 $("#mergeButton").click(function(){
