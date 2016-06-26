@@ -9,7 +9,7 @@
 
  $user->setSessionId($session->getSessionId());
 
- echo $session->getSessionId()."<br>";
+ //echo $session->getSessionId()."<br>";
 
   $user->delete();
 

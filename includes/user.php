@@ -57,12 +57,12 @@
 		public function delete(){
 			global $db;
 
-			$sql = "DELETE FROM `videoMerger` WHERE `sessionId` = '$this->sessionId'";
+			$sql = "DELETE FROM `videoMerger` WHERE `sessionId` = '".$this->sessionId."'";
 
 			$result = $db->query($sql);
 
 			//return $result;
-			echo "rows affected ".$db->rowsAffected();
+			print json_encode($db->rowsAffected());
 			// if(!$result){
 			// 	return 1;
 			// }	

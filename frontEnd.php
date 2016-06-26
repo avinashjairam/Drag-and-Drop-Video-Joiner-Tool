@@ -334,16 +334,16 @@ $(document).ready(function(){
             if(data=="1"){
              // alert("file not deleted");
             //    alert("file deleted");
-                      $.ajax({
-                          url:'clearDatabase.php',
-                          dataType:"json",
-                          async: false,
-                          data:{data:data},
-                          type:'POST',
-                          success:function(data){
-                              alert("files deleted");
-                          }
-                        });
+                      // $.ajax({
+                      //     url:'clearDatabase.php',
+                      //     dataType:"json",
+                      //     async: false,
+                      //     data:{data:data},
+                      //     type:'POST',
+                      //     success:function(data){
+                      //         alert("files deleted");
+                      //     }
+                      //   });
 
                // $("#downloadButton").css("display","none");
                //  $("#downloadSection").css("display","none");
@@ -450,15 +450,17 @@ $(document).ready(function(){
 } 
 
 
-$('#deleteButton').click(function(){
-   //e.preventDefault();
-// alert("button clicked");
+
+$('#deleteButton').click(function(e){
+  var data="x";
+   e.preventDefault();
+ alert("button clicked");
 $.ajax({
       url:'clearDatabase.php',
       dataType:"json",
       // timeout: 10000,
       data:{data:data},
-       async: false,
+        async: false,
       type:'POST',      
       success:function(data){
          // alert("files deleted");
@@ -471,9 +473,9 @@ $.ajax({
       complete: function(XMLHttpRequest, status) {            
                     // $('form')[0].reset();
                     //$( this ).dialog( "close" );
-                    location.reload();
+              //   location.reload();
                     //alert(status);
-
+window.location=window.location;
 
       }
     });
