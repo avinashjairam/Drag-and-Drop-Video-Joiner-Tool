@@ -207,7 +207,7 @@ if(isset($_POST['str'])){
         <br><br><br>
         <form action="frontEnd.php" method="post" enctype="multipart/form-data"  >
             <label >Select Track to upload:</label><br>
-            <input type="file" name="files[]" class="file" id="fileToUpload" multiple data-allowed-file-extensions='["mp4","avi","flv"]'><br>                      
+            <input  type="file" name="files[]" class="file" id="fileToUpload" multiple data-allowed-file-extensions='["mp4","avi","flv"]'><br>                      
         </form>
       </div>
     </div>
@@ -257,7 +257,7 @@ if(isset($_POST['str'])){
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <h3>Select the format of the merged Video</h3>
-      <form role="form" action="frontEnd.php" method="post"> 
+      <form id="radioForm" role="form" action="frontEnd.php" method="post"> 
        <label class="radio-inline">     
         <input id="avi" type="radio" class="videoType" name="videoType" value=".avi"> .avi 
        </label>
@@ -354,7 +354,7 @@ $(document).ready(function(){
             }
             else{
                //$("#downloadButton").unbind();
-               alert("file available");
+             //  alert("file available");
              // e.preventDefault();
            
             }
@@ -451,18 +451,47 @@ $(document).ready(function(){
 
 
 $('#deleteButton').click(function(){
-
-  $.ajax({
+   //e.preventDefault();
+// alert("button clicked");
+$.ajax({
       url:'clearDatabase.php',
       dataType:"json",
+      // timeout: 10000,
       data:{data:data},
-      type:'POST',
+       async: false,
+      type:'POST',      
       success:function(data){
-          alert("files deleted");
+         // alert("files deleted");
+          alert("result is " + data);
+          // if(data=="0"){
+          //   // location.reload();
+          // }
+      },
+
+      complete: function(XMLHttpRequest, status) {            
+                    // $('form')[0].reset();
+                    //$( this ).dialog( "close" );
+                    location.reload();
+                    //alert(status);
+
+
       }
     });
-  location.reload();
+
+  // $.when(req1).done(function(){
+  //     location.reload();
+  // });
+   //location.reload();
+          
 });
+    // .done(function (){
+    //   location.reload();
+    // });
+
+
+  //;
+//   location.reload();
+// });
 
 
 
@@ -602,7 +631,7 @@ function checkVisible(){
         }
         else{
            //$("#downloadButton").unbind();
-           alert("file available");
+          // alert("file available");
          // e.preventDefault();
        
         }

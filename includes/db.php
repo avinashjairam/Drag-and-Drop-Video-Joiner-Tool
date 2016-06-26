@@ -39,6 +39,10 @@ class DB{
 		return $escapedString;
 	}
 
+	public function rowsAffected(){
+		return mysqli_affected_rows($this->connection);
+	}
+
 
 
 
