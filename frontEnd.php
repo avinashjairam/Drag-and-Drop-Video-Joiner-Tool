@@ -94,20 +94,20 @@ if(isset($_POST['str'])){
 
 
 
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
 <link href="./css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
 
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> 
-<script src="./js/plugins/canvas-to-blob.min.js" type="text/javascript"></script>
-<script src="./js/fileinput.min.js" type="text/javascript"></script>
-<script src="./js/fileinput.js" type="text/javascript"></script>     
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> 
+<script src="https://mergemyvideos.com/public_html/video_joiner/js/plugins/canvas-to-blob.min.js" type="text/javascript"></script>
+<script src="https://mergemyvideos.com/public_html/video_joiner/js/fileinput.min.js" type="text/javascript"></script>
+<script src="https://mergemyvideos.com/public_html/video_joiner/js/fileinput.js" type="text/javascript"></script>     
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" type="text/javascript"></script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-<link rel="stylesheet" href="http://necolas.github.com/normalize.css/2.0.1/normalize.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<link rel="stylesheet" href="//necolas.github.com/normalize.css/2.0.1/normalize.css">
 <link rel="stylesheet" href="./css/stylesheet.css" />
-<script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+<script src="//code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
 
 
 
