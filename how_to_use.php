@@ -19,36 +19,29 @@
 
     <!-- Custom styles for this template -->
 
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
   <link href="./css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
 
 
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> 
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> 
   <script src="./js/plugins/canvas-to-blob.min.js" type="text/javascript"></script>
   <script src="./js/fileinput.min.js" type="text/javascript"></script>
   <script src="./js/fileinput.js" type="text/javascript"></script>     
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" type="text/javascript"></script>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
   <link rel="stylesheet" href="http://necolas.github.com/normalize.css/2.0.1/normalize.css">
   <link rel="stylesheet" href="./css/stylesheet.css" />
-  <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+  <script src="//code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
     <link href="./css/stylesheet.css" rel="stylesheet">
-<!--
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
-     <link href="./css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
 
+  <link rel="apple-touch-icon" sizes="180x180" href="./favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="./favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="./favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="./favicons/manifest.json">
+  <link rel="mask-icon" href="./favicons/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="theme-color" content="#ffffff">
 
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> 
-  <script src="./js/plugins/canvas-to-blob.min.js" type="text/javascript"></script>
-  <script src="./js/fileinput.min.js" type="text/javascript"></script>
-  <script src="./js/fileinput.js" type="text/javascript"></script>     
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" type="text/javascript"></script>
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-  <link rel="stylesheet" href="http://necolas.github.com/normalize.css/2.0.1/normalize.css">
-  
-  <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>-->
 
    
 
@@ -87,7 +80,7 @@
 
     <h2 class="center">How to Use</h2>                             
       <ol class="howTo">
-        <li>Upload your videos. You must upload a minimum of 2 videos. </li>
+        <li>Upload your videos. You must upload a minimum of 2 videos.<span class="red">Files without video but with only audio will not be merged!</span>This feature will be in the next release. </li>
 
         <li>Drag and re-arrange the videos in the order in which you want them to be merged. To drag a video, click and hold your mouse cursor on the its name. 
           Then, move your mouse in the direction where you want to move the video. See the tutorial below.</li>
@@ -106,7 +99,7 @@
     <ol class="howTo">
         <li value="3">Select the format you want the merged video to be.</li>
 
-        <li>Click the green MERGE! button</li>
+        <li>Click the green MERGE! button.</li>
 
         <li>Click on the Download button to get your merged video.</li>
 

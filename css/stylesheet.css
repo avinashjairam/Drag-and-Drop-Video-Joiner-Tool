@@ -15,9 +15,29 @@ button{
 
 }
 
+
+
 #radioForm{
   text-align: center;
 }
+
+#uploadTrack{
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.box{  
+ background-color:grey;
+ border-radius:10px;
+ margin-bottom:25px;
+ padding-top:15px;  
+}
+
+.box span{
+ color:red;
+ padding-left:2px;
+}
+
 
 .footer {
   position: absolute;
@@ -41,6 +61,12 @@ button{
  width:230px;
  height:80px;
 }
+
+.red{
+  color:red;
+  font-weight:bold;
+}
+
 
 
 
@@ -91,7 +117,7 @@ ol li{
 }
 
 #mainContent{
-    padding-top: 130px;
+    padding-top: 110px;
 }
 
 .footer ul{
