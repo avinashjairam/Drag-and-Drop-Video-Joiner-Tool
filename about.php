@@ -49,7 +49,7 @@
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li><a href="./frontEnd.php">Home</a></li>
+        <li><a href="./index.php">Home</a></li>
         <li><a href="how_to_use.php">How To Use</a></li>
         <li class="active"><a href="about.php">About</a></li>
         <li><a href="contact.php">Contact</a></li>
@@ -67,7 +67,10 @@
   <div class = "row">  
     <h2 class="center">About Us</h2>         
     <div class="col-md-6 col-md-offset-3">     
-      <p>MergeMyVideos.com is a site which allows you to merge your videos in any order you want. It is safe, secure, and 100% free to use. If you like our service, then 
+      <p>MergeMyVideos.com is a site which allows you to merge your videos in any order you want. It is safe, secure, and 100% free to use. Currently, you are
+      only allowed to upload and merge .avi, .flv, .mp4 files. Our next relase will allow you to work with more formats.</p>
+
+      <p> If you like our service, then 
         please follow us on <a href="https://twitter.com/mergemyvideos">twitter</a> and like us on <a href="https://www.facebook.com/mergemyvideos">facebook</a>.</p>
 
       <p>By utiziling our services, you hereby agree to comply with all of our <a href="./TermsAndConditions.php">terms and conditions</a></p>

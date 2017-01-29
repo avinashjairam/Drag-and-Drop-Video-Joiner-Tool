@@ -21,7 +21,7 @@ button{
   text-align: center;
 }
 
-#uploadTrack{
+.fixPadding{
   padding-left: 10%;
   padding-right: 10%;
 }
@@ -67,7 +67,9 @@ button{
   font-weight:bold;
 }
 
-
+#red{
+  color:red;
+}
 
 
 .navbar-brand,

@@ -1,0 +1,6 @@
+
+ffmpeg -i video1.mp4 -qscale 0 video1.mpg
+ffmpeg -i video2.mp4 -qscale 0 video2.mpg
+ffmpeg -i video3.mp4 -qscale 0 video3.mpg
+
+cat video3.mpg video2.mpg video2.mpg | ffmpeg -f mpeg -i - -qscale 0 -vcodec mpeg4 output2.mp4

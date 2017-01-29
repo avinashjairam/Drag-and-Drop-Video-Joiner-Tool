@@ -61,7 +61,7 @@
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li><a href="./frontEnd.php">Home</a></li>
+        <li><a href="./index.php">Home</a></li>
         <li class="active"><a href="how_to_use.php">How To Use</a></li>
         <li><a href="about.php">About</a></li>
         <li><a href="contact.php">Contact</a></li>
@@ -80,7 +80,7 @@
 
     <h2 class="center">How to Use</h2>                             
       <ol class="howTo">
-        <li>Upload your videos. You must upload a minimum of 2 videos.<span class="red">Files without video but with only audio will not be merged!</span>This feature will be in the next release. </li>
+        <li>Upload your videos. You must upload a minimum of 2 videos.<span class="red">Files without video but with only audio will not be merged!</span>This will be fixed soon. </li>
 
         <li>Drag and re-arrange the videos in the order in which you want them to be merged. To drag a video, click and hold your mouse cursor on the its name. 
           Then, move your mouse in the direction where you want to move the video. See the tutorial below.</li>
