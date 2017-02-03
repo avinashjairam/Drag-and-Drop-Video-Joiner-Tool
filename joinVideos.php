@@ -9,18 +9,17 @@
  $db      = new DB; 
 
  $user->setSessionId($session->getSessionId());
- //$user    = new User;
+
 
  $increment = 1;
 $_SESSION['mergeCount'] += $increment;
- //$user->setSessionId($session->getSessionId());
 
 if($_POST['str']){
 	 $targetFolder= $session->getSessionID();
 
 	 if(is_dir($targetFolder)){
 	 	 $tracksUploaded = json_decode($_POST['str'], true);
-		// $format=json_decode($_POST['typeSelected'], true);
+		
 		 $desiredMergeFormat=$_POST['typeSelected'];
 		 $targetFolder= $session->getSessionID();
 
@@ -35,60 +34,61 @@ if($_POST['str']){
 		 $flv=".flv";
 		 $mp4=".mp4";
 
-		 if(strcmp($desiredMergeFormat,".mp4")==0){
-		 	//"{$avi}" "{$flv}" "{$mp4}"
-		 	$convertCommand="cd $targetFolder && ../hello.sh ".$avi." ".$flv." ".$mp4;
-		 	exec($convertCommand,$output,$return);
-		 	//fwrite($myfile3, $convertCommand);
-		 }
-		 else if(strcmp($desiredMergeFormat,".flv")==0){
-		 	$convertCommand="cd $targetFolder && ../hello.sh ".$avi." ".$mp4." ".$flv;
-		 	exec($convertCommand,$output,$return);
+		 // if(strcmp($desiredMergeFormat,".mp4")==0){
+		 // 	$convertCommand="cd $targetFolder && ../hello.sh ".$avi." ".$flv." ".$mp4;
+		 // 	exec($convertCommand,$output,$return);
+		 // }
+		 // else if(strcmp($desiredMergeFormat,".flv")==0){
+		 // 	$convertCommand="cd $targetFolder && ../hello.sh ".$avi." ".$mp4." ".$flv;
+		 // 	exec($convertCommand,$output,$return);
 
-		 }
-		 else if(strcmp($desiredMergeFormat,".avi")==0){
-		 	$convertCommand="cd $targetFolder && ../hello.sh ".$flv." ".$mp4." ".$avi;
-		 	exec($convertCommand,$output,$return);
-		 }
+		 // }
+		 // else if(strcmp($desiredMergeFormat,".avi")==0){
+		 // 	$convertCommand="cd $targetFolder && ../hello.sh ".$flv." ".$mp4." ".$avi;
+		 // 	exec($convertCommand,$output,$return);
+		 // }
+
+		 $convertCommand="cd $targetFolder && ../MPGConvert.sh";
+		 exec($convertCommand,$output,$return);
+
+		 //echo $output;
 
 
-		// echo $mergedFileName."<br>";
+		// $ffmpegCommand = "ffmpeg -f concat -i filesToMerge.txt -c copy $mergedFileName";
 
-		// fwrite($myfile2," ".$mergedFileName);
-		 //file_put_contents($my, '');
+		 $ffmpegCommand ="cat ";// video3.mpg video2.mpg video2.mpg | ffmpeg -f mpeg -i - -qscale 0 -vcodec mpeg4 output2.mp4
+	
+		for($index=0; $index <count($tracksUploaded); $index++){
+		  	//$trackName=substr(rtrim($tracksUploaded[$index]),0,-4).$desiredMergeFormat;
 
-		 $ffmpegCommand = "ffmpeg -f concat -i filesToMerge.txt -c copy $mergedFileName";
-		 //fwrite($myfile2,$ffmpegCommand);
-		// echo $ffmpegCommand."<br>";
+		  	$trackName=substr(rtrim($tracksUploaded[$index]),0,-4).".mpg";
 
-		 $mergeCommand = "cd $targetFolder && bash ../mergeUploadedFiles.sh";
-		 //$mergeCommand = "cd $targetFolder && $ffmpegCommand";
+		  	$ffmpegCommand .= $trackName . " ";
 
-		 fwrite($myfile2, $ffmpegCommand);
-
-		  for($index=0; $index <count($tracksUploaded); $index++){
-		  	$trackName=substr(rtrim($tracksUploaded[$index]),0,-4).$desiredMergeFormat;
-		  	$tracksUploaded[$index] = 'file ' . "'". $trackName."'"."\n";
-		    // $tracksUploaded[$index] = 'file ' . "'". rtrim($tracksUploaded[$index])."'"."\n";
-		     fwrite($myfile1, $tracksUploaded[$index]);
+			// $tracksUploaded[$index] = 'file ' . "'". $trackName."'"."\n";
+		   
+		    // fwrite($myfile1, $tracksUploaded[$index]);
 		}
 
-		  fclose($myfile1);
-		  fclose($myfile2);
-		  fclose($myfile3);
-		//  echo $user->clearUploadedTracks();
+		$ffmpegCommand .= " | ffmpeg -f mpeg -i - -qscale 0 -vcodec mpeg4 " .$mergedFileName ;
+
+		
+		fwrite($myfile2, $ffmpegCommand);
+		
+		$mergeCommand = "cd $targetFolder && bash ../mergeUploadedFiles.sh";
 
 		exec($mergeCommand,$output,$return);
+
+		fclose($myfile1);
+		fclose($myfile2);
+		fclose($myfile3);
+
 
 		if($return==0){
 			$user->clearUploadedTracks();
 			print "./$targetFolder/$mergedFileName";
-		     //$user->clearUploadedTracks();
-		}
-
-		//print_r($_POST['str']);
-
-	 }
+		 }
+	}
 	 else{
 	 	$user->delete();
 
