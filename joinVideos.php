@@ -81,11 +81,18 @@ if($_POST['str']){
 
 		fclose($myfile1);
 		fclose($myfile2);
+
+		fwrite($myfile3,"./$targetFolder/$mergedFileName");
+		fwrite($myfile3, "return is ".$return);
 		fclose($myfile3);
 
 
 		if($return==0){
 			$user->clearUploadedTracks();
+	
+			if(strcmp($desiredMergeFormat,".flv")==0){
+				print "flv";
+			}
 			print "./$targetFolder/$mergedFileName";
 		 }
 	}
