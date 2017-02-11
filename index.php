@@ -32,7 +32,7 @@ require_once("./includes/fileUpload.php");
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" type="text/javascript"></script>
 
 
-<link rel="stylesheet" href="//necolas.github.com/normalize.css/2.0.1/normalize.css">
+
 <link rel="stylesheet" href="./css/stylesheet.css" />
 <script src="//code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
 

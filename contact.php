@@ -25,7 +25,7 @@
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" type="text/javascript"></script>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-  <link rel="stylesheet" href="http://necolas.github.com/normalize.css/2.0.1/normalize.css">
+ 
   <link rel="stylesheet" href="./css/stylesheet.css?version=51" />
   <script src="//code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
 
