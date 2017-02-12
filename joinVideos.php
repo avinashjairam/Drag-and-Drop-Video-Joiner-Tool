@@ -27,12 +27,12 @@ if($_POST['str']){
 		 $myfile2 = fopen("./mergeUploadedFiles.sh", "w") or die("Unable to open file!");
 		 $myfile3 = fopen("./$targetFolder/format.txt", "w") or ("Unable to open file!");
 
-		// fwrite($myfile3, $desiredMergeFormat);
+		
 
 		 $mergedFileName="output".$_SESSION['mergeCount'].$desiredMergeFormat;
-		 $avi=".avi";
-		 $flv=".flv";
-		 $mp4=".mp4";
+		 // $avi=".avi";
+		 // $flv=".flv";
+		 // $mp4=".mp4";
 
 		 // if(strcmp($desiredMergeFormat,".mp4")==0){
 		 // 	$convertCommand="cd $targetFolder && ../hello.sh ".$avi." ".$flv." ".$mp4;
@@ -70,8 +70,15 @@ if($_POST['str']){
 		    // fwrite($myfile1, $tracksUploaded[$index]);
 		}
 
-		$ffmpegCommand .= " | ffmpeg -f mpeg -i - -qscale 0 -vcodec mpeg4 " .$mergedFileName ;
+		if(strcmp($desiredMergeFormat,".flv")==0){
+		 	$ffmpegCommand .= " | ffmpeg -f mpeg -i - -qscale 0 -vcodec flv " .$mergedFileName ;
 
+		}
+		else{
+
+			$ffmpegCommand .= " | ffmpeg -f mpeg -i - -qscale 0 -vcodec mpeg4 " .$mergedFileName ;
+
+		}
 		
 		fwrite($myfile2, $ffmpegCommand);
 		
@@ -82,21 +89,28 @@ if($_POST['str']){
 		fclose($myfile1);
 		fclose($myfile2);
 
-		fwrite($myfile3,"./$targetFolder/$mergedFileName");
-		fwrite($myfile3, "return is ".$return);
+	//	fwrite($myfile3,"./$targetFolder/$mergedFileName");
+
+		// foreach ($output as $line) {
+		// 	fwrite($myfile3, "<br>output is ".$line);
+		// 	# code...
+
+		// }
+	//	fwrite($myfile3, "output is ".$output);
 		fclose($myfile3);
 
 
 		if($return==0){
 			$user->clearUploadedTracks();
 	
-			if(strcmp($desiredMergeFormat,".flv")==0){
-				print "flv";
-			}
+			// if(strcmp($desiredMergeFormat,".flv")==0){
+			// 	print "flv";
+			// }
 			print "./$targetFolder/$mergedFileName";
-		 }
+		}
+		
 	}
-	 else{
+	else{
 	 	$user->delete();
 
 	 	print "1";

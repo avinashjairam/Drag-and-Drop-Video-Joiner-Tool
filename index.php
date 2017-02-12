@@ -199,6 +199,15 @@ require_once("./includes/fileUpload.php");
          <label class="radio-inline">  
         <input id="mp4" type="radio" class="videoType" name="videoType" value=".mp4"> .mp4
       </label>
+      <label class="radio-inline">  
+        <input id="wmv" type="radio" class="videoType" name="videoType" value=".wmv"> .wmv
+      </label>
+      <label class="radio-inline">  
+        <input id="mov" type="radio" class="videoType" name="videoType" value=".mov"> .mov
+      </label>
+
+
+
       </form>
      </div>
    </div>

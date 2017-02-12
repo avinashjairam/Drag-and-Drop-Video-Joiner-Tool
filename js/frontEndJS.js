@@ -159,7 +159,7 @@ $("#mergeButton").click(function(){
     else if(uploadedTracks.length==1){
       $('#uploadAnotherTrack').css("display","block");
     }
-    else if( !$('#mp4').is(':checked') && !$('#flv').is(':checked') && !$('#avi').is(':checked')  ){
+    else if( !$('#mp4').is(':checked') && !$('#flv').is(':checked') && !$('#avi').is(':checked') && !$('#wmv').is(':checked') && !$('#mov').is(':checked')){
       
      
        $('#selectFormat').css("display","block");
