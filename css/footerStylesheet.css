@@ -1,0 +1,104 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+
+* {
+    margin: 0;
+}
+
+
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 100px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 100px;
+  background-color: #222222;
+
+
+}
+
+.footer ul{
+ 
+   text-align: center;
+}
+
+.footer li{
+   margin-left:0;
+    list-style:none;
+    display:inline;
+
+}
+
+.mobile{
+height: 50px;
+width: 100px;
+border-radius: 10%;
+ margin-right: 10px;
+}
+
+.social{
+    width: 50px;
+    height: 50px;
+    border-radius: 10%;
+    margin-right: 10px;                   
+ }
+
+
+.resize{
+ width:230px;
+ height:80px;
+}
+
+#mainContent{
+    padding-top: 130px;
+}
+
+
+.navbar-brand,
+.navbar-nav li a {
+     font-size: 15px;
+    line-height: 80px;
+    height: 80px;
+    padding-top: 0;
+}
+
+ol li{
+  margin-bottom: 10px;
+}
+
+
+
+
+/*.container {
+  width: auto;
+  max-width: 680px;
+  padding: 0 15px;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+*/
+#contact{
+  padding-top: 25px;
+}
+
+.social .fa-facebook {
+    color: #4060A5;
+}
+
+.social .fa-twitter {
+    color: #00ABE3;
+}
+
+.social .fa-google-plus {
+    color: #e64522;
+}
