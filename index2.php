@@ -69,10 +69,6 @@ require_once("./includes/fileUpload.php");
       </ul>
 
       <ul class="nav navbar-nav navbar-right"> 
-     <!--   <li ><a href="https://www.facebook.com/mergemyvideos" target="_blank"><img class="socialNav" src="./img/facebook.jpeg" alt="facebook icon link"/></a></li>
-        <li><a href="https://twitter.com/mergemyvideos" target="_blank"><img class="socialNav" src="./img/twitter.jpeg" alt="twitter icon link"/></a></li>
-        <li><a href="https://plus.google.com/+Mergemyvideos" target="_blank"><img class="socialNav" src="./img/googleplus.jpeg" alt="google plus icon link"/></li>
-   -->
 	<li><a href="https://www.facebook.com/mergemyvideos" target="_blank"> <i class="fa fa-facebook"></i></a></li> 
         <li><a href="https://twitter.com/mergemyvideos" target="_blank"> <i class="fa fa-twitter"></i></a><li>
 	<li><a href="https://plus.google.com/+Mergemyvideos" target="_blank"><i class="fa fa-google-plus"></i></a><li>
@@ -87,7 +83,7 @@ require_once("./includes/fileUpload.php");
 
 
 
-<div id="mainContent" class="container contentContainer wrapper">
+<!-- <div id="mainContent" class="container contentContainer wrapper">
   <div  id="downloadSection" class = "row">          
     <div class="col-md-6 col-md-offset-3">                                     
      <a href="" id ="downloadButton" class="btn btn-success" download ><span class="glyphicon glyphicon-download-alt"></span> Click Here to Download Your Merged Videos!</a>
@@ -170,9 +166,9 @@ require_once("./includes/fileUpload.php");
         </div>        
       </div>
     </div>
-
+ -->
      
-    <!--Alert Messages -->
+    <!--Alert Messages
  <div id ="warning" class="alert alert-danger fixPadding">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
     <strong>Warning!</strong> Please Upload a Video First! 
@@ -238,7 +234,7 @@ require_once("./includes/fileUpload.php");
   </div>
 
 
-</div>
+</div> -->
 
 <!-- Go to www.addthis.com/dashboard to customize your tools --> 
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5892a56bf04dd9de"></script> 
