@@ -29,6 +29,8 @@
   <link rel="stylesheet" href="./css/stylesheet.css?version=51" />
   <script src="//code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
 
+  <script src="https://use.fontawesome.com/9a454d2491.js"></script>
+
   <link rel="apple-touch-icon" sizes="180x180" href="./favicons/apple-touch-icon.png">
   <link rel="icon" type="image/png" href="./favicons/favicon-32x32.png" sizes="32x32">
   <link rel="icon" type="image/png" href="./favicons/favicon-16x16.png" sizes="16x16">
@@ -58,6 +60,17 @@
         <li><a href="about.php">About</a></li>
         <li class="active"><a href="contact.php">Contact</a></li>
       </ul>
+
+
+        <ul class="nav navbar-nav navbar-right"> 
+         <li><a href="https://www.facebook.com/mergemyvideos" target="_blank"> <i class="fa fa-facebook"></i></a></li> 
+        <li><a href="https://twitter.com/mergemyvideos" target="_blank"> <i class="fa fa-twitter"></i></a><li>
+         <li><a href="https://plus.google.com/+Mergemyvideos" target="_blank"><i class="fa fa-google-plus"></i></a><li>
+     </ul>
+
+
+
+
     </div><!--/.nav-collapse -->
   </div>
 </div>
@@ -108,17 +121,7 @@
       </div>
   </div>
 
- <footer class="footer">
-      <div class="container">
-         <ul id="contact" >
-            <li style="padding-left:0px"><a href="https://www.facebook.com/mergemyvideos" target="_blank"><img class="social" src="./img/facebook.jpeg"/></a></li>
-            <li><a href="https://twitter.com/mergemyvideos" target="_blank"><img class="social" src="./img/twitter.jpeg"/></a></li>
-            <li><a href="https://plus.google.com/+Mergemyvideos" target="_blank"><img class="social" src="./img/googleplus.jpeg"/></li>
-            <li ><a href="./mobileApp.php" target="_blank"><img class="mobile" src="./img/appStore.png"/></a></li>
-            <li><a href="./mobileApp.php" target="_blank"><img class="mobile" src="./img/googlePlay.png"/></a></li>    
-          </ul>
-      </div>
-    </footer>
+
 
 
 

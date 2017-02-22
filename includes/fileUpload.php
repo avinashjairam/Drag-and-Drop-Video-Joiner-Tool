@@ -18,6 +18,7 @@ $user    = new User;
 //echo $_SESSION['id'];
 
 $file->setUploadDirectory($session->getSessionId());
+ $file->createUploadDirectory();
 
 if(isset($_POST['item'])){
   $choices =json_decode($_POST['item']);

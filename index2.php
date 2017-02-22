@@ -1,5 +1,5 @@
 <?php
-require_once("./includes/fileUpload.php");
+require_once("./includes/fileUpload2.php");
 ?>
 
 <!DOCTYPE html>
@@ -14,34 +14,35 @@ require_once("./includes/fileUpload.php");
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Merge My Videos!</title>
 <meta name="keywords" content="videos, mp4, avi, flv, merging, joining.">
 <meta name="Description" content="MERGE MY VIDEOS is a online web-based video merging software. Merge  various types of video files like mp4, flv, avi." />
+<meta name="theme-color" content="#ffffff">
 
-
+<title>Merge My Videos!</title>
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
-<link href="./css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
-
-<script src="https://use.fontawesome.com/9a454d2491.js"></script>
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> 
-<script src="./js/plugins/canvas-to-blob.min.js" type="text/javascript"></script>
-<script src="./js/fileinput.min.js" type="text/javascript"></script>
-<script src="./js/fileinput.js" type="text/javascript"></script>     
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" type="text/javascript"></script>
-
-
-
 <link rel="stylesheet" href="./css/stylesheet.css" />
-<script src="//code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
 
 <link rel="apple-touch-icon" sizes="180x180" href="./favicons/apple-touch-icon.png">
 <link rel="icon" type="image/png" href="./favicons/favicon-32x32.png" sizes="32x32">
 <link rel="icon" type="image/png" href="./favicons/favicon-16x16.png" sizes="16x16">
 <link rel="manifest" href="./favicons/manifest.json">
 <link rel="mask-icon" href="./favicons/safari-pinned-tab.svg" color="#5bbad5">
-<meta name="theme-color" content="#ffffff">
+
+<script src="https://use.fontawesome.com/9a454d2491.js"></script>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> 
+   
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" type="text/javascript"></script>
+
+<script src="//code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+
+
+
+
+
+
+
 
 
 
@@ -69,18 +70,27 @@ require_once("./includes/fileUpload.php");
       </ul>
 
       <ul class="nav navbar-nav navbar-right"> 
-	<li><a href="https://www.facebook.com/mergemyvideos" target="_blank"> <i class="fa fa-facebook"></i></a></li> 
-        <li><a href="https://twitter.com/mergemyvideos" target="_blank"> <i class="fa fa-twitter"></i></a><li>
-	<li><a href="https://plus.google.com/+Mergemyvideos" target="_blank"><i class="fa fa-google-plus"></i></a><li>
+	       <li><a href="https://www.facebook.com/mergemyvideos" target="_blank"> <i class="fa fa-facebook"></i></a></li> 
+         <li><a href="https://twitter.com/mergemyvideos" target="_blank"> <i class="fa fa-twitter"></i></a><li>
+	       <li><a href="https://plus.google.com/+Mergemyvideos" target="_blank"><i class="fa fa-google-plus"></i></a><li>
      </ul>
 	
-    </div><!--/.nav-collapse -->
+    </div> <!-- .nav-collapse -->
   </div>
+</div> 
+
+<div id="mainContent">
+
+<form action="index2.php" method="post" enctype="multipart/form-data">
+    Select image to upload:
+    <input type="file" name="fileToUpload" id="fileToUpload">
+    <input type="submit" value="Upload Image" name="submit">
+</form>
+
+
+
+
 </div>
-
-
-
-
 
 
 <!-- <div id="mainContent" class="container contentContainer wrapper">
