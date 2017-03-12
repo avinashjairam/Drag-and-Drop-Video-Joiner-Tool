@@ -51,7 +51,7 @@ require_once("./includes/fileUpload2.php");
 
 
 <body>
-<div class="navbar navbar-inverse navbar-fixed-top">
+<!-- <div class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
      <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -77,7 +77,7 @@ require_once("./includes/fileUpload2.php");
 	
     </div> <!-- .nav-collapse -->
   </div>
-</div> 
+</div>  -->
 
 <div id="mainContent">
 
